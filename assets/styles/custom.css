@@ -1,0 +1,36 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.jumbotron h1 {
+  letter-spacing: 6px;
+}
+
+.jumbotron h2 {
+  font-size: 1.2em;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+.form-signin {
+  max-width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-signin h2 {
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.form-signin input {
+  margin-bottom: 10px;
+}
+
+.confirmation {
+  text-align: center;
+}

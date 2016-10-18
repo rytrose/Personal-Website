@@ -1,0 +1,25 @@
+<div class="container">
+  <h3>followers</h3>
+  <table class="table">
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>email</th>
+      <th></th>
+    </tr>
+
+    <% _.each(followers, function(follower) { %>
+    <tr data-id="<%= follower.id %>" data-model="follower">
+      <td><%= follower.id %></td>
+      <td><%= follower.name %></td>
+      <td><%= follower.email %></td>
+      <td><form action="/followers/destroy/<%= follower.id %>" method="POST">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" class="btn btn-danger" value="delete" />
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+      </form></td>
+    </tr>
+
+    <% }) %>
+  </table>
+</div>
