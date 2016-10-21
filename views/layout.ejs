@@ -39,16 +39,38 @@
 
     <div class="navbar navbar-fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="/">Ryan Rose</a>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ryan Rose</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <% if(session.authenticated) { %>
+            <li class="active"><a href="/followers/">admin</a></li> <!-- change href to admin page! -->
+          <% } %>
+        </ul>
+        <div class="navbar-right">
+          <% if(session.authenticated) { %>
+              <a class="btn btn-default navbar-btn navbar-right" href="/session/destroy">sign out admin</a>
+          <% } %>
+        </div>
+        <% if(!session.authenticated) { %>
+          
+        <% } %>
       </div>
     </div>
+  </div>
 
     <%- body %>
 
     <div class="container">
       <hr>
       <footer class="footer">
-        <p class="text-center">sails / bootstrap</p>
+        <p class="text-center">sails / bootstrap | <a href="/followers/">admin</a></p> <!-- change href to admin page! -->
       </footer>
     </div>
 

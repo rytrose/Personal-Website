@@ -34,3 +34,7 @@ body {
 .confirmation {
   text-align: center;
 }
+
+.footer a {
+  color: #777777;
+}

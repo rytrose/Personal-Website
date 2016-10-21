@@ -30,6 +30,8 @@ module.exports.policies = {
 
    followers: {
      'new' : "flash",
+     'create' : "flash",
+     'confirmation' : "flash",
      '*' : "sessionAuth"
    }
 

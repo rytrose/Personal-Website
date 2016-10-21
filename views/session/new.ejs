@@ -3,9 +3,9 @@
     <h2 class="form-signin-heading">admin login</h2>
 
     <% if(flash && flash.err) { %>
-      <ul class="alert alert-success">
+      <ul class="alert alert-success" style="list-style: none">
     <% Object.keys(flash.err).forEach(function(error) { %>
-      <li><%- JSON.stringify(flash.err[error]) %></li>
+      <li><%- flash.err[error].message %></li>
     <% }) %>
   </ul>
   <% } %>

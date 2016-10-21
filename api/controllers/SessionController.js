@@ -49,7 +49,6 @@ module.exports = {
 					}
 
 					// If passwords do match
-					console.log('Correct!');
 					req.session.authenticated = true;
 					res.redirect('/');
 					return;
