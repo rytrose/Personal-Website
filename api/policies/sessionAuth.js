@@ -21,6 +21,8 @@ module.exports = function(req, res, next) {
   req.session.flash = {
     err: requireAdminError
   }
+
+  req.session.path = req.path;
   res.redirect('/session/new');
   return;
 };

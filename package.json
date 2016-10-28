@@ -22,9 +22,13 @@
     "grunt-sails-linker": "~0.10.1",
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
+    "masonry-layout": "^4.1.1",
     "rc": "1.0.1",
     "sails": "~0.12.7",
-    "sails-disk": "^0.10.10"
+    "sails-disk": "^0.10.10",
+    "sails-mongo": "^0.12.1",
+    "skipper": "^0.6.4",
+    "skipper-gridfs": "^0.5.3"
   },
   "scripts": {
     "debug": "node debug app.js",

@@ -33,6 +33,12 @@ module.exports.policies = {
      'create' : "flash",
      'confirmation' : "flash",
      '*' : "sessionAuth"
+   },
+
+   file: {
+     'create' : "flash",
+     'new' : ["flash", "sessionAuth"],
+     '*' : "sessionAuth"
    }
 
   /***************************************************************************

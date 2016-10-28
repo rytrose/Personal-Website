@@ -51,6 +51,7 @@ module.exports = {
 					// If passwords do match
 					req.session.authenticated = true;
 					res.redirect('/');
+					// res.redirect(req.session.path);
 					return;
 				});
 	    });
@@ -60,7 +61,7 @@ module.exports = {
 	destroy: function(req, res, next) {
 		// Logs out of admin
 		req.session.destroy();
-		res.redirect('/session/new');
+		res.redirect('/');
 		return;
 	}
 };
