@@ -1,0 +1,27 @@
+<div class="container">
+  <h3>Files</h3>
+  <table class="table">
+    <tr>
+      <th>id</th>
+      <th>fd</th>
+      <th>filename</th>
+      <th>type</th>
+      <th></th>
+    </tr>
+
+    <% _.each(files, function(file) { %>
+    <tr data-id="<%= file.id %>" data-model="file">
+      <td><%= file.id %></td>
+      <td><%= file.fd %></td>
+      <td><%= file.filename %></td>
+      <td><%= file.type %></td>
+      <td><form action="/file/destroy/<%= file.id %>" method="POST">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" class="btn btn-danger" value="delete" />
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+      </form></td>
+    </tr>
+
+    <% }) %>
+  </table>
+</div>
