@@ -8,20 +8,17 @@
     <h2>saxophonist, arranger, developer<h2>
     <a href="/followers/new" class="btn btn-default">follow Ryan</a>
   </div>
-  <!-- <div>
-    <% for(var i = 0; i < filesMeta.length; i++) { %>
-    <img src="/images/<%= i %>.jpg" height="200" width="200" style="visibility:hidden">
-    <% } %>
-  </div> -->
+</div>
+
+<div class="loading">
+  <img src="images/ring-alt.gif">
 </div>
 
   <!-- Masonry grid HTML -->
-<div class="grid">
+<ul class="grid" style="display:none">
   <% for(var i = 0; i < filesMeta.length; i++) { %>
-  <div class="grid-item">
-    <a href="#">
-      <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= filesMeta[i].fd %>" >
-    </a>
-  </div>
+  <li class="grid-item">
+    <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= filesMeta[i].fd %>" >
+  </li>
   <% } %>
-</div>
+</ul>

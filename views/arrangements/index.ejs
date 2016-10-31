@@ -1,0 +1,31 @@
+<div class="container">
+  <button type="button" class="btn btn-default" ><a href="/arrangements/new">new arrangement</a></button>
+  <br>
+  <h3>Arrangements</h3>
+  <table class="table">
+    <tr>
+      <th>id</th>
+      <th>title</th>
+      <th>instrumentation</th>
+      <th>originalArtist</th>
+      <th>description</th>
+      <th></th>
+    </tr>
+
+    <% _.each(arrangements, function(arrangement) { %>
+    <tr data-id="<%= arrangement.id %>" data-model="arrangement">
+      <td><%= arrangement.id %></td>
+      <td><%= arrangement.title %></td>
+      <td><%= arrangement.instrumentation %></td>
+      <td><%= arrangement.originalArtist %></td>
+      <td><%= arrangement.description %></td>
+      <td><form action="/arrangement/destroy/<%= arrangement.id %>" method="POST">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" class="btn btn-danger" value="delete" />
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+      </form></td>
+    </tr>
+
+    <% }) %>
+  </table>
+</div>

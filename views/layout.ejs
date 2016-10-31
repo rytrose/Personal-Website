@@ -33,7 +33,7 @@
 
   <body>
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -46,7 +46,9 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <% if(session.authenticated) { %>
-            <li class="active"><a href="/followers/">admin</a></li> <!-- change href to admin page! -->
+            <li class="active"><a href="/followers/">followers</a></li>
+            <li class="active"><a href="/file/">files</a></li>
+            <li class="active"><a href="/arrangements/">arrangements</a></li>
           <% } %>
         </ul>
         <div class="navbar-right">
@@ -65,7 +67,7 @@
     <div class="container">
       <hr>
       <footer class="footer">
-        <p class="text-center">sails / bootstrap | <a href="/session/new">admin</a></p> <!-- change href to admin page! -->
+        <p class="text-center">sails / bootstrap | <a href="/session/new">admin</a></p>
       </footer>
     </div>
 
@@ -114,6 +116,8 @@
     <script src="/js/dependencies/bootstrap.js"></script>
     <script src="/js/dependencies/imagesloaded.pkgd.min.js"></script>
     <script src="/js/dependencies/masonry.pkgd.min.js"></script>
+    <script src="/js/dependencies/pdfobject.min.js"></script>
+    <script src="/js/audiojs/audio.min.js"></script>
     <script src="/js/custom.js"></script>
     <!--SCRIPTS END-->
   </body>

@@ -39,6 +39,12 @@ module.exports.policies = {
      'create' : "flash",
      'new' : ["flash", "sessionAuth"],
      '*' : "sessionAuth"
+   },
+
+   arrangements: {
+     'create' : "flash",
+     'new' : ["flash", "sessionAuth"],
+     '*' : "sessionAuth"
    }
 
   /***************************************************************************

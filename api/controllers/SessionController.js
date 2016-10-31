@@ -7,8 +7,10 @@
 
 module.exports = {
 
-	'new': function(req, res){
-
+	new: function(req, res){
+		if(req.session.path == undefined){
+			req.session.path = '/';
+		}
 		res.view('session/new');
 	},
 
@@ -50,7 +52,7 @@ module.exports = {
 
 					// If passwords do match
 					req.session.authenticated = true;
-					res.redirect('/');
+					res.redirect(req.session.path);
 					// res.redirect(req.session.path);
 					return;
 				});

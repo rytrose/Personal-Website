@@ -57,9 +57,9 @@ module.exports = {
 	},
 
 	destroy: function(req, res, next){
-		File.findOne(req.param('id'), function foundFile(err, follower) {
+		File.findOne(req.param('id'), function foundFile(err, file) {
 			if (err) return next(err);
-			if (!follower) return next("File does not exist.");
+			if (!file) return next("File does not exist.");
 
 			File.destroy(req.param('id'), function fileDestroyed(err) {
 				if (err) return next(err);

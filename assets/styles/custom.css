@@ -3,7 +3,7 @@ body {
   padding-bottom: 40px;
 }
 
-.navbar-brand {
+.navbar-default .navbar-brand {
     color: black;
 }
 
@@ -18,6 +18,8 @@ body {
 .jumbotron {
   text-align: center;
   background-color: #f4f4f4;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 .form-signin {
@@ -43,45 +45,45 @@ body {
   color: #777777;
 }
 
-/* Masonry img sizes */
-.masonry-home {
-  width: 100%;
-}
-
-/* Masonry fluid grids */
-.grid {
-  margin-right: auto;
-  margin-left: auto;
-  background: #f4f4f4;
-  max-width: 1200px;
-}
-
-/* clearfix */
-.grid:after {
-  content: '';
+.loading img {
+  height: 50px;
+  width: 50px;
   display: block;
-  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Masonry */
+.grid {
+	max-width: 80em;
+	list-style: none;
+	margin: 30px auto;
+	padding: 0;
 }
 
 .grid-item {
-  height: 240px;
-  width: 25%;
+	display: block;
+	float: left;
+	padding: 7px;
+	width: 33%;
+}
+
+.grid li a,
+.grid li img {
+	outline: none;
+	border: none;
+	display: block;
+	max-width: 100%;
+}
+
+.grid-item-gigante {
+  display: block;
   float: left;
-  border: 2px solid #f4f4f4;
-  border-radius: 2px;
-  background: #000;
-}
-
-.grid-item img {
-  width: 100%;
-}
-
-.grid-item--gigante {
-  width: 720px;
-  height: 540px;
+  padding: 7px;
+  width: 66%;
 }
 
 .grid-item:hover {
-  border-color: white;
+  border: 1px solid #efefef;
   cursor: pointer;
 }
