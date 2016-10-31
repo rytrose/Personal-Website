@@ -43,12 +43,45 @@ body {
   color: #777777;
 }
 
+/* Masonry img sizes */
+.masonry-home {
+  width: 100%;
+}
+
 /* Masonry fluid grids */
-.grid-sizer,
-.grid-item {
-  width: 25%;
+.grid {
+  margin-right: auto;
+  margin-left: auto;
+  background: #f4f4f4;
+  max-width: 1200px;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .grid-item {
+  height: 240px;
+  width: 25%;
+  float: left;
+  border: 2px solid #f4f4f4;
+  border-radius: 2px;
+  background: #000;
+}
 
+.grid-item img {
+  width: 100%;
+}
+
+.grid-item--gigante {
+  width: 720px;
+  height: 540px;
+}
+
+.grid-item:hover {
+  border-color: white;
+  cursor: pointer;
 }
