@@ -17,7 +17,7 @@ module.exports = {
     filename: {
       type: 'string',
       required: true,
-      unique: true
+      unique: false
     },
 
     type: {

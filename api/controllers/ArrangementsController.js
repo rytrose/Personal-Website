@@ -6,9 +6,37 @@
  */
 
 module.exports = {
-
+	
 	index: function(req, res, next){
-		// Get an array of all filess
+		var thumbnails;
+		
+		// Return arrangement thumbnails
+		File.find({type: 'arrThumb'}, function(err, thumbs){
+			if(err) {
+				req.session.flash = {
+					err: err
+				};
+			}
+			
+			thumbnails = thumbs;
+			
+			Arrangements.find(function(err, arrs){
+				if(err) {
+					req.session.flash = {
+						err: err
+					};
+				}
+				
+				res.view({
+					thumbnails: thumbnails,
+					arrangements: arrs	
+				});
+			});
+		});
+	},
+
+	admin: function(req, res, next){
+		// Get an array of all arrangements
 		Arrangements.find(function foundArrangements(err, arrangements) {
 			if (err) return next(err);
 			// Pass array to /views/arrangements/index.ejs page
@@ -47,7 +75,7 @@ module.exports = {
 				req.session.flash = {
 					err: noArrangementError
 				}
-				return res.redirect('/arrangements');
+				return res.redirect('/arrangements/admin');
 			}
 
 			return res.view({
@@ -57,19 +85,30 @@ module.exports = {
 	},
 
 	update: function(req, res, next){
-		Arrangements.update(req.param('id'), req.params.all(), function arrangementUpdated(err){
+		var arrObj = {
+			title: req.param('title'),
+			instrumentation: req.param('instrumentation'),
+			originalArtist: req.param('originalArtist'),
+			description: req.param('description')
+		}
+		
+		Arrangements.update(req.param('id'), arrObj, function arrangementUpdated(err){
 			if(err) {
 				req.session.flash = {
 					err: err
 				}
+				return res.redirect('/arrangements/edit' + req.param('id'));
 			}
 
-			return res.redirect('/arrangements/show/' + req.param('id'));
+			return res.redirect('/arrangements/admin'); // TODO change to show
 		});
 	},
 
 	show: function(req, res, next){
-		Arrangements.findOne(req.param('id'), function foundArrangement(err, arrangement){
+		var arrangement;
+		var pdf;
+		
+		Arrangements.findOne(req.param('id'), function foundArrangement(err, arr){
 			if(!arrangement){
 				// If none, return error
 				var noArrangementError = [{name: 'noArrangement', message: 'No arrangement found'}];
@@ -77,11 +116,35 @@ module.exports = {
 					err: noArrangementError
 				}
 			}
-
-			// GET MP3
-
-			return res.view({
-				arrangement: arrangement
+			
+			arrangement = arr;
+			
+			// Get pdf
+			File.find({type: 'pdf', filename: arrangement.title + '.pdf'}, function(err, pdfFile){
+				if(err) {
+					req.session.flash = {
+						err: err
+					};
+				}
+				
+				pdf = pdfFile;
+				
+				
+				// Get mp3
+				File.find({type: 'mp3', filename: arrangement.title}, function(err, mp3){
+				if(err) {
+					req.session.flash = {
+						err: err
+					};
+				}
+				
+				return res.view({
+					arrangement: arrangement,
+					pdf: pdf,
+					mp3: mp3
+				});
+				
+				});
 			});
 		});
 	},

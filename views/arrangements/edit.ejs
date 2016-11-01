@@ -1,5 +1,5 @@
 <div class="container">
-  <form enctype="multipart/form-data" action="/arrangement/update" method="POST" class="form-file">
+  <form enctype="multipart/form-data" action="/arrangements/update/<%= arrangement.id %>" method="POST" class="form-file">
     <h2 class="form-file-heading">edit arrangement</h2>
 
     <% if(flash && flash.err) { %>
@@ -15,7 +15,7 @@
     <input value="<%= arrangement.originalArtist %>" type="text" class="form-control" name="originalArtist">
     <input value="<%= arrangement.description %>" type="text" class="form-control" name="description">
 
-    <input type="submit" class="btn btn-default" value="upload"/>
+    <input type="submit" class="btn btn-default" value="save"/>
     <input type="hidden" name="_csrf" value="<%= _csrf %>" />
   </form>
 </div>

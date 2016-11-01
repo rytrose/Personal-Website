@@ -25,7 +25,7 @@ module.exports = {
 	// Uploads a file(s) to the database
 	create: function(req, res, next){
 		var s3_config = sails.config.s3;
-    var key = s3_config.key;
+		var key = s3_config.key;
 		var secret = s3_config.secret;
 
 		req.file('toUpload').upload({
@@ -41,6 +41,7 @@ module.exports = {
 					// Store filename and type in file model
 					File.create({fd: fd, filename: req.param("filename"), type: req.param("type")}, function(err, file){
 						if(err) {
+							console.log(err);
 							req.session.flash = {
 								err: err
 							}

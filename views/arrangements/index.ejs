@@ -1,31 +1,18 @@
-<div class="container">
-  <button type="button" class="btn btn-default" ><a href="/arrangements/new">new arrangement</a></button>
-  <br>
-  <h3>Arrangements</h3>
-  <table class="table">
-    <tr>
-      <th>id</th>
-      <th>title</th>
-      <th>instrumentation</th>
-      <th>originalArtist</th>
-      <th>description</th>
-      <th></th>
-    </tr>
-
-    <% _.each(arrangements, function(arrangement) { %>
-    <tr data-id="<%= arrangement.id %>" data-model="arrangement">
-      <td><%= arrangement.id %></td>
-      <td><%= arrangement.title %></td>
-      <td><%= arrangement.instrumentation %></td>
-      <td><%= arrangement.originalArtist %></td>
-      <td><%= arrangement.description %></td>
-      <td><form action="/arrangement/destroy/<%= arrangement.id %>" method="POST">
-        <input type="hidden" name="_method" value="delete" />
-        <input type="submit" class="btn btn-danger" value="delete" />
-        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-      </form></td>
-    </tr>
-
-    <% }) %>
-  </table>
+<div class="loading">
+  <img src="/images/ring-alt.gif">
 </div>
+
+  <!-- Masonry grid HTML -->
+<ul class="grid-arr" style="display:none">
+  <% for(var i = 0; i < thumbnails.length; i++) { %>
+  <li class="grid-item-arr">
+    <% for(var j = 0; j < arrangements.length; j++) { %>
+      <% if(arrangements[j].title === thumbnails[i].filename) { %>
+        <a href="/arrangements/show/<%= arrangements[j].id %>">
+        <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= thumbnails[i].fd %>" >
+        </a>
+      <% } %>
+    <% } %>
+  </li>
+  <% } %>
+</ul>

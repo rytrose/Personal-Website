@@ -42,9 +42,10 @@ module.exports.policies = {
    },
 
    arrangements: {
-     'create' : "flash",
+     'edit' : ["flash", "sessionAuth"],
      'new' : ["flash", "sessionAuth"],
-     '*' : "sessionAuth"
+     'admin' : ["flash", "sessionAuth"],
+     '*' : "flash"
    }
 
   /***************************************************************************

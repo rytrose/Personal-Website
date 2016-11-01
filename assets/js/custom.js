@@ -1,4 +1,4 @@
-// Initialize masonry
+// Masonry -- HOME
 var $grid = $('.grid').masonry({
   itemSelector: '.grid-item',
   stagger: 25
@@ -19,7 +19,20 @@ $grid.on( 'click', '.grid-item', function() {
   $grid.masonry();
 });
 
+// Masonry -- ARRANGEMENTS
+var $grid_arr = $('.grid-arr').masonry({
+  itemSelector: '.grid-item-arr',
+  stagger: 5
+});
+
+// layout Masonry after each image loads
+$grid_arr.imagesLoaded().always( function() {
+  $('.loading').hide();
+  $grid_arr.show();
+  $grid_arr.masonry();
+});
+
 // Initialize audio.js
 audiojs.events.ready(function() {
     var as = audiojs.createAll();
-  });
+});

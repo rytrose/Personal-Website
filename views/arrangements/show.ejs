@@ -1,0 +1,5 @@
+<div id="pdf">
+</div>
+
+<script src="/js/dependencies/pdfobject.min.js"></script>
+<script>PDFObject.embed("https://s3.amazonaws.com/rytrose-personal-website/<%= pdf[0].fd %>", "#pdf");</script>

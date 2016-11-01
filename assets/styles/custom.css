@@ -53,8 +53,8 @@ body {
   margin-right: auto;
 }
 
-/* Masonry */
-.grid {
+/* Masonry -- HOME */
+.grid, .grid-arr {
 	max-width: 80em;
 	list-style: none;
 	margin: 30px auto;
@@ -86,4 +86,33 @@ body {
 .grid-item:hover {
   border: 1px solid #efefef;
   cursor: pointer;
+}
+
+/* Masonry -- ARRANGEMENTS */
+.grid-item-arr {
+	display: block;
+	float: left;
+	padding: 3px;
+	width: 25%;
+}
+
+.grid-arr li a,
+.grid-arr li img {
+	outline: none;
+	border: 1px solid #000;
+	display: block;
+	max-width: 100%;
+}
+
+.grid-item-arr:hover {
+  border: 4px solid #efefef;
+  cursor: pointer;
+}
+
+/* PDFObject */
+#pdf {
+  margin-left: 20px;
+  margin-right: auto;
+  height: 800px;
+  width: 40%;
 }
