@@ -109,7 +109,7 @@ module.exports = {
 		var pdf;
 		
 		Arrangements.findOne(req.param('id'), function foundArrangement(err, arr){
-			if(!arrangement){
+			if(!arr){
 				// If none, return error
 				var noArrangementError = [{name: 'noArrangement', message: 'No arrangement found'}];
 				req.session.flash = {
@@ -117,10 +117,9 @@ module.exports = {
 				}
 			}
 			
-			arrangement = arr;
-			
 			// Get pdf
-			File.find({type: 'pdf', filename: arrangement.title + '.pdf'}, function(err, pdfFile){
+			File.find({type: 'pdf', filename: arr.title + '.pdf'}, function(err, pdfFile){
+				
 				if(err) {
 					req.session.flash = {
 						err: err
@@ -131,15 +130,16 @@ module.exports = {
 				
 				
 				// Get mp3
-				File.find({type: 'mp3', filename: arrangement.title}, function(err, mp3){
+				File.find({type: 'mp3', filename: arr.title + '.mp3'}, function(err, mp3){
 				if(err) {
 					req.session.flash = {
 						err: err
 					};
 				}
 				
+				
 				return res.view({
-					arrangement: arrangement,
+					arrangement: arr,
 					pdf: pdf,
 					mp3: mp3
 				});

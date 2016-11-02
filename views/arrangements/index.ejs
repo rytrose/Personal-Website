@@ -3,16 +3,21 @@
 </div>
 
   <!-- Masonry grid HTML -->
-<ul class="grid-arr" style="display:none">
+<div class="grid-arr" style="display:none">
   <% for(var i = 0; i < thumbnails.length; i++) { %>
-  <li class="grid-item-arr">
     <% for(var j = 0; j < arrangements.length; j++) { %>
-      <% if(arrangements[j].title === thumbnails[i].filename) { %>
-        <a href="/arrangements/show/<%= arrangements[j].id %>">
-        <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= thumbnails[i].fd %>" >
+      <% if(arrangements[j].title + '.jpg' === thumbnails[i].filename) { %>
+        <a class="grid-item-arr" href="/arrangements/show/<%= arrangements[j].id %>">
+          <div class="overlay">
+            <p>
+              <%= arrangements[j].title %>
+              <br>
+              by <%= arrangements[j].originalArtist %>
+            </p>
+          </div>
+          <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= thumbnails[i].fd %>" >
         </a>
       <% } %>
     <% } %>
-  </li>
   <% } %>
-</ul>
+</div>

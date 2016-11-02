@@ -9,7 +9,7 @@ module.exports = {
 
 	index: function(req, res, next){
 		// Return homepage images
-		File.find({type: 'testType'}, function(err, filesMeta){
+		File.find({type: 'homeImg'}, function(err, filesMeta){
 			if(err) {
 				req.session.flash = {
 					err: err

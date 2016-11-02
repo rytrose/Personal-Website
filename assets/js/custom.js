@@ -32,7 +32,8 @@ $grid_arr.imagesLoaded().always( function() {
   $grid_arr.masonry();
 });
 
-// Initialize audio.js
-audiojs.events.ready(function() {
-    var as = audiojs.createAll();
+// PDFObject
+$('#pdf').on('load', function() {
+  $('.loading').hide();
+  $("#pdf").show();
 });

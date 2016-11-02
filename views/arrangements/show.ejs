@@ -1,5 +1,31 @@
-<div id="pdf">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 vcenter">
+            <div class="loading">
+              <img src="/images/ring-alt.gif">
+            </div>
+            <div id="pdf" style="display:hidden">
+            </div>
+        </div><!--
+        --><div class="col-md-6 vcenter">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <p class="text-center"><%= arrangement.description %></p>
+                <div class="audio">
+                    <audio class="center-block" controls>
+                        <source src="https://s3.amazonaws.com/rytrose-personal-website/<%= mp3[0].fd %>" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="/js/dependencies/pdfobject.min.js"></script>
 <script>PDFObject.embed("https://s3.amazonaws.com/rytrose-personal-website/<%= pdf[0].fd %>", "#pdf");</script>
+
+
