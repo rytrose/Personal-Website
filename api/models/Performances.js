@@ -8,7 +8,23 @@
 module.exports = {
 
   attributes: {
+    name: {
+      type: 'string',
+      required: true,
+      unique: true
+    },
 
+    date: {
+      type: 'string',
+    },
+
+    link: {
+      type: 'string',
+    },
+
+    description: {
+      type: 'string',
+    }
   }
 };
 

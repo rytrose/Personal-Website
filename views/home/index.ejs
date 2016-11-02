@@ -1,24 +1,42 @@
-<!-- <script src="/js/dependencies/jquery-3.1.1.js"></script>
-<script src="/js/dependencies/masonry.pkgd.min.js"></script>
-<script src="/js/dependencies/imagesloaded.pkgd.min.js"></script> -->
-<div class="container">
-  <div class="jumbotron">
-    <h1>Ryan Rose</h1>
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-2 text-center">-->
+<!--      <div class="affix">-->
+<!--        <h2>Ryan Rose</h2>-->
+<!--        <p>musician, arranger, developer</p>-->
+<!--        <a href="/followers/new" class="btn btn-default">follow Ryan</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-10 push-md-2">-->
+<!--      <div class="loading">-->
+<!--        <img src="images/ring-alt.gif">-->
+<!--      </div>-->
+      
+<!--      Masonry grid HTML -->
+<!--      <div class="grid" style="display:none">-->
+<!--        <% for(var i = 0; i < filesMeta.length; i++) { %>-->
+<!--        <div class="grid-item">-->
+<!--          <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= filesMeta[i].fd %>" >-->
+<!--        </div>-->
+<!--        <% } %>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
-    <h2>saxophonist, arranger, developer<h2>
-    <a href="/followers/new" class="btn btn-default">follow Ryan</a>
+
+<div class="container">
+  <!--Masonry grid HTML -->
+  <div class="grid" style="display:none">
+    <div class="stamp text-center">
+      <h1>Ryan Rose</h1>
+      <p>musician, arranger, developer</p>
+      <a href="/followers/new" class="btn btn-default">follow Ryan</a>
+    </div>
+    <% for(var i = 0; i < filesMeta.length; i++) { %>
+    <div class="grid-item">
+      <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= filesMeta[i].fd %>" >
+    </div>
+    <% } %>
   </div>
 </div>
-
-<div class="loading">
-  <img src="images/ring-alt.gif">
-</div>
-
-  <!-- Masonry grid HTML -->
-<ul class="grid" style="display:none">
-  <% for(var i = 0; i < filesMeta.length; i++) { %>
-  <li class="grid-item">
-    <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= filesMeta[i].fd %>" >
-  </li>
-  <% } %>
-</ul>

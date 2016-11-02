@@ -1,6 +1,7 @@
 // Masonry -- HOME
 var $grid = $('.grid').masonry({
   itemSelector: '.grid-item',
+  stamp: '.stamp',
   stagger: 25
 });
 
