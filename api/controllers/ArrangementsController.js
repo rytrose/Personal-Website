@@ -8,8 +8,6 @@
 module.exports = {
 	
 	index: function(req, res, next){
-		var thumbnails;
-		
 		// Return arrangement thumbnails
 		File.find({type: 'arrThumb'}, function(err, thumbs){
 			if(err) {
@@ -17,9 +15,7 @@ module.exports = {
 					err: err
 				};
 			}
-			
-			thumbnails = thumbs;
-			
+	
 			Arrangements.find(function(err, arrs){
 				if(err) {
 					req.session.flash = {
@@ -28,7 +24,7 @@ module.exports = {
 				}
 				
 				res.view({
-					thumbnails: thumbnails,
+					thumbnails: thumbs,
 					arrangements: arrs	
 				});
 			});
@@ -154,11 +150,11 @@ module.exports = {
 			if (err) return next(err);
 			if (!arrangement) return next("Arrangement does not exist.");
 
-			File.destroy(req.param('id'), function arrangementDestroyed(err) {
+			Arrangements.destroy(req.param('id'), function arrangementDestroyed(err) {
 				if (err) return next(err);
 			});
 
-			res.redirect('/arrangement');
+			res.redirect('/arrangements');
 		});
 	},
 

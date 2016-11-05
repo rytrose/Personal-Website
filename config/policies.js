@@ -46,6 +46,13 @@ module.exports.policies = {
      'new' : ["flash", "sessionAuth"],
      'admin' : ["flash", "sessionAuth"],
      '*' : "flash"
+   },
+   
+   performances: {
+     'edit' : ["flash", "sessionAuth"],
+     'new' : ["flash", "sessionAuth"],
+     'admin' : ["flash", "sessionAuth"],
+     '*' : "flash"
    }
 
   /***************************************************************************

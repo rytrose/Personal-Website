@@ -38,3 +38,28 @@ $('#pdf').on('load', function() {
   $('.loading').hide();
   $("#pdf").show();
 });
+
+// Masonry -- PERFORMANCES
+var $grid_per = $('.grid-per').masonry({
+        itemSelector: '.grid-item-per',
+        stagger: 5
+    });
+    
+$grid_per.imagesLoaded().always( function () {
+  $grid_per.show();
+  $grid_per.masonry();
+});
+
+//Reinitialize masonry inside each panel after the relative tab link is clicked - 
+$('a[data-toggle=tab]').each(function () {
+    var $this = $(this);
+
+    $this.on('shown.bs.tab', function () {
+    
+        $grid_per.imagesLoaded().always( function () {
+          $grid_per.show();
+          $grid_per.masonry();
+        });
+
+    });
+});

@@ -13,6 +13,11 @@ module.exports = {
       required: true,
       unique: true
     },
+    
+    type: {
+      type: 'string',
+      required: true
+    },
 
     date: {
       type: 'string',
@@ -20,10 +25,12 @@ module.exports = {
 
     link: {
       type: 'string',
+      required: true
     },
 
     description: {
       type: 'string',
+      required: true
     }
   }
 };

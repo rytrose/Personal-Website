@@ -42,7 +42,7 @@
 config/local.js
 data/*
 mongod
-
+config/s3config.json
 
 
 ################################################

@@ -23,12 +23,13 @@
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
-
+    <link href="https://fonts.googleapis.com/css?family=Numans" rel="stylesheet">
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
+    
   </head>
 
   <body>
@@ -45,11 +46,21 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/arrangements/">arrangements</a></li>
+          <li><a href="/bio/">bio</a></li>
+          <li><a href="/arrangements/">arrangements</a></li>
+          <li><a href="/performances/">performances</a></li>
+          <li><a href="/projects/">projects</a></li>
           <% if(session.authenticated) { %>
-            <li class="active"><a href="/followers/">followers Admin</a></li>
-            <li class="active"><a href="/file/">files Admin</a></li>
-            <li class="active"><a href="/arrangements/admin/">arrangements Admin</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">admin
+              <span class="caret"></span> </a>
+              <ul class="dropdown-menu">
+                <li><a href="/followers/">followers admin</a></li>
+                <li><a href="/file/">files admin</a></li>
+                <li><a href="/arrangements/admin/">arrangements admin</a></li>
+                <li><a href="/performances/admin/">performances admin</a></li>
+              </ul>
+            </li>
           <% } %>
         </ul>
         <div class="navbar-right">

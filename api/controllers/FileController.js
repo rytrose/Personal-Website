@@ -58,9 +58,25 @@ module.exports = {
 	},
 
 	destroy: function(req, res, next){
+		var aws = require('aws-sdk');
+		aws.config.loadFromPath('./config/s3config.json');
+		var s3 = new aws.S3();
+		
+		
+		
 		File.findOne(req.param('id'), function foundFile(err, file) {
 			if (err) return next(err);
 			if (!file) return next("File does not exist.");
+			
+			var params = {
+				Bucket: 'rytrose-personal-website',
+				Key: file.fd
+			};
+			
+			s3.deleteObject(params, function(err, data){
+				if(err) return next(err);
+				else console.log('Deleted from s3.');
+			});
 
 			File.destroy(req.param('id'), function fileDestroyed(err) {
 				if (err) return next(err);

@@ -13,7 +13,7 @@
     <input value="<%= arrangement.title %>" type="text" class="form-control" name="title">
     <input value="<%= arrangement.instrumentation %>" type="text" class="form-control" name="instrumentation">
     <input value="<%= arrangement.originalArtist %>" type="text" class="form-control" name="originalArtist">
-    <input value="<%= arrangement.description %>" type="text" class="form-control" name="description">
+    <textarea name="description" rows="10" style="width:100%"><%= arrangement.description %></textarea>
 
     <input type="submit" class="btn btn-default" value="save"/>
     <input type="hidden" name="_csrf" value="<%= _csrf %>" />

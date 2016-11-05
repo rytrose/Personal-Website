@@ -1,6 +1,7 @@
 body {
   padding-top: 60px;
   padding-bottom: 40px;
+  font-family: 'Numans', sans-serif;
 }
 
 .container {
@@ -79,22 +80,34 @@ body {
 }
 
 .grid-item:hover {
-  border: 1px solid #efefef;
+  border: 2px solid #7fb0ff;
   cursor: pointer;
 }
 
 .stamp {
   padding: 2%;
+  padding-top: 0px;
   position: absolute;
-  width: 25%;
+  width: 50%;
 }
 
+.stamp h1 {
+  font-size: 4vw;
+}
+
+.stamp p {
+  font-size: 1.8vw;
+}
+
+.stamp .btn {
+  font-size: 1.2vw;
+}
 
 /* Masonry -- ARRANGEMENTS */
 .grid-item-arr {
 	display: block;
 	float: left;
-	padding: 3px;
+	padding: 10px;
 	width: 33%;
 }
 
@@ -163,3 +176,103 @@ body {
 .audio {
   margin-top: 10%;
 }
+
+/* Performances tabs */
+.per-tab-row{ margin-top: 1%;}
+.nav.nav-justified > li > a {
+  position: relative; 
+}
+.nav.nav-justified > li > a:hover,
+.nav.nav-justified > li > a:focus { background-color: transparent; }
+
+.nav.nav-justified > li > a > img { box-shadow: 0 0 0 5px #7fb0ff; }
+.nav.nav-justified > li > a > img {
+    width: 100px;
+    height: 100px;
+    opacity: .3; 
+    -webkit-transform: scale(.8,.8);
+            transform: scale(.8,.8);
+    -webkit-transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.nav.nav-justified > li.active > a > img,
+.nav.nav-justified > li > a > img:hover,
+.nav.nav-justified > li > a > img:focus { 
+    opacity: 1; 
+    -webkit-transform: none;
+            transform: none;
+    -webkit-transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.tab-pane .tab-inner { padding: 30px 0 20px; }
+
+/* Masonry -- PERFORMANCES */
+.grid-item-per {
+	display: block;
+	float: left;
+	padding: 10px;
+	width: 50%;
+}
+
+.grid-per img {
+  position: relative;
+	outline: none;
+	border: 1px solid #000;
+	display: block;
+	max-width: 100%;
+	overflow:hidden;
+	transition: all .25s ease-in-out;
+}
+
+.grid-item-per:hover {
+  cursor: pointer;
+}
+
+.grid-item-per:hover p{
+  opacity: 1;
+}
+
+.grid-item-per:hover .overlay-per{
+  border: 1px solid #000;
+  background-color: #7fb0ff;
+  opacity: .9;
+}
+
+.grid-item-per:hover img{
+  border: none;
+}
+
+.overlay-per {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all .25s ease-in-out;
+  z-index: 999;
+}
+
+.overlay-per p {
+  position: relative;
+  top: 0;
+  margin-top: 20%;
+  opacity: 0;
+  text-align: center;
+  transition: all .25s ease-in-out;
+  font-size: 1.8vw;
+  color: #000000;
+}
+
+/* Bio page */
+.bio h2 {
+  padding-left: 15px;
+}
+
+.bio h1 {
+  margin-top: 0;
+}
+
+.bioImg {
+  width: 100%;
+}
+
