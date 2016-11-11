@@ -36,6 +36,8 @@ module.exports.policies = {
    },
 
    file: {
+     'edit' : ["flash", "sessionAuth"],
+     'update' : ["flash", "sessionAuth"],
      'create' : "flash",
      'new' : ["flash", "sessionAuth"],
      '*' : "sessionAuth"

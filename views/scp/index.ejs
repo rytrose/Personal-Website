@@ -1,0 +1,80 @@
+<!--
+/*
+ *XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ *
+ *  The Social Composition Project
+ *    by Ryan Rose
+ *   (c) June, 2016
+ *
+ *  This project seeks to interpret the humanity exhibited through social media into music,
+ *  by procedurally generating a unique composition based upon a Facebook post's reactions.
+ *  Each reaction has a distinct melodic phrase, which floats over an oscillating drone.
+ *  A disproprtionate amount of 'LIKE's relative to the other reactions led me to compose special
+ *  phrases for when a sequence of uninterrupted 'LIKE's is read.
+ *
+ *XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ */
+-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="/scp/js/main.js"></script>
+<script type="text/javascript" src="/scp/js/shared.js"></script>
+<script src="/scp/three/three.js"></script>
+<script src="/scp/three/tween.min.js"></script>
+<script src="/scp/three/TrackballControls.js"></script>
+<script src="/scp/three/CSS3DRenderer.js"></script>
+
+<script>music = new CompositionGeneration(context);</script>
+
+<div class="scpReturn">
+    <a class="btn btn-default" href="/projects">return to projects</a>    
+</div>
+
+<div class="info" id="title">
+  <center>
+    <h1>The Social Composition Project</h1>
+    <p>by Ryan Rose<br>© June 2016<br><button class="btn btn-default" id="demo" onclick="demo()">Demo</button></p>
+    <p></p>
+  </center>
+</div>
+
+<div class="info" id="pageInput" style="display:none">
+  <center>
+    <button class="btn btn-default" id="composeByPost">Switch to Compose by Post</button>
+    <p>Please input a Facebook Page id. <br>To find an id for a known page please use <a href="http://findmyfbid.com" target="_blank">findmyfbid.com</a>. (Ex. 92017720030, 10351802587)</p>
+    <input type="number" id="pageId" placeholder="Page Id" />
+    <p><button id="generate" onclick="generateComposition()" style="display:none">Generate Composition</button></p>
+    <p><div id="loading" style="display:none"><img src="/images/ring-alt.gif"  height="50" width="50"></div></p>
+  </center>
+</div>
+
+<div class="info" id="postInput">
+  <center>
+    <button class="btn btn-default" id="composeByPage">Switch to Compose by Page</button>
+    <p>Please enter a date range of equal or less than five days, then select a post.</p>
+    Start Date: <input type="date" id="startDate">
+    <br>
+    End Date: <input type="date" id="endDate">
+    <br>
+    <p><button class="btn btn-default" id="dateSubmit" onclick="myFacebookLogin(getTimeIntervalPosts)">Submit</button></p>
+    <div id="loadingPosts" style="display:none"><img src="/images/ring-alt.gif"  height="30" width="30"></div>
+    <p><a id="selectNewDate" href="javascript:void(0);" style="display:none; font-size:small">try a new date</a></p>
+    <div class="info" id="posts" style="display:none">
+      <p>Please select a post.</p>
+    </div>
+    <p><button class="btn btn-default" id="generateComp" style="display:none" onclick="generateComposition()">Generate Composition</button></p>
+  </center>
+</div>
+
+<center>
+  <p><button class="btn btn-default" id="playcomp" onclick="music.playComposition()" style="display:none">Play Composition</button></p>
+  <p><button class="btn btn-default" id="restart" style="display:none">Restart</button></p>
+</center>
+
+
+<div id="container"></div>
+<div class="info" id="controlsDiv" style="display:none">
+    <center>
+      <p>Left Mouse Button -> Rotate<br>Right Mouse Button -> Pan<br>Scroll -> Zoom</p>
+    </center>
+</div>

@@ -9,6 +9,7 @@
       <th>filename</th>
       <th>type</th>
       <th></th>
+      <th></th>
     </tr>
 
     <% _.each(files, function(file) { %>
@@ -17,6 +18,7 @@
       <td><%= file.fd %></td>
       <td><%= file.filename %></td>
       <td><%= file.type %></td>
+      <td><a href="/file/edit/<%= file.id %>" class="btn btn-primary">edit</a></td>
       <td><form action="/file/destroy/<%= file.id %>" method="POST">
         <input type="hidden" name="_method" value="delete" />
         <input type="submit" class="btn btn-danger" value="delete" />

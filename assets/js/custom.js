@@ -63,3 +63,11 @@ $('a[data-toggle=tab]').each(function () {
 
     });
 });
+
+// Home page fade in
+$(window).on('load', function(){
+    $(".name").animate({opacity:1}, 800);
+    $(".musician").delay(400).animate({opacity:1}, 800);
+    $(".arranger").delay(800).animate({opacity:1}, 800);
+    $(".developer").delay(1200).animate({opacity:1}, 800);
+});

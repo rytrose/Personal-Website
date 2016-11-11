@@ -1,0 +1,35 @@
+<div class="container">
+  <a class="btn btn-default" href="/performances/new">new performance</a>
+  <br>
+  <h3>Performances</h3>
+  <table class="table">
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>type</th>
+      <th>date</th>
+      <th>link</th>
+      <th>description</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% _.each(performances, function(performance) { %>
+    <tr data-id="<%= performance.id %>" data-model="performance">
+      <td><%= performance.id %></td>
+      <td><%= performance.name %></td>
+      <td><%= performance.type %></td>
+      <td><%= performance.date %></td>
+      <td><%= performance.link %></td>
+      <td><%= performance.description %></td>
+      <td><a href="/performances/edit/<%= performance.id %>" class="btn btn-primary">edit</a></td>
+      <td><form action="/performances/destroy/<%= performance.id %>" method="POST">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" class="btn btn-danger" value="delete" />
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+      </form></td>
+    </tr>
+
+    <% }) %>
+  </table>
+</div>

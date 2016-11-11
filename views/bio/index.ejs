@@ -1,0 +1,22 @@
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="bioDesc">
+                <h2>biography</h2>
+                <p>Hello, it me.</p>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="loading">
+                <img src="/images/ring-alt.gif">
+            </div>
+            <div class="grid" style="display:none">
+                <% for(var i = 0; i < filesMeta.length; i++) { %>
+                <div class="grid-item">
+                  <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= filesMeta[i].fd %>" >
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>

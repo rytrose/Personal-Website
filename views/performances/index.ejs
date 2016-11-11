@@ -1,0 +1,92 @@
+<div class="container text-center">
+    <div class="row per-tab-row">
+        <div class="col-xs-6 col-xs-offset-3">
+            <ul class="nav nav-justified">
+                <li class="active">
+                    <p class="perLabel">classical</p>
+                    <a href="#classical" data-toggle="tab">
+                        <img class="img-circle" src="https://s3.amazonaws.com/rytrose-personal-website/ref54.jpg">
+                    </a>
+                </li>
+                <li>
+                    <p class="perLabel">jazz</p>
+                    <a href="#jazz" data-toggle="tab">
+                        <img class="img-circle" src="https://s3.amazonaws.com/rytrose-personal-website/yamaha.jpg">
+                    </a>
+                </li>
+                <li>
+                    <p class="perLabel">contemporary</p>
+                    <a href="#contemporary" data-toggle="tab">
+                        <img class="img-circle" src="https://s3.amazonaws.com/rytrose-personal-website/Speakeasy.jpg">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="tab-content" id="tabs-collapse">
+                <div class="tab-pane fade in active" id="classical">
+                    <div class="tab-inner">
+                        <p>Test classical.</p>
+                        <div class="grid-per" style="display:none">
+                            <% for(var i = 0; i < thumbnails.length; i++) { %>
+                                <% for(var j = 0; j < performances.length; j++) { %>
+                                  <% if(performances[j].type === 'classical' && performances[j].name + '.jpg' === thumbnails[i].filename) { %>
+                                    <a class="grid-item-per" href="/performances/show/<%= performances[j].id %>">
+                                        <div class="overlay-per">
+                                            <p><%= performances[j].name %></p>
+                                        </div>
+                                        <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= thumbnails[i].fd %>" >
+                                    </a>
+                                 <% } %>
+                               <% } %>
+                             <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="jazz">
+                    <div class="tab-inner">
+                        <p>Test jazz.</p>
+                        <div class="grid-per" style="display:none">
+                            <% for(var i = 0; i < thumbnails.length; i++) { %>
+                                <% for(var j = 0; j < performances.length; j++) { %>
+                                  <% if(performances[j].type === 'jazz' && performances[j].name + '.jpg' === thumbnails[i].filename) { %>
+                                    <a class="grid-item-per" href="/performances/show/<%= performances[j].id %>">
+                                        <div class="overlay-per">
+                                            <p><%= performances[j].name %></p>
+                                        </div>
+                                        <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= thumbnails[i].fd %>" >
+                                    </a>
+                                 <% } %>
+                               <% } %>
+                             <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="contemporary">
+                    <div class="tab-inner">
+                        <p>Test contemporary.</p>
+                        <div class="grid-per" style="display:none">
+                            <% for(var i = 0; i < thumbnails.length; i++) { %>
+                                <% for(var j = 0; j < performances.length; j++) { %>
+                                  <% if(performances[j].type === 'contemporary' && performances[j].name + '.jpg' === thumbnails[i].filename) { %>
+                                    <a class="grid-item-per" href="/performances/show/<%= performances[j].id %>">
+                                        <div class="overlay-per">
+                                            <p><%= performances[j].name %></p>
+                                        </div>
+                                        <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= thumbnails[i].fd %>" >
+                                    </a>
+                                 <% } %>
+                               <% } %>
+                             <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    

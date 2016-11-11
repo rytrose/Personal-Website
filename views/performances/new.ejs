@@ -1,0 +1,22 @@
+<div class="container">
+  <form enctype="multipart/form-data" action="/performances/create" method="POST" class="form-performances">
+    <h2 class="form-performances-heading">add performance</h2>
+
+    <% if(flash && flash.err) { %>
+      <ul class="alert alert-success" style="list-style: none">
+    <% Object.keys(flash.err).forEach(function(error) { %>
+      <li><%- flash.err[error].message %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+
+    <input type="text" class="form-control" placeholder="name" name="name">
+    <input type="text" class="form-control" placeholder="type" name="type">
+    <input type="text" class="form-control" placeholder="date" name="date">
+    <input type="text" class="form-control" placeholder="link" name="link">
+    <textarea name="description" rows="10" placeholder="description" style="width:100%"></textarea>
+
+    <input type="submit" class="btn btn-default" value="add"/>
+    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+  </form>
+</div>

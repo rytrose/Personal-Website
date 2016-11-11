@@ -56,6 +56,41 @@ module.exports = {
 			return res.redirect('/file/new');
 		});
 	},
+	
+	edit: function(req, res, next){
+		File.findOne(req.param('id'), function foundFile(err, file){
+			if(!file){
+				// If none, return error
+				var noFileError = [{name: 'noFile', message: 'No file found'}];
+				req.session.flash = {
+					err: noFileError
+				}
+				return res.redirect('/file');
+			}
+
+			return res.view({
+				file: file
+			});
+		});
+	},
+	
+	update: function(req, res, next){
+		var fileObj = {
+			filename: req.param('filename'),
+			type: req.param('type')
+		}
+		
+		File.update(req.param('id'), fileObj, function fileUpdated(err){
+			if(err) {
+				req.session.flash = {
+					err: err
+				}
+				return res.redirect('/file/edit' + req.param('id'));
+			}
+
+			return res.redirect('/file'); // TODO change to show
+		});
+	},
 
 	destroy: function(req, res, next){
 		var aws = require('aws-sdk');

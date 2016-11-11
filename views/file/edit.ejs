@@ -1,0 +1,19 @@
+<div class="container">
+  <form enctype="multipart/form-data" action="/file/update/<%= file.id %>" method="POST" class="form-file">
+    <h2 class="form-file-heading">edit file</h2>
+
+    <% if(flash && flash.err) { %>
+      <ul class="alert alert-success" style="list-style: none">
+    <% Object.keys(flash.err).forEach(function(error) { %>
+      <li><%- flash.err[error].message %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+
+    <input value="<%= file.filename %>" type="text" class="form-control" name="filename">
+    <input value="<%= file.type %>" type="text" class="form-control" name="type">
+    
+    <input type="submit" class="btn btn-default" value="save"/>
+    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+  </form>
+</div>

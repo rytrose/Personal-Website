@@ -32,7 +32,13 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'get /': 'HomeController.index'
+  'get /': 'HomeController.index',
+  'get /projects/scp': { 
+    view: 'scp/index',
+    locals: {
+      layout: 'layoutNoFoot'
+    }
+  }
 
   /***************************************************************************
   *                                                                          *

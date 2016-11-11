@@ -8,17 +8,30 @@
 module.exports = {
 
 	index: function(req, res, next){
-		// Return homepage images
-		File.find({type: 'homeImg'}, function(err, filesMeta){
-			if(err) {
-				req.session.flash = {
-					err: err
-				};
-			}
-			res.view({
-				filesMeta: filesMeta
+		// Return homepage items
+		File.find({type: 'arrThumb'}, function(err, arrThumbs){
+			if (err) return next(err);
+			
+			// arrThumbs
+			
+			Arrangements.find(function(err, arrs){
+				if (err) return next(err);
+				
+				// arrs
+				
+				Performances.find(function foundPerformances(err, pers) {
+					if (err) return next(err);
+					
+					// pers
+					
+					res.view({
+						arrThumbs: arrThumbs,
+						arrs: arrs,
+						pers: pers
+					});
+				});
 			});
 		});
-	}
+	},
 	
 };
