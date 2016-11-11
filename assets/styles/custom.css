@@ -160,8 +160,8 @@ body {
 .grid-item {
 	display: block;
 	float: left;
-	padding: 4px;
-	width: 25%;
+	padding: 8px;
+	width: 33%;
 }
 
 
@@ -176,7 +176,7 @@ body {
   display: block;
   float: left;
   padding: 7px;
-  width: 50%;
+  width: 66%;
 }
 
 .grid-item:hover {
