@@ -35,7 +35,8 @@
     "skipper": "^0.6.4",
     "skipper-better-s3": "^2.2.0",
     "skipper-gridfs": "^0.5.3",
-    "skipper-s3": "^0.5.6"
+    "skipper-s3": "^0.5.6",
+    "socket.io-redis": "^1.1.1"
   },
   "scripts": {
     "debug": "node debug app.js",
