@@ -24,9 +24,8 @@ module.exports = {
 
 	// Uploads a file(s) to the database
 	create: function(req, res, next){
-		var s3_config = sails.config.s3;
-		var key = s3_config.key;
-		var secret = s3_config.secret;
+		var key = process.env.s3key;
+		var secret = process.env.s3secret;
 
 		req.file('toUpload').upload({
 			adapter: require('skipper-better-s3'),
@@ -93,22 +92,20 @@ module.exports = {
 	},
 
 	destroy: function(req, res, next){
-		var aws = require('aws-sdk');
-		aws.config.loadFromPath('./config/s3config.json');
-		var s3 = new aws.S3();
-		
-		
 		
 		File.findOne(req.param('id'), function foundFile(err, file) {
 			if (err) return next(err);
 			if (!file) return next("File does not exist.");
 			
-			var params = {
-				Bucket: 'rytrose-personal-website',
-				Key: file.fd
+			var options = {
+				key: process.env.s3key,
+				secret: process.env.s3secret,
+				bucket: 'rytrose-personal-website'
 			};
 			
-			s3.deleteObject(params, function(err, data){
+			var adapter = require('skipper-better-s3')(options);
+			
+			adapter.rm(file.fd, function(err, res){
 				if(err) return next(err);
 				else console.log('Deleted from s3.');
 			});

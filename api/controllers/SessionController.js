@@ -30,8 +30,7 @@ module.exports = {
 		}
 
 		var bcrypt = require('bcrypt');
-		var admin_config = sails.config.admin;
-    var adminPassword = admin_config.password;
+    	var adminPassword = process.env.adminPassword;
 
 		bcrypt.genSalt(10, function(err, salt) {
 			bcrypt.hash(adminPassword, salt, function passwordEncrypted(err, encryptedPassword) {
