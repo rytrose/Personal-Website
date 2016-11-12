@@ -385,6 +385,10 @@ body {
   margin-top: 40px;
 }
 
+.bioDesc a {
+  color: #5e5e5e;
+}
+
 .bioImg {
   margin-top: 4%;
   width: auto;
