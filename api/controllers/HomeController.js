@@ -19,7 +19,7 @@ module.exports = {
 				
 				// arrs
 				
-				Performances.find(function foundPerformances(err, pers) {
+				Performances.find({type: ['classical', 'contemporary', 'jazz']}, function foundPerformances(err, pers) {
 					if (err) return next(err);
 					
 					// pers

@@ -387,6 +387,7 @@ body {
 
 .bioA {
   color: #5e5e5e;
+  border-bottom: 1px dotted #5e5e5e;
 }
 
 .bioA:hover{
