@@ -385,8 +385,13 @@ body {
   margin-top: 40px;
 }
 
-.bioDesc a {
+.bioA {
   color: #5e5e5e;
+}
+
+.bioA:hover{
+  color: black;
+  text-decoration: none;
 }
 
 .bioImg {
