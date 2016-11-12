@@ -310,6 +310,10 @@ body {
 }
 .tab-pane .tab-inner { padding: 30px 0 20px; }
 
+.audioPer {
+  margin-top: 12px;
+}
+
 /* Masonry -- PERFORMANCES */
 .grid-item-per {
 	display: block;

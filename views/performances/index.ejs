@@ -96,12 +96,13 @@
                         <% for(var i = 0; i < performances.length; i++) { %>
                           <% if(performances[i].type === 'audio') { %>
                                 <p><%= performances[i].name %> | <%= performances[i].date %></p>
-                                <div class="audio">
+                                <div class="audioPer">
                                     <audio controls>
                                         <source src="<%= performances[i].link %>" type="audio/mpeg">
                                         Your browser does not support the audio element.
                                     </audio>
                                 </div>
+                                <p><%= performances[i].description %></p>
                                 <hr>
                             <% } %>
                         <% } %>
