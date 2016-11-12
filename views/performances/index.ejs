@@ -20,6 +20,12 @@
                         <img class="img-circle" src="https://s3.amazonaws.com/rytrose-personal-website/Speakeasy.jpg">
                     </a>
                 </li>
+                <li>
+                    <p class="perLabel">audio</p>
+                    <a href="#audio" data-toggle="tab">
+                        <img class="img-circle" src="https://s3.amazonaws.com/rytrose-personal-website/audiosymbol.png">
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -27,9 +33,9 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="tab-content" id="tabs-collapse">
+                
                 <div class="tab-pane fade in active" id="classical">
                     <div class="tab-inner">
-                        <p>Test classical.</p>
                         <div class="grid-per" style="display:none">
                             <% for(var i = 0; i < thumbnails.length; i++) { %>
                                 <% for(var j = 0; j < performances.length; j++) { %>
@@ -46,9 +52,9 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="tab-pane fade" id="jazz">
                     <div class="tab-inner">
-                        <p>Test jazz.</p>
                         <div class="grid-per" style="display:none">
                             <% for(var i = 0; i < thumbnails.length; i++) { %>
                                 <% for(var j = 0; j < performances.length; j++) { %>
@@ -65,9 +71,9 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="tab-pane fade" id="contemporary">
                     <div class="tab-inner">
-                        <p>Test contemporary.</p>
                         <div class="grid-per" style="display:none">
                             <% for(var i = 0; i < thumbnails.length; i++) { %>
                                 <% for(var j = 0; j < performances.length; j++) { %>
@@ -84,6 +90,25 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="tab-pane fade" id="audio">
+                    <div class="tab-inner">
+                        <% for(var i = 0; i < performances.length; i++) { %>
+                          <% if(performances[i].type === 'audio') { %>
+                                <p><%= performances[i].name %> | <%= performances[i].date %></p>
+                                <div class="audio">
+                                    <audio controls>
+                                        <source src="<%= performances[i].link %>" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                <hr>
+                            <% } %>
+                        <% } %>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
