@@ -14,10 +14,14 @@
     <div class="col-md-4 text-center">
       <div class="musician">
         <h2><a href="/performances">musician</a></h2>
-        <% var performance = pers[Math.floor(Math.random() * pers.length)]; %>
-        <hr>
-        <p><%= performance.name %> | <%= performance.date %></p>
-        <iframe width="448" height="252" src="<%= performance.link %>" frameborder="0" allowfullscreen></iframe>
+        <% for(var i = 0; i < pers.length; i++) { %>
+          <% if(pers[i].name === 'Collin Kemeny, Concerto for Alto Saxophone') { %>
+            <% var performance = pers[i]; %>
+            <hr>
+            <p><%= performance.name %> | <%= performance.date %></p>
+            <iframe width="448" height="252" src="<%= performance.link %>" frameborder="0" allowfullscreen></iframe>
+          <% } %>
+        <% } %>
       </div>
     </div>
     
@@ -25,15 +29,10 @@
       <div class="arranger">
         <h2><a href="/arrangements">arranger</a></h2>
         <hr>
-        <% var rand1 = Math.floor(Math.random() * arrs.length); %>
-        <% var rand2 = Math.floor(Math.random() * arrs.length); %>
-        <% while(rand1 === rand2){ %>
-          <% rand2 = Math.floor(Math.random() * arrs.length); %>
-        <% }; %>
         <div class="grid-arr">
           <% for(var i = 0; i < arrThumbs.length; i++) { %>
             <% for(var j = 0; j < arrs.length; j++) { %>
-              <% if((j === rand1 || j === rand2) && (arrs[j].title + '.jpg' === arrThumbs[i].filename)) { %>
+              <% if((arrs[j].title === "She's So High" || arrs[j].title === 'Shark in the Water') && (arrs[j].title + '.jpg' === arrThumbs[i].filename)) { %>
                 <a class="grid-item-arr homeArr" href="/arrangements/show/<%= arrs[j].id %>">
                   <div class="overlay">
                       <p class="homeP">
