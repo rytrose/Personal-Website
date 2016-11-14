@@ -416,6 +416,16 @@ body {
   background-color: #cce0ff;
 }
 
+.projA {
+  color: #5e5e5e;
+  border-bottom: 1px dotted #5e5e5e;
+}
+
+.projA:hover{
+  color: black;
+  text-decoration: none;
+}
+
 .nav-pills > li > a {
   color: #000;
 }
