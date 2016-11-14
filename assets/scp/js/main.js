@@ -473,16 +473,20 @@ function CompositionGeneration(context){
     }
 
   loader.load();
+  
+  document.getElementById("dateInput").style = "display:none";
+  document.getElementById("dateSubmit").style = "display:none";
+  document.getElementById("startDate").style = "display:none";
+  document.getElementById("endDate").style = "display:none";
+  document.getElementById("newDate").style = "display:none";
 }
 
 CompositionGeneration.prototype.playComposition = function(){
   // Start animating
   animation();
 
-  // Hide play button and date inputs and reveal restart button
+  // Hide play button and reveal restart button
   document.getElementById("playcomp").style = "display:none";
-  document.getElementById("dateInput").style = "display:none";
-  document.getElementById("dateSubmit").style = "display:none";
   document.getElementById("restart").style = "display:block";
 
   // Set up time paradigm for music and animation generation
