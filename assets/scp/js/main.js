@@ -201,6 +201,7 @@ function getTimeIntervalPosts(callback){
   }
   catch(e){
     alert("No posts from that time.");
+    $location.reload();
     return;
   }
 
@@ -274,6 +275,7 @@ function displayPosts(){
     document.getElementById("loadingPosts").style.display = "none";
     document.getElementById("dateSubmit").style.display = "block";
     alert("No posts from that date range found.");
+    // Refresh page.
   }
   else{
     for(i = 0; i < arrayOfPosts.length; i++){
