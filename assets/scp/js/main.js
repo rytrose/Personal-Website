@@ -201,8 +201,6 @@ function getTimeIntervalPosts(callback){
   }
   catch(e){
     alert("No posts from that time.");
-    location.reload();
-    console.log('hit');
     return;
   }
 
@@ -276,7 +274,7 @@ function displayPosts(){
     document.getElementById("loadingPosts").style.display = "none";
     document.getElementById("dateSubmit").style.display = "block";
     alert("No posts from that date range found.");
-    // Refresh page.
+    location.reload();
   }
   else{
     for(i = 0; i < arrayOfPosts.length; i++){
