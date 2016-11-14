@@ -140,6 +140,11 @@ function generateComposition(){
     div.style.display = "none";
     document.getElementById("generateComp").style.display = "none";
     document.getElementById("loadingPosts").style.display = "block";
+    document.getElementById("dateInput").style = "display:none";
+    document.getElementById("dateSubmit").style = "display:none";
+    document.getElementById("startDate").style = "display:none";
+    document.getElementById("endDate").style = "display:none";
+    document.getElementById("newDate").style = "display:none";
     reactionProcessing(finish);
   }
   else{
@@ -473,12 +478,6 @@ function CompositionGeneration(context){
     }
 
   loader.load();
-  
-  document.getElementById("dateInput").style = "display:none";
-  document.getElementById("dateSubmit").style = "display:none";
-  document.getElementById("startDate").style = "display:none";
-  document.getElementById("endDate").style = "display:none";
-  document.getElementById("newDate").style = "display:none";
 }
 
 CompositionGeneration.prototype.playComposition = function(){
