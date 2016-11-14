@@ -430,6 +430,10 @@ body {
   color: #000;
 }
 
+.padRight {
+  padding-right: 24px;
+}
+
 /* SCP */
 .scpReturn {
   padding-left: 20px;
