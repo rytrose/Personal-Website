@@ -34,13 +34,42 @@
                     <p>
                         The project utilizes <a class="projA" href="https://developers.facebook.com/docs/graph-api" target="_blank" >Facebook's Graph API</a> 
                         for data collection, the <a class="projA" href="https://www.w3.org/TR/webaudio/" target="_blank" >W3C Web Audio API</a> 
-                        for synthesis, and <a class="projA" href="https://github.com/tjoen/three.js" target="_blank" >THREE.js</a> and the CSS3D renderer 
+                        for sequencing, and <a class="projA" href="https://github.com/tjoen/three.js" target="_blank" >THREE.js</a> and the CSS3D renderer 
                         for visualization. Code for this project can be found <a class="projA" href="https://github.com/rytrose/Personal-Website/tree/master/assets/scp" target="_blank" >here</a>.
                     </p>
                     <div class="text-center"><a class="btn btn-default" href="/projects/scp">see the project</a></div>
                 </div>
                 <div class="tab-pane fade" id="tab2">
-                    <h1>Interactive Recital (POC)</h1>
+                    <h1 class="text-center">Interactive Recital (POC)</h1>
+                    <p>
+                        This project idea stems from my desire to increase the accessibility and attractiveness of classical
+                        music through the use of technology. My idea is to play an arrangement of Hector Berlioz's <i>Harold en Italie</i> 
+                        on alto saxophone as the solo instrument, accompanied by an orchestral backing track and augmented by 
+                        audience-chosen audio effects. While listening to viola music I stumbled across <i>Harold en Italie</i> and
+                        immediately wished to arrange a version for alto saxophone, which has a similar range as a viola. To perfom
+                        this piece, however, I would need an orchestra -- so I began using a software called PhotoScore to create
+                        a backing track using Finale's Garritan instruments to provide a rudimentary accompaniment 
+                        (with more resources at my disposal I would like to create a backing track with significantly more musical sensitivity).
+                    </p>
+                    <p>
+                        Able to provide accompaniment for myself I then began to think about audience engagement and interaction. 
+                        While reading about the piece and about Berlioz's compositional philosophy, I learned that Berlioz sought to
+                        integrate non-musical or real sounds into his pieces, an example of which is the unpitched bells in his
+                        <i>Symphonie Fantastique</i>. I think a lot about how the non-musical world can be interpreted musically and
+                        thought to tastefully incorporate personally recorded sounds into my arrangement of <i>Harold en Italie</i>. 
+                        In order to give the audience some investment in the piece, I will provide options of various recorded sounds
+                        to inject into the real-time performance of my piece to the audience, who will choose these sounds via a 
+                        smartphone web application. Their choices will be polled at predetermined intervals in the piece, and the results 
+                        of these polls will determine which sounds get introduced at moments I have chosen.
+                    </p>
+                    <p>
+                        I will use a real-time database service such as Google's Firebase to collect polling information while I am 
+                        playing. I also read about a way to control the sequencing software Ableton Live through <a class="projA" href="http://remotescripts.blogspot.com/2010/03/introduction-to-framework-classes.html?m=1" target="_blank" >Python-emulated MIDI instruments</a>,
+                        which will allow my backing track to react and respond to the polling results automatically while I play. I 
+                        believe the audience's interaction and role in creating the music will provide a more engaging
+                        and fulfilling experience than otherwise listening to the piece statically in a concert hall.
+                    </p>
+                    
                 </div>
             </div>
         </div>
