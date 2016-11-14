@@ -200,8 +200,9 @@ function getTimeIntervalPosts(callback){
     });
   }
   catch(e){
-    location.reload();
     alert("No posts from that time.");
+    location.reload();
+    console.log('hit');
     return;
   }
 
