@@ -497,7 +497,7 @@ CompositionGeneration.prototype.playComposition = function(){
   var highlightViz = function( ind ){
     highlightFlag = ind;
     if (ind < reactionArrayofArrays[indexOfLongest].length - 1){
-      setTimeout(function(){highlightViz(ind + 1)}, Math.floor(1000 * quarterNote * 8))
+      setTimeout(function(){highlightViz(ind + 1)}, Math.floor(1000 * quarterNote * 16))
     }
   }
 
@@ -519,12 +519,12 @@ CompositionGeneration.prototype.playComposition = function(){
 
       // Normal LIKE phrase
       var likeSource = this.makeLikeSource(this.buffers[0]);
-      likeSource[likeSource.start ? 'start' : 'noteOn'](time + intro + i * 8 * quarterNote);
+      likeSource[likeSource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
 
       // 4 LIKE sequence phrase
       if(i > 0 && likeCount % 4 == 0){
         var likeSeqSource = this.makeLikeSeqSource(this.buffers[2]);
-        likeSeqSource[likeSeqSource.start ? 'start' : 'noteOn'](time + intro + (i + 1) * 8 * quarterNote);
+        likeSeqSource[likeSeqSource.start ? 'start' : 'noteOn'](time + intro + (i + 1) * 16 * quarterNote);
       }
     }
     else if(reactionArrayofArrays[indexOfLongest][i] == 'LOVE'){
@@ -533,7 +533,7 @@ CompositionGeneration.prototype.playComposition = function(){
 
       // LOVE phrase
       var loveSource = this.makeLoveSource(this.buffers[3]);
-      loveSource[loveSource.start ? 'start' : 'noteOn'](time + intro + i * 8 * quarterNote);
+      loveSource[loveSource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
     }
     else if(reactionArrayofArrays[indexOfLongest][i] == 'SAD'){
       // Reset LIKE sequence count
@@ -549,7 +549,7 @@ CompositionGeneration.prototype.playComposition = function(){
 
       // HAHA phrase
       var hahaSource = this.makeHahaSource(this.buffers[5]);
-      hahaSource[hahaSource.start ? 'start' : 'noteOn'](time + intro + i * 8 * quarterNote);
+      hahaSource[hahaSource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
     }
     else if(reactionArrayofArrays[indexOfLongest][i] == 'WOW'){
       // Reset LIKE sequence count
@@ -557,7 +557,7 @@ CompositionGeneration.prototype.playComposition = function(){
 
       // HAHA phrase
       var wowSource = this.makeWowSource(this.buffers[6]);
-      wowSource[wowSource.start ? 'start' : 'noteOn'](time + intro + i * 8 * quarterNote);
+      wowSource[wowSource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
     }
     else if(reactionArrayofArrays[indexOfLongest][i] == 'ANGRY'){
       // Reset LIKE sequence count
@@ -565,7 +565,7 @@ CompositionGeneration.prototype.playComposition = function(){
 
       // ANGRY phrase
       var angrySource = this.makeAngrySource(this.buffers[7]);
-      angrySource[angrySource.start ? 'start' : 'noteOn'](time + intro + i * 8 * quarterNote);
+      angrySource[angrySource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
     }
 
     // Drone is twice as long as reaction phrases, play and outro of 4 drone cycles
