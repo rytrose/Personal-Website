@@ -463,14 +463,14 @@ function finish(){
  */
 function CompositionGeneration(context){
   var ctx = this;
-  var loader = new BufferLoader(context,['/scp/sounds/like1_clarinet.mp3',                    // 0: LIKE phrase
-                                          '/scp/sounds/drone1_strings.mp3',                   // 1: Underlying drone phrase
-                                          '/scp/sounds/4like_seq_flute.mp3',                  // 2: 4 LIKE sequence phrase
-                                          '/scp/sounds/love1.mp3',                            // 3: LOVE phrase
-                                          '/scp/sounds/sad1.mp3',                             // 4: SAD phrase
-                                          '/scp/sounds/haha1.mp3',                            // 5: HAHA phrase
-                                          '/scp/sounds/wow1.mp3',                             // 6: WOW phrase
-                                          '/scp/sounds/angry1.mp3',                           // 7: ANGRY phrase
+  var loader = new BufferLoader(context,['/scp/sounds/Like.wav',                              // 0: LIKE phrase
+                                          '/scp/sounds/Drone.wav',                            // 1: Underlying drone phrase
+                                          '/scp/sounds/4_Like.wav',                           // 2: 4 LIKE sequence phrase
+                                          '/scp/sounds/Love.wav',                             // 3: LOVE phrase
+                                          '/scp/sounds/Sad.wav',                              // 4: SAD phrase
+                                          '/scp/sounds/haha.mp3',                             // 5: HAHA phrase
+                                          '/scp/sounds/Wow.wav',                              // 6: WOW phrase
+                                          '/scp/sounds/Angry.wav',                            // 7: ANGRY phrase
                                           '/scp/sounds/Blue-Cassette-End.mp3'], onloaded);    // 8: End sign-off
   // Buffer audio into memory
   function onloaded(buffers){
