@@ -468,7 +468,7 @@ function CompositionGeneration(context){
                                           '/scp/sounds/4_Like.wav',                           // 2: 4 LIKE sequence phrase
                                           '/scp/sounds/Love.wav',                             // 3: LOVE phrase
                                           '/scp/sounds/Sad.wav',                              // 4: SAD phrase
-                                          '/scp/sounds/haha.mp3',                             // 5: HAHA phrase
+                                          '/scp/sounds/haha1.mp3',                             // 5: HAHA phrase
                                           '/scp/sounds/Wow.wav',                              // 6: WOW phrase
                                           '/scp/sounds/Angry.wav',                            // 7: ANGRY phrase
                                           '/scp/sounds/Blue-Cassette-End.mp3'], onloaded);    // 8: End sign-off
