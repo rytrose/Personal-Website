@@ -522,7 +522,7 @@ CompositionGeneration.prototype.playComposition = function(){
       likeSource[likeSource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
 
       // 4 LIKE sequence phrase
-      if(i > 0 && likeCount % 4 == 0){
+      if(i > 0 && likeCount % 2 == 0){
         var likeSeqSource = this.makeLikeSeqSource(this.buffers[2]);
         likeSeqSource[likeSeqSource.start ? 'start' : 'noteOn'](time + intro + (i + 1) * 16 * quarterNote);
       }
@@ -541,7 +541,7 @@ CompositionGeneration.prototype.playComposition = function(){
 
       // SAD phrase
       var sadSource = this.makeSadSource(this.buffers[4]);
-      sadSource[sadSource.start ? 'start' : 'noteOn'](time + intro + i * 8 * quarterNote);
+      sadSource[sadSource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
     }
     else if(reactionArrayofArrays[indexOfLongest][i] == 'HAHA'){
       // Reset LIKE sequence count
