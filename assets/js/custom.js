@@ -11,9 +11,13 @@ $grid.imagesLoaded().always( function() {
   $grid.masonry('layout');
 });
 
-$grid.on( 'layoutComplete', function() {
+$grid.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
   $('.loading').hide();
 });
+
+// $grid.on( 'layoutComplete', function() {
+//   $('.loading').hide();
+// });
 
 // On click logic
 $grid.on( 'click', '.grid-item', function() {
