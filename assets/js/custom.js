@@ -8,8 +8,7 @@ var $grid = $('.grid').masonry({
 // layout Masonry after each image loads
 $grid.imagesLoaded().always( function() {
   $grid.show();
-  $grid.masonry('layout');
-  $grid.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+  $grid.masonry('on', 'layoutComplete',function(){
     $('.loading').hide();
   });
 });
