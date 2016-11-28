@@ -8,7 +8,7 @@ var $grid = $('.grid').masonry({
 // layout Masonry after each image loads
 $grid.imagesLoaded().always( function() {
   $grid.show();
-  $grid.masonry();
+  $grid.masonry('layout');
 });
 
 $grid.on( 'layoutComplete', function() {
