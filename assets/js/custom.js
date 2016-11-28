@@ -9,10 +9,9 @@ var $grid = $('.grid').masonry({
 $grid.imagesLoaded().always( function() {
   $grid.show();
   $grid.masonry('layout');
-});
-
-$grid.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-  $('.loading').hide();
+  $grid.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+    $('.loading').hide();
+  });
 });
 
 // $grid.on( 'layoutComplete', function() {
