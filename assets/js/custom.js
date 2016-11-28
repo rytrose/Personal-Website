@@ -9,9 +9,7 @@ var $grid = $('.grid').masonry({
 $grid.imagesLoaded().always( function() {
   $grid.show();
   $grid.masonry();
-  $grid.on('layoutComplete', function(){
-    $('.loading').hide();
-  })
+  $('.loading').hide();
 });
 
 // On click logic
@@ -30,9 +28,9 @@ var $grid_arr = $('.grid-arr').masonry({
 
 // layout Masonry after each image loads
 $grid_arr.imagesLoaded().always( function() {
-  $('.loading').hide();
   $grid_arr.show();
   $grid_arr.masonry();
+  $('.loading').hide();
 });
 
 // PDFObject
