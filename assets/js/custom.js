@@ -8,14 +8,11 @@ var $grid = $('.grid').masonry({
 // layout Masonry after each image loads
 $grid.imagesLoaded().always( function() {
   $grid.show();
-  $grid.masonry('on', 'layoutComplete',function(){
+  $grid.masonry();
+  $grid.on('layoutComplete', function(){
     $('.loading').hide();
-  });
+  })
 });
-
-// $grid.on( 'layoutComplete', function() {
-//   $('.loading').hide();
-// });
 
 // On click logic
 $grid.on( 'click', '.grid-item', function() {
