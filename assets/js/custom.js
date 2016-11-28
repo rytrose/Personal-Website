@@ -7,9 +7,12 @@ var $grid = $('.grid').masonry({
 
 // layout Masonry after each image loads
 $grid.imagesLoaded().always( function() {
-  $('.loading').hide();
   $grid.show();
   $grid.masonry();
+});
+
+$grid.on( 'layoutComplete', function() {
+  $('.loading').hide();
 });
 
 // On click logic
