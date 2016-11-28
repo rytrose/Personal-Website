@@ -1,21 +1,15 @@
 // Masonry -- BIO
-var $grid = $('.grid').imagesLoaded( function(){
-  $grid.masonry({
-    itemSelector: '.grid-item',
-    stagger: 25
-  });
-  
+var $grid = $('.grid').masonry({
+  itemSelector: '.grid-item',
+  stagger: 25
+});
+
+// layout Masonry after each image loads
+$grid.imagesLoaded().always( function() {
   $grid.show();
+  $grid.masonry();
   $('.loading').hide();
 });
-  
-
-// // layout Masonry after each image loads
-// $grid.imagesLoaded().always( function() {
-//   $grid.show();
-//   $grid.masonry();
-//   $('.loading').hide();
-// });
 
 // On click logic
 $grid.on( 'click', '.grid-item', function() {
