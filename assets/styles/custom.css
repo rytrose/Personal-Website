@@ -48,6 +48,10 @@ body {
   background-color: #cce0ff;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 /* Forms and Follow */
 
 .form-signin {
@@ -432,6 +436,10 @@ body {
 
 .padRight {
   padding-right: 40px;
+}
+
+.video-margin {
+  margin-top: 18px;
 }
 
 /* SCP */
