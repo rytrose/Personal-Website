@@ -5,7 +5,6 @@ var $grid = $('.grid').masonry({
 });
 
 $(window).on('load', function () {
-  alert('I fired');
   $('.loading').hide();
 });
 
@@ -13,7 +12,6 @@ $(window).on('load', function () {
 $grid.imagesLoaded().always( function() {
   $grid.show();
   $grid.masonry();
-  // $('.loading').hide();
 });
 
 // On click logic
@@ -34,12 +32,10 @@ var $grid_arr = $('.grid-arr').masonry({
 $grid_arr.imagesLoaded().always( function() {
   $grid_arr.show();
   $grid_arr.masonry();
-  $('.loading').hide();
 });
 
 // PDFObject
 $('#pdf').on('load', function() {
-  $('.loading').hide();
   $("#pdf").show();
 });
 
