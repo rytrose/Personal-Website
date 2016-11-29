@@ -4,11 +4,15 @@ var $grid = $('.grid').masonry({
   stagger: 25
 });
 
+$(window).load(function () {
+  $('.loading').hide();
+});
+
 // layout Masonry after each image loads
 $grid.imagesLoaded().always( function() {
   $grid.show();
   $grid.masonry();
-  $('.loading').hide();
+  // $('.loading').hide();
 });
 
 // On click logic
