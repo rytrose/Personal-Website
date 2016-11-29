@@ -5,6 +5,7 @@ var $grid = $('.grid').masonry({
 });
 
 $(window).on('load', function () {
+  alert('I fired');
   $('.loading').hide();
 });
 
