@@ -4,7 +4,7 @@ var $grid = $('.grid').masonry({
   stagger: 25
 });
 
-$(window).load(function () {
+$(window).on('load', function () {
   $('.loading').hide();
 });
 
