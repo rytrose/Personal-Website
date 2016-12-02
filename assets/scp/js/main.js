@@ -574,18 +574,19 @@ CompositionGeneration.prototype.playComposition = function(){
       var droneSource = this.makeDroneSource(this.buffers[1]);
       droneSource[droneSource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
     }
-  }
-  // outro
-  for(var j = reactionArrayofArrays[indexOfLongest.length]; j < reactionArrayofArrays[indexOfLongest.length] + 2; j++){
-    if(j == reactionArrayofArrays[indexOfLongest].length + 1){
+    
+    // Closing Sign-off
+    if(j == reactionArrayofArrays[indexOfLongest].length - 1){
+      
+      // Outro drone
+      var droneSource = this.makeDroneSource(this.buffers[1]);
+      droneSource[droneSource.start ? 'start' : 'noteOn'](time + intro + (i + 1) * 16 * quarterNote);
+      
       // Play end sign-off
       var endSource = this.makeEndSource(this.buffers[8]);
-      endSource[endSource.start ? 'start' : 'noteOn'](time + intro + .05 + (j + 1) * 16 * quarterNote);
+      endSource[endSource.start ? 'start' : 'noteOn'](time + intro + .05 + (i + 2) * 16 * quarterNote);
     }
-    else{
-      var droneSource = this.makeDroneSource(this.buffers[1]);
-      droneSource[droneSource.start ? 'start' : 'noteOn'](time + intro + j * 16 * quarterNote);
-    }
+    
   }
 }
 
@@ -649,7 +650,7 @@ CompositionGeneration.prototype.makeHahaSource = function(buffer) {
 CompositionGeneration.prototype.makeWowSource = function(buffer) {
   var source = context.createBufferSource();
   var gain = context.createGain();
-  gain.gain.value = 0.95;
+  gain.gain.value = 1.25;
   source.buffer = buffer;
   source.connect(gain);
   gain.connect(context.destination);
