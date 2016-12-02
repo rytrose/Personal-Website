@@ -923,20 +923,15 @@ function animation(){
 
    indexOfLongest = 0;
    
-   nameArrayofArrays = [["Barry Morris", "Mary Breaux"]];
-   
-   reactionArrayofArrays = [["LIKE", "LIKE"]];
-   
-   
-  // nameArrayofArrays = [["Barry Morris", "Mary Breaux", "Alberto Coon",
-  //                       "Lisa Dove", "Carlos Hawkins", "Brandon Beech",
-  //                       "Tony Corral", "Odell Weaver", "Dawn Groves", "Cindy Irizarry",
-  //                       "Fletcher Jennings", "Pam Morgan", "Shirley Cole", 
-  //                       "Elmer Gaitan", "Terry Blanchard", "Bob Ross"]];
-  // reactionArrayofArrays = [["LIKE", "LIKE", "LIKE",
-  //                           "LIKE", "LOVE", "LIKE",
-  //                           "HAHA", "LIKE", "ANGRY", "LIKE",
-  //                           "LIKE", "SAD", "LIKE",
-  //                           "LIKE", "WOW", "LIKE"]];
+  nameArrayofArrays = [["Barry Morris", "Mary Breaux", "Alberto Coon",
+                        "Lisa Dove", "Carlos Hawkins", "Brandon Beech",
+                        "Tony Corral", "Odell Weaver", "Dawn Groves", "Cindy Irizarry",
+                        "Fletcher Jennings", "Pam Morgan", "Shirley Cole", 
+                        "Elmer Gaitan", "Terry Blanchard", "Bob Ross"]];
+  reactionArrayofArrays = [["LIKE", "LIKE", "LIKE",
+                            "LIKE", "LOVE", "LIKE",
+                            "HAHA", "LIKE", "ANGRY", "LIKE",
+                            "LIKE", "SAD", "LIKE",
+                            "LIKE", "WOW", "LIKE"]];
     music.playComposition();
  }
