@@ -576,7 +576,7 @@ CompositionGeneration.prototype.playComposition = function(){
     }
     
     // Closing Sign-off
-    if(j == reactionArrayofArrays[indexOfLongest].length - 1){
+    if(i == reactionArrayofArrays[indexOfLongest].length - 1){
       
       // Outro drone
       var droneSource = this.makeDroneSource(this.buffers[1]);
