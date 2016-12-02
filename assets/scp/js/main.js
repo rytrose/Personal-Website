@@ -67,6 +67,11 @@ $(document).ready(function(){
     $("#restart").click(function(){
       location.reload();
     });
+    
+    setTimeout(function(){
+      $('.loading').hide();
+      $('#demo').show();
+    }, 2000);
 });
 
 // Facebook API Init
