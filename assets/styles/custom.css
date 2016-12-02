@@ -86,6 +86,11 @@ body {
   margin-right: auto;
 }
 
+.scploading {
+  height: 50px;
+  width: 50px;
+}
+
 /* HOME */
 .name {
   margin-top: 0; 
