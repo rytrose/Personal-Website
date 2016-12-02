@@ -70,8 +70,8 @@ $(document).ready(function(){
     
     setTimeout(function(){
       $('#demo').show();
-      $('#scploading').hide();
-    }, 2000);
+      $('.scploading').hide();
+    }, 3000);
 });
 
 // Facebook API Init
