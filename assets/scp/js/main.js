@@ -569,7 +569,7 @@ CompositionGeneration.prototype.playComposition = function(){
     }
 
     // Drone is twice as long as reaction phrases, play and outro of 4 drone cycles
-    if(i < (reactionArrayofArrays[indexOfLongest].length / 2) + 4){
+    if(i < (reactionArrayofArrays[indexOfLongest].length) + 4){
       // Drone
       var droneSource = this.makeDroneSource(this.buffers[1]);
       droneSource[droneSource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
@@ -593,7 +593,7 @@ CompositionGeneration.prototype.playComposition = function(){
 CompositionGeneration.prototype.makeLikeSource = function(buffer) {
   var source = context.createBufferSource();
   var gain = context.createGain();
-  gain.gain.value = 0.50;
+  gain.gain.value = 0.65;
   source.buffer = buffer;
   source.connect(gain);
   gain.connect(context.destination);
@@ -603,7 +603,7 @@ CompositionGeneration.prototype.makeLikeSource = function(buffer) {
 CompositionGeneration.prototype.makeLikeSeqSource = function(buffer) {
   var source = context.createBufferSource();
   var gain = context.createGain();
-  gain.gain.value = 0.50;
+  gain.gain.value = 0.65;
   source.buffer = buffer;
   source.connect(gain);
   gain.connect(context.destination);
@@ -613,7 +613,7 @@ CompositionGeneration.prototype.makeLikeSeqSource = function(buffer) {
 CompositionGeneration.prototype.makeLoveSource = function(buffer) {
   var source = context.createBufferSource();
   var gain = context.createGain();
-  gain.gain.value = 0.50;
+  gain.gain.value = 0.65;
   source.buffer = buffer;
   source.connect(gain);
   gain.connect(context.destination);
@@ -623,7 +623,7 @@ CompositionGeneration.prototype.makeLoveSource = function(buffer) {
 CompositionGeneration.prototype.makeSadSource = function(buffer) {
   var source = context.createBufferSource();
   var gain = context.createGain();
-  gain.gain.value = 0.50;
+  gain.gain.value = 0.65;
   source.buffer = buffer;
   source.connect(gain);
   gain.connect(context.destination);
@@ -633,7 +633,7 @@ CompositionGeneration.prototype.makeSadSource = function(buffer) {
 CompositionGeneration.prototype.makeHahaSource = function(buffer) {
   var source = context.createBufferSource();
   var gain = context.createGain();
-  gain.gain.value = 0.50;
+  gain.gain.value = 0.65;
   source.buffer = buffer;
   source.connect(gain);
   gain.connect(context.destination);
@@ -643,7 +643,7 @@ CompositionGeneration.prototype.makeHahaSource = function(buffer) {
 CompositionGeneration.prototype.makeWowSource = function(buffer) {
   var source = context.createBufferSource();
   var gain = context.createGain();
-  gain.gain.value = 0.50;
+  gain.gain.value = 0.65;
   source.buffer = buffer;
   source.connect(gain);
   gain.connect(context.destination);
@@ -653,7 +653,7 @@ CompositionGeneration.prototype.makeWowSource = function(buffer) {
 CompositionGeneration.prototype.makeAngrySource = function(buffer) {
   var source = context.createBufferSource();
   var gain = context.createGain();
-  gain.gain.value = 0.50;
+  gain.gain.value = 0.65;
   source.buffer = buffer;
   source.connect(gain);
   gain.connect(context.destination);
@@ -663,7 +663,7 @@ CompositionGeneration.prototype.makeAngrySource = function(buffer) {
 CompositionGeneration.prototype.makeDroneSource = function(buffer) {
   var source = context.createBufferSource();
   var gain = context.createGain();
-  gain.gain.value = 0.40;
+  gain.gain.value = 0.50;
   source.buffer = buffer;
   source.connect(gain);
   gain.connect(context.destination);
