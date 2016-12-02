@@ -69,8 +69,8 @@ $(document).ready(function(){
     });
     
     setTimeout(function(){
-      $('.loading').hide();
-      $('#demo').show();
+      $('#loading').hide('fast');
+      $('#demo').show('fast');
     }, 2000);
 });
 
