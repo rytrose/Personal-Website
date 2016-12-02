@@ -568,17 +568,23 @@ CompositionGeneration.prototype.playComposition = function(){
       angrySource[angrySource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
     }
 
-    // Drone is twice as long as reaction phrases, play and outro of 4 drone cycles
-    if(i < (reactionArrayofArrays[indexOfLongest].length) + 4){
+    // Drone
+    if(i < (reactionArrayofArrays[indexOfLongest].length)){
       // Drone
       var droneSource = this.makeDroneSource(this.buffers[1]);
       droneSource[droneSource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
     }
-
-    if(i == reactionArrayofArrays[indexOfLongest].length - 1){
+  }
+  // outro
+  for(i = reactionArrayofArrays[indexOfLongest.length]; i < reactionArrayofArrays[indexOfLongest.length] + 2; i++){
+    if(i == reactionArrayofArrays[indexOfLongest].length + 1){
       // Play end sign-off
       var endSource = this.makeEndSource(this.buffers[8]);
       endSource[endSource.start ? 'start' : 'noteOn'](time + intro + .05 + (i + 1) * 16 * quarterNote);
+    }
+    else{
+      var droneSource = this.makeDroneSource(this.buffers[1]);
+      droneSource[droneSource.start ? 'start' : 'noteOn'](time + intro + i * 16 * quarterNote);
     }
   }
 }
@@ -910,15 +916,15 @@ function animation(){
    document.getElementById('pageInput').style = "display:none";
 
    indexOfLongest = 0;
-   nameArrayofArrays = [["Susie Hover", "Barry Morris", "Mary Breaux", "Alberto Coon",
-                         "Lisa Dove", "Carlos Hawkins", "Brandon Beech", "Jack Burch",
+   nameArrayofArrays = [["Barry Morris", "Mary Breaux", "Alberto Coon",
+                         "Lisa Dove", "Carlos Hawkins", "Brandon Beech",
                          "Tony Corral", "Odell Weaver", "Dawn Groves", "Cindy Irizarry",
-                         "Fletcher Jennings", "Pam Morgan", "Carla Brown", "Linda Johnson",
-                         "Shirley Cole", "Elmer Gaitan", "Terry Blanchard", "Bob Ross"]];
-   reactionArrayofArrays = [["LIKE", "LIKE", "LIKE", "LIKE",
-                             "LIKE", "LOVE", "LIKE", "LIKE",
+                         "Fletcher Jennings", "Pam Morgan", "Shirley Cole", 
+                         "Elmer Gaitan", "Terry Blanchard", "Bob Ross"]];
+   reactionArrayofArrays = [["LIKE", "LIKE", "LIKE",
+                             "LIKE", "LOVE", "LIKE",
                              "HAHA", "LIKE", "ANGRY", "LIKE",
-                             "LIKE", "SAD", "LIKE", "LIKE",
-                             "LIKE", "LIKE", "WOW", "LIKE"]];
+                             "LIKE", "SAD", "LIKE",
+                             "LIKE", "WOW", "LIKE"]];
     music.playComposition();
  }
