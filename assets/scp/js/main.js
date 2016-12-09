@@ -147,9 +147,10 @@ function generateComposition(){
     document.getElementById("loadingPosts").style.display = "block";
     document.getElementById("dateInput").style = "display:none";
     document.getElementById("dateSubmit").style = "display:none";
-    document.getElementById("startDate").style = "display:none";
-    document.getElementById("endDate").style = "display:none";
+    document.getElementById("startDateP").style = "display:none";
+    document.getElementById("endDateP").style = "display:none";
     document.getElementById("newDate").style = "display:none";
+    document.getElementById("demo").style = "display:none";
     reactionProcessing(finish);
   }
   else{
