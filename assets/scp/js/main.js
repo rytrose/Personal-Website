@@ -150,6 +150,7 @@ function generateComposition(){
     document.getElementById("startDateP").style = "display:none";
     document.getElementById("endDateP").style = "display:none";
     document.getElementById("newDate").style = "display:none";
+    document.getElementById("demoP").style = "display:none";
     document.getElementById("demo").style = "display:none";
     reactionProcessing(finish);
   }
