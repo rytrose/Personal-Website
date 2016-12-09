@@ -122,7 +122,7 @@ function myFacebookLogin(callback) {
     } else {
       console.log('User cancelled login or did not fully authorize.');
     }
-  }, {scope: 'user_friends,user_likes,user_posts'});
+  }, {scope: 'user_friends,user_posts'});
 };
 
 /*
