@@ -926,13 +926,13 @@ function animation(){
    
   nameArrayofArrays = [["Barry Morris", "Mary Breaux", "Alberto Coon",
                         "Lisa Dove", "Carlos Hawkins", "Brandon Beech",
-                        "Tony Corral", "Odell Weaver", "Dawn Groves", "Cindy Irizarry",
+                        "Tony Corral", "Odell Weaver", "Dawn Groves", 
                         "Fletcher Jennings", "Pam Morgan", "Shirley Cole", 
-                        "Elmer Gaitan", "Terry Blanchard", "Bob Ross"]];
+                        "Terry Blanchard", "Bob Ross"]];
   reactionArrayofArrays = [["LIKE", "LIKE", "LIKE",
                             "LIKE", "LOVE", "LIKE",
-                            "HAHA", "LIKE", "ANGRY", "LIKE",
+                            "HAHA", "LIKE", "ANGRY",
                             "LIKE", "SAD", "LIKE",
-                            "LIKE", "WOW", "LIKE"]];
+                            "WOW", "LIKE"]];
     music.playComposition();
  }
