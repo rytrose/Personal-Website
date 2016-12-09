@@ -80,7 +80,7 @@ window.fbAsyncInit = function() {
     appId      : '470173043180481',
     status     : true,
     xfbml      : true,
-    version    : 'v2.6'
+    version    : 'v2.8'
   });
 };
 
