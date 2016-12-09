@@ -38,6 +38,9 @@ module.exports.routes = {
     locals: {
       layout: 'layoutNoFoot'
     }
+  },
+  'get /privacy-policy' : {
+    view: 'privacy-policy/index'
   }
 
   /***************************************************************************
