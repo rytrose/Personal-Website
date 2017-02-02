@@ -410,6 +410,10 @@ body {
   text-decoration: none;
 }
 
+.bioA:active{
+  text-decoration: none;
+}
+
 .bioImg {
   margin-top: 4%;
   width: auto;
