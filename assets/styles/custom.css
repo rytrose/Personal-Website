@@ -476,3 +476,9 @@ body {
 .dateSubmitImg:hover {
   cursor: pointer;
 }
+
+.projectsDivide {
+  border-bottom: 2px dotted #5e5e5e;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
