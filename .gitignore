@@ -43,7 +43,11 @@ config/local.js
 data/*
 mongod
 config/s3config.json
-
+mongodb/*
+mongodb-linux-x86_64-3.4.6/*
+mongodb-linux-x86_64-3.4.6.tgz
+redis-stable.tar.gz
+redis-stable/*
 
 ################################################
 # Dependencies
