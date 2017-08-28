@@ -45,12 +45,6 @@ module.exports.bootstrap = function(cb) {
     var flag = true;
     var choreDate;
     var CHORES = 'C6TM6QK88';
-    
-    web.chat.postMessage(CHORES, "test from deployed", function(err, res) {
-        if(err){
-          console.log(err);
-        }
-    });
 
     var initModel = function(cb) {
       web.users.list(function(err, info) {
