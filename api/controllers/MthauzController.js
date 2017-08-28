@@ -61,6 +61,6 @@ module.exports = {
 
         }
 
-        res.ok({ "challenge": req.body.challenge });
+        res.json(200, { "challenge": req.body.challenge });
     }
 }
