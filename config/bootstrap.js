@@ -15,10 +15,11 @@ module.exports.bootstrap = function(cb) {
     // Your post-lift startup code here
     var WebClient = require('@slack/client').WebClient;
     var token = process.env.MTHAUZ_SLACK_APP_OAUTH;
+    sails.mthauz = {};
 
-    var web = new WebClient(token);
+    sails.mthauz.web = new WebClient(token);
     var listChannelsIds = function() {
-      web.channels.list(function(err, info) {
+      sails.mthauz.web.channels.list(function(err, info) {
         if (err) {
           console.log('Error:', err);
         }
@@ -31,23 +32,24 @@ module.exports.bootstrap = function(cb) {
     }
 
     var schedule = require('node-schedule');
-    var idToName = new Map();
-    var idToUser = new Map();
-    var idToChores = new Map();
-    var chores = [
+    sails.mthauz.idToName = new Map();
+    sails.mthauz.idToUser = new Map();
+    sails.mthauz.idToChores = new Map();
+    sails.mthauz.slackIdToId = new Map();
+    sails.mthauz.chores = [
       'vacuum and clean the common room',
       'clean the kitchen area (counters, shelves, fridge if need be)',
       'wipe kitchen stove and take out garbage',
       'clean the common room bathroom',
       'clean outside area'
     ];
-    var choreAssignment;
-    var flag = true;
-    var choreDate;
-    var CHORES = 'C6TM6QK88';
+    sails.mthauz.choreAssignment = [];
+    sails.mthauz.choreDate = null;
+    sails.mthauz.CHORES_CHANNEL = 'C6TM6QK88';
+    sails.mthauz.TESTING_CHANNEL = 'C6UPY77C4';
 
     var initModel = function(cb) {
-      web.users.list(function(err, info) {
+      sails.mthauz.web.users.list(function(err, info) {
         if (err) {
           console.log('Error:', err);
         }
@@ -57,9 +59,10 @@ module.exports.bootstrap = function(cb) {
           for (var i = 0; i < users.length; i++) {
             if (!users[i].is_bot && users[i].name != 'slackbot') {
               humanIndex++;
-              idToName.set(humanIndex, users[i].real_name);
-              idToUser.set(humanIndex, users[i].name);
-              idToChores.set(humanIndex, "")
+              sails.mthauz.slackIdToId.set(users[i].id, humanIndex);
+              sails.mthauz.idToName.set(humanIndex, users[i].real_name);
+              sails.mthauz.idToUser.set(humanIndex, users[i].name);
+              sails.mthauz.idToChores.set(humanIndex, "");
             }
           }
           cb();
@@ -68,34 +71,35 @@ module.exports.bootstrap = function(cb) {
     }
 
     var postInit = function() {
-      choreAssignment = new Array(idToName.size);
-      for (var i = 0; i < choreAssignment.length; i++) {
-        choreAssignment[i] = i;
+      sails.mthauz.choreAssignment = new Array(sails.mthauz.idToName.size);
+      for (var i = 0; i < sails.mthauz.choreAssignment.length; i++) {
+        sails.mthauz.choreAssignment[i] = i;
       }
+      rotateChores();
       var rotate = schedule.scheduleJob('0 0 * * 0', rotateChores); // '0 0 * * 0' Rotate chores on Sunday just after midnight
       var remind = schedule.scheduleJob('0 11 * * 3,6', runChoreReminder); // '0 11 * * 3,6' Remind people of chores at 11AM on Wed/Sat
     }
     
     var rotateChores = function() {
-      runChoreAssignment(choreAssignment);
+      runChoreAssignment(sails.mthauz.choreAssignment);
       
-      choreDate = new Date(Date.now());
+      sails.mthauz.choreDate = new Date(Date.now());
       
-      var text = "*CHORES FOR THE WEEK OF " + (choreDate.getMonth() + 1) + "/" + choreDate.getDate() + "*\n\n";
+      var text = "*CHORES FOR THE WEEK OF " + (sails.mthauz.choreDate.getMonth() + 1) + "/" + sails.mthauz.choreDate.getDate() + "*\n\n";
       text += getChoreString();
       
-      web.chat.postMessage(CHORES, text, function(err, res){
-        if(err) {
-          console.log(err);
-        }
-      });
+      // sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res){
+      //   if(err) {
+      //     console.log(err);
+      //   }
+      // });
     }
     
     var getChoreString = function() {
       var text = "";
-      for (var i = 0; i < idToName.size; i++) {
-        text += idToName.get(i) + " (<@" + idToUser.get(i) + "|" + idToUser.get(i) + ">) your chores are: ";
-        text += idToChores.get(i).slice(0, -5) + "\n\n";
+      for (var i = 0; i < sails.mthauz.idToName.size; i++) {
+        text += sails.mthauz.idToName.get(i) + " (<@" + sails.mthauz.idToUser.get(i) + "|" + sails.mthauz.idToUser.get(i) + ">) your chores are: ";
+        text += sails.mthauz.idToChores.get(i).slice(0, -5) + "\n\n";
       }
       return text;
     }
@@ -107,7 +111,7 @@ module.exports.bootstrap = function(cb) {
 
       text+= getChoreString();
 
-      web.chat.postMessage(CHORES, text, function(err, res){
+      sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res){
         if(err) {
           console.log(err);
         }
@@ -117,14 +121,15 @@ module.exports.bootstrap = function(cb) {
     var runChoreAssignment = function(choreAssignment) {
       rotate(choreAssignment);
       
-      for (var i = 0; i < idToChores.size; i++) {
-        idToChores.set(i, "");
+      for (var i = 0; i < sails.mthauz.idToChores.size; i++) {
+        sails.mthauz.idToChores.set(i, "");
       }
 
-      for (var i in chores) {
-        var assignedIndex = i % choreAssignment.length;
+      // Assign chores
+      for (var i in sails.mthauz.chores) {
+        var assignedIndex = i % sails.mthauz.choreAssignment.length;
         var id = choreAssignment[assignedIndex];
-        idToChores.set(id, idToChores.get(id) + chores[i] + " AND ");
+        sails.mthauz.idToChores.set(id, sails.mthauz.idToChores.get(id) + sails.mthauz.chores[i] + " AND ");
       }
     }
 

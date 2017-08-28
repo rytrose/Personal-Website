@@ -41,7 +41,8 @@ module.exports.routes = {
   },
   'get /privacy-policy' : {
     view: 'privacy-policy/index'
-  }
+  },
+  'post /mthauz' : 'MthauzController.slack',
 
   /***************************************************************************
   *                                                                          *
