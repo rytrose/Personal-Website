@@ -88,11 +88,11 @@ module.exports.bootstrap = function(cb) {
       var text = "*CHORES FOR THE WEEK OF " + (sails.mthauz.choreDate.getMonth() + 1) + "/" + sails.mthauz.choreDate.getDate() + "*\n\n";
       text += getChoreString();
       
-      // sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res){
-      //   if(err) {
-      //     console.log(err);
-      //   }
-      // });
+      sails.mthauz.web.chat.postMessage(sails.mthauz.CHORES_CHANNEL, text, function(err, res){
+        if(err) {
+          console.log(err);
+        }
+      });
     }
     
     var getChoreString = function() {
@@ -111,7 +111,7 @@ module.exports.bootstrap = function(cb) {
 
       text+= getChoreString();
 
-      sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res){
+      sails.mthauz.web.chat.postMessage(sails.mthauz.CHORES_CHANNEL, text, function(err, res){
         if(err) {
           console.log(err);
         }
