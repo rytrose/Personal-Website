@@ -16,7 +16,7 @@ module.exports.bootstrap = function(cb) {
     var WebClient = require('@slack/client').WebClient;
     sails.mthauz = {};
     sails.mthauz.token = process.env.MTHAUZ_SLACK_APP_OAUTH;
-    sails.mthauz.web = new WebClient(token);
+    sails.mthauz.web = new WebClient(sails.mthauz.token);
     
     sails.mthauz.chores = [
       'vacuum and clean the common room',
