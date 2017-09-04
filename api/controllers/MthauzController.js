@@ -81,6 +81,8 @@ module.exports = {
         sails.mthauz.CHORES_CHANNEL = 'C6TM6QK88';
         sails.mthauz.TESTING_CHANNEL = 'C6UPY77C4';
 
+        console.log("Hit setup model.");
+
         var initModel = function(cb) {
             web.users.list(function(err, info) {
                 if (err) {
@@ -127,6 +129,7 @@ module.exports = {
     },
 
     addChores: function(req, res, next) {
+        console.log("Hit addChores.");
         Mthauz.addChores(req.params.chores);
 
         Mthauz.find(function foundMthauzers(err, people) {
@@ -138,7 +141,7 @@ module.exports = {
     },
     
     getModel: function(req, res, next) {
-        
+        console.log("Hit getModel.");
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             res.send({
