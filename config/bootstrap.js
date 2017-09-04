@@ -14,6 +14,7 @@ module.exports.bootstrap = function(cb) {
   sails.on('lifted', function() {
 
     var WebClient = require('@slack/client').WebClient;
+    sails.mthauz = {};
     sails.mthauz.token = process.env.MTHAUZ_SLACK_APP_OAUTH;
     sails.mthauz.web = new WebClient(token);
     
