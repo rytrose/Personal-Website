@@ -42,7 +42,11 @@ module.exports.routes = {
   'get /privacy-policy' : {
     view: 'privacy-policy/index'
   },
-  'post /mthauz' : 'MthauzController.slack',
+  'post /mthauz/slack' : 'MthauzController.slack',
+  'post /mthauz/setup-model' : 'MthauzController.setupModel',
+  'post /mthauz/rotate-chores' : 'MthauzController.rotateChores',
+  'post /mthauz/add-chores' : 'MthauzController.addChores',
+  'post /mthauz/get-model' : 'MthauzController.getModel',
 
   /***************************************************************************
   *                                                                          *
