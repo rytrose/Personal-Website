@@ -129,6 +129,11 @@ module.exports = {
 
     addChores: function(req, res, next) {
         console.log("Hit addChores.");
+        
+        console.log(req.body.chores);
+            
+        console.log(req.param('chores'));
+    
         Mthauz.addChores(req.params.chores);
 
         Mthauz.find(function foundMthauzers(err, people) {
