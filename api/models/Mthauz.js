@@ -65,13 +65,17 @@ module.exports = {
     },
 
     addChores: function(newChores) {
-        console.log(newChores);
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) console.log(err);
             var highestCount = 0;
             var slackIdToAddTo = "";
             var prevChores = "";
-            _.each(newChores, function(newChore) {
+            
+            
+            var assignChore = function(newChores, ind) {
+                if(ind == newChores.length) return;
+                newChore = newChores[ind];
+                
                 console.log("New Chore: " + newChore);
                 _.every(people, function(person, i) {
                     var count = (person.chore.match(/ AND /g) || []).length;
@@ -109,9 +113,11 @@ module.exports = {
                 }
 
                 console.log("Updating " + slackIdToAddTo + " to " + prevChores);
-                Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores }, function(err) { if (err) { console.log(err) } });
-
-            });
+                Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores }, function(err) { if (err) { console.log(err) } }).exec(function afterwards(err, updated){ assignChore(newChores, ind + 1) });
+                
+            }
+        
+            assignChore(newChores, 0);
 
         });
     },
