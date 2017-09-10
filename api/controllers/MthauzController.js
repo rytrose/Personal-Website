@@ -82,6 +82,8 @@ module.exports = {
         sails.mthauz.TESTING_CHANNEL = 'C6UPY77C4';
 
         console.log("Hit setup model.");
+        
+        console.log(sails.mthauz.web);
 
         var initModel = function(cb) {
             sails.mthauz.web.users.list(function(err, info) {
@@ -89,8 +91,10 @@ module.exports = {
                     console.log('Error:', err);
                 }
                 else {
+                    console.log("Got a users list response.", info);
+                    
                     var users = info.members;
-                    console.log(users);
+                    
                     for (var i = 0; i < users.length; i++) {
                         if (!users[i].is_bot && users[i].name != 'slackbot') {
                             console.log("Making user: " + users[i].id);
