@@ -113,7 +113,15 @@ module.exports = {
                 }
 
                 console.log("Updating " + slackIdToAddTo + " to " + prevChores);
-                Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores }, function(err) { if (err) { console.log(err) } }).exec(function afterwards(err, updated){ assignChore(newChores, ind + 1) });
+                Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores }, function(err) { 
+                    if (err) { 
+                        console.log(err) 
+                        
+                    } 
+                    else {
+                        assignChore(newChores, ind + 1);
+                    }
+                });
                 
             }
         
