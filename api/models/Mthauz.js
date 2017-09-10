@@ -72,11 +72,9 @@ module.exports = {
             var slackIdToAddTo = "";
             var prevChores = "";
             _.each(newChores, function(newChore) {
+                console.log("New Chore: " + newChore);
                 _.each(people, function(person) {
                     var count = (person.chore.match(/ AND /g) || []).length;
-                    if(count == undefined) {
-                        count = 0;   
-                    }
                     if (count <= andCount) {
                         andCount = count;
                         slackIdToAddTo = person.slackId;
@@ -88,7 +86,7 @@ module.exports = {
                     prevChores = newChore;
                 }
                 else {
-                    prevChores += " AND " + newChore;
+                    prevChores = prevChores + " AND " + newChore;
                 }
 
                 Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores }, function(err) { if (err) { console.log(err) } });
