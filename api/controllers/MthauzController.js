@@ -64,7 +64,7 @@ module.exports = {
         res.ok({ "challenge": req.body.challenge });
     },
 
-    setupmodel: function(req, res, next) {
+    setupModel: function(req, res, next) {
         var WebClient = require('@slack/client').WebClient;
         var token = process.env.MTHAUZ_SLACK_APP_OAUTH;
         var web = new WebClient(token);

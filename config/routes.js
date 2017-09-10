@@ -43,10 +43,10 @@ module.exports.routes = {
     view: 'privacy-policy/index'
   },
   'post /mthauz/slack' : 'MthauzController.slack',
-  'post /mthauz/setupmodel' : 'MthauzController.setupmodel',
-  'post /mthauz/rotate-chores' : 'MthauzController.rotateChores',
-  'post /mthauz/add-chores' : 'MthauzController.addChores',
-  'post /mthauz/get-model' : 'MthauzController.getModel',
+  'get /mthauz/setupModel' : 'MthauzController.setupModel',
+  'get /mthauz/rotateChores' : 'MthauzController.rotateChores',
+  'get /mthauz/addChores' : 'MthauzController.addChores',
+  'get /mthauz/getModel' : 'MthauzController.getModel',
 
   /***************************************************************************
   *                                                                          *
