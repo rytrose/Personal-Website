@@ -73,7 +73,7 @@ module.exports = {
             var prevChores = "";
             _.each(newChores, function(newChore) {
                 console.log("New Chore: " + newChore);
-                people.every(people, function(person, i) {
+                people.every(function(person, i) {
                     var count = (person.chore.match(/ AND /g) || []).length;
                     if (person.chore == "") {
                         slackIdToAddTo = person.slackId;
