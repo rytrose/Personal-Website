@@ -68,18 +68,37 @@ module.exports = {
         console.log(newChores);
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) console.log(err);
-            var andCount = 0;
+            var highestCount = 0;
             var slackIdToAddTo = "";
             var prevChores = "";
             _.each(newChores, function(newChore) {
                 console.log("New Chore: " + newChore);
-                _.each(people, function(person) {
+                people.every(people, function(person, i) {
                     var count = (person.chore.match(/ AND /g) || []).length;
-                    if (count <= andCount) {
-                        andCount = count;
+                    if (person.chore == "") {
                         slackIdToAddTo = person.slackId;
                         prevChores = person.chore;
+                        return false;
                     }
+                    else if (count == 0 && highestCount == 0) {
+                        highestCount = 1;
+                        slackIdToAddTo = person.slackId;
+                        prevChores = person.chore;
+                        return false;
+                    }
+                    else if (count < highestCount) {
+                        highestCount = count + 1;
+                        slackIdToAddTo = person.slackId;
+                        prevChores = person.chore;
+                        return false;
+                    }
+                    else if (count == highestCount && i == people.length - 1) {
+                        highestCount = count + 1;
+                        slackIdToAddTo = person.slackId;
+                        prevChores = person.chore;
+                        return false;
+                    }
+                    return true;
                 });
 
                 if (prevChores == "") {
@@ -89,6 +108,7 @@ module.exports = {
                     prevChores = prevChores + " AND " + newChore;
                 }
 
+                console.log("Updating " + person.real_name + " (" + person.slackIdToAddTo + "): " + prevChores);
                 Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores }, function(err) { if (err) { console.log(err) } });
 
             });
