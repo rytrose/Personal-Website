@@ -69,11 +69,14 @@ module.exports = {
             if (err) console.log(err);
             var andCount = 0;
             _.each(newChores, function(newChore) {
-                console.log("inside newChores each")
                 var slackIdToAddTo = "";
                 var prevChores = "";
                 _.each(people, function(person) {
                     var count = (person.chore.match(/ AND /g) || []).length;
+                    if(count == undefined) {
+                        count = 0;   
+                    }
+                    console.log("Count: " + count);
                     if (count <= andCount) {
                         andCount = count;
                         slackIdToAddTo = person.slackId;
