@@ -108,6 +108,7 @@ module.exports = {
                     prevChores = prevChores + " AND " + newChore;
                 }
 
+                console.log("Updating " + slackIdToAddTo + " to " + prevChores);
                 Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores }, function(err) { if (err) { console.log(err) } });
 
             });
