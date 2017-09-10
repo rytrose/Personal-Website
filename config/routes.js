@@ -45,7 +45,7 @@ module.exports.routes = {
   'post /mthauz/slack' : 'MthauzController.slack',
   'get /mthauz/setupModel' : 'MthauzController.setupModel',
   'get /mthauz/rotateChores' : 'MthauzController.rotateChores',
-  'get /mthauz/addChores' : 'MthauzController.addChores',
+  'post /mthauz/addChores' : 'MthauzController.addChores',
   'get /mthauz/getModel' : 'MthauzController.getModel',
   'get /mthauz/deleteModel' : 'MthauzController.deleteModel',
 

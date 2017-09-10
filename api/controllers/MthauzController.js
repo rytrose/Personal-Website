@@ -81,23 +81,18 @@ module.exports = {
         sails.mthauz.CHORES_CHANNEL = 'C6TM6QK88';
         sails.mthauz.TESTING_CHANNEL = 'C6UPY77C4';
 
-        console.log("Hit setup model.");
-
-        console.log(sails.mthauz.web);
-
         var initModel = function(cb) {
             sails.mthauz.web.users.list(function(err, info) {
                 if (err) {
                     console.log('Error:', err);
                 }
                 else {
-                    console.log("Got a users list response.", info);
 
                     var users = info.members;
 
                     for (var i = 0; i < users.length; i++) {
                         if (!users[i].is_bot && users[i].name != 'slackbot') {
-                            console.log("Making user: " + users[i].id);
+                            console.log("Making user: " + users[i].real_name);
                             Mthauz.create({ name: users[i].real_name, slackId: users[i].id, slackUsername: users[i].name, chore: "" }, function(err, file) {
                                 if (err) {
                                     console.log(err);
