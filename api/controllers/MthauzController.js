@@ -15,6 +15,8 @@ module.exports = {
         if (event) {
             if (event.text) {
                 if (event.text.match(/(mthauzbot|bot|shimon)((?!(mychore)).)*$/)) {
+                    console.log("heard bot name!");
+                    
                     split = event.text.split(' ')[0];
                     console.log(split);
                     if (split == 'mthauzbot' || split == 'bot' || split == 'shimon') {
@@ -66,8 +68,6 @@ module.exports = {
 
     setupModel: function(req, res, next) {
         var WebClient = require('@slack/client').WebClient;
-        var token = process.env.MTHAUZ_SLACK_APP_OAUTH;
-        var web = new WebClient(token);
         var schedule = require('node-schedule');
 
         sails.mthauz.chores = [
@@ -84,14 +84,16 @@ module.exports = {
         console.log("Hit setup model.");
 
         var initModel = function(cb) {
-            web.users.list(function(err, info) {
+            sails.mthauz.web.users.list(function(err, info) {
                 if (err) {
                     console.log('Error:', err);
                 }
                 else {
                     var users = info.members;
+                    console.log(users);
                     for (var i = 0; i < users.length; i++) {
                         if (!users[i].is_bot && users[i].name != 'slackbot') {
+                            console.log("Making user: " + users[i].id);
                             Mthauz.create({ name: users[i].real_name, slackId: users[i].id, slackUsername: users[i].name, chore: "" }, function(err, file) {
                                 if (err) {
                                     console.log(err);

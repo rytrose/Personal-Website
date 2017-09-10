@@ -8,11 +8,6 @@
 module.exports = {
 
     attributes: {
-        id: {
-            type: 'integer',
-            autoIncrement: true
-        },
-
         name: {
             type: 'string',
             required: false
@@ -30,44 +25,8 @@ module.exports = {
 
         chore: {
             type: 'string',
-            required: 'false',
+            required: false,
         }
-    },
-    
-    setupModel: function() {
-        
-        var initModel = function(cb) {
-            sails.mthauz.web.users.list(function(err, info) {
-                if (err) {
-                    console.log('Error:', err);
-                }
-                else {
-                    var users = info.members;
-                    for (var i = 0; i < users.length; i++) {
-                        if (!users[i].is_bot && users[i].name != 'slackbot') {
-                            Mthauz.create({ name: users[i].real_name, slackId: users[i].id, slackUsername: users[i].name, chore: "" }, function(err, file) {
-                                if (err) {
-                                    console.log(err);
-                                }
-                            });
-                        }
-                    }
-                    cb();
-                }
-            });
-        }
-
-        var postInit = function() {
-            Mthauz.find(function foundMthauzers(err, people) {
-                if (err) return next(err);
-                res.send({
-                    people: people
-                });
-            });
-        }
-
-        initModel(postInit);
-
     },
 
     rotateChores: function() {
