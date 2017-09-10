@@ -47,6 +47,8 @@ module.exports.routes = {
   'get /mthauz/rotateChores' : 'MthauzController.rotateChores',
   'get /mthauz/addChores' : 'MthauzController.addChores',
   'get /mthauz/getModel' : 'MthauzController.getModel',
+  'get /mthauz/deleteModel' : 'MthauzController.deleteModel',
+
 
   /***************************************************************************
   *                                                                          *

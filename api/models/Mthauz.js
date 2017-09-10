@@ -20,7 +20,8 @@ module.exports = {
 
         slackUsername: {
             type: 'string',
-            required: true
+            required: true,
+            unique: true,
         },
 
         chore: {

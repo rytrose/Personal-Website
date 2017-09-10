@@ -153,6 +153,17 @@ module.exports = {
             });
         });
     },
+    
+    deleteModel: function(req, res, next) {
+        Mthauz.destroy({});
+        
+        Mthauz.find(function foundMthauzers(err, people) {
+            if (err) return next(err);
+            res.send({
+                people: people
+            });
+        });
+    },
 
 
 }
