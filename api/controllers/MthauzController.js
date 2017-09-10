@@ -16,7 +16,7 @@ module.exports = {
             if (event.text) {
                 if (event.text.match(/(mthauzbot|bot|shimon)((?!(mychore)).)*$/)) {
                     console.log("heard bot name!");
-                    
+
                     split = event.text.split(' ')[0];
                     console.log(split);
                     if (split == 'mthauzbot' || split == 'bot' || split == 'shimon') {
@@ -82,7 +82,7 @@ module.exports = {
         sails.mthauz.TESTING_CHANNEL = 'C6UPY77C4';
 
         console.log("Hit setup model.");
-        
+
         console.log(sails.mthauz.web);
 
         var initModel = function(cb) {
@@ -92,9 +92,9 @@ module.exports = {
                 }
                 else {
                     console.log("Got a users list response.", info);
-                    
+
                     var users = info.members;
-                    
+
                     for (var i = 0; i < users.length; i++) {
                         if (!users[i].is_bot && users[i].name != 'slackbot') {
                             console.log("Making user: " + users[i].id);
@@ -113,7 +113,7 @@ module.exports = {
         var postInit = function() {
             Mthauz.find(function foundMthauzers(err, people) {
                 if (err) return next(err);
-                res.ok({people: people});
+                res.ok({ people: people });
             });
         }
 
@@ -143,7 +143,7 @@ module.exports = {
             });
         });
     },
-    
+
     getModel: function(req, res, next) {
         console.log("Hit getModel.");
         Mthauz.find(function foundMthauzers(err, people) {
@@ -153,10 +153,14 @@ module.exports = {
             });
         });
     },
-    
+
     deleteModel: function(req, res, next) {
-        Mthauz.destroy({});
-        
+        Mthauz.destroy({}, function(err) {
+            if (err) {
+                console.log(err);
+            }
+        });
+
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             res.send({
