@@ -65,16 +65,17 @@ module.exports = {
     },
 
     addChores: function(newChores) {
-        console.log("Hit addChores: " + newChores);
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) console.log(err);
+            var andCount = 0;
             _.each(newChores, function(newChore) {
+                console.log("inside newChores each")
                 var slackIdToAddTo = "";
-                var andCount = 0;
                 var prevChores = "";
                 _.each(people, function(person) {
                     var count = (person.chore.match(/ AND /g) || []).length;
-                    if (count > andCount) {
+                    if (count <= andCount) {
+                        andCount = count;
                         slackIdToAddTo = person.slackId;
                         prevChores = person.chore;
                     }
