@@ -8,11 +8,6 @@
 module.exports = {
 
     attributes: {
-        id: {
-            type: 'integer',
-            autoIncrement: true
-        },
-
         name: {
             type: 'string',
             required: false
@@ -74,13 +69,13 @@ module.exports = {
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) console.log(err);
             _.each(newChores, function(newChore) {
-                var idToAddTo = 0;
+                var slackIdToAddTo = "";
                 var andCount = 0;
                 var prevChores = "";
                 _.each(people, function(person) {
                     var count = (person.chore.match(/ AND /g) || []).length;
                     if (count > andCount) {
-                        idToAddTo = person.id;
+                        slackIdToAddTo = person.slackId;
                         prevChores = person.chore;
                     }
                 });
@@ -92,7 +87,7 @@ module.exports = {
                     prevChores += " AND " + newChore;
                 }
 
-                Mthauz.update(idToAddTo, { chore: prevChores }, function(err) { if (err) { console.log(err) } });
+                Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores }, function(err) { if (err) { console.log(err) } });
 
             });
 
