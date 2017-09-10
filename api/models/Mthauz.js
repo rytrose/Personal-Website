@@ -8,6 +8,11 @@
 module.exports = {
 
     attributes: {
+        id: {
+            type: 'integer',
+            autoIncrement: true
+        },
+
         name: {
             type: 'string',
             required: false
@@ -65,8 +70,9 @@ module.exports = {
     },
 
     addChores: function(newChores) {
+        console.log("Hit addChores: " + newChores);
         Mthauz.find(function foundMthauzers(err, people) {
-            if (err) return next(err);
+            if (err) console.log(err);
             _.each(newChores, function(newChore) {
                 var idToAddTo = 0;
                 var andCount = 0;
