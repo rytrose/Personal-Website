@@ -66,14 +66,15 @@ module.exports = {
 
     addChores: function(newChores) {
 
-        var highestCount = 0;
-        var slackIdToAddTo = "";
-        var prevChores = "";
-
-
         var assignChore = function(newChores, ind) {
+            var highestCount = 0;
+            var slackIdToAddTo = "";
+            var prevChores = "";
+            
             var people;
             Mthauz.find(function foundMthauzers(err, ret) { people = ret; })
+
+            console.log("People: " + people);
 
             if (ind == newChores.length) return;
             newChore = newChores[ind];
@@ -82,7 +83,12 @@ module.exports = {
             _.every(people, function(person, i) {
                 var count = (person.chore.match(/ AND /g) || []).length;
                 if (person.chore == "") {
-                    highestCount == 1;
+                    slackIdToAddTo = person.slackId;
+                    prevChores = person.chore;
+                    return false;
+                }
+                else if (count == 0 && highestCount == 0) {
+                    highestCount = 1;
                     slackIdToAddTo = person.slackId;
                     prevChores = person.chore;
                     return false;
