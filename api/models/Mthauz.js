@@ -43,7 +43,7 @@ module.exports = {
             var newChoreCount = new Array(people.length);
             
             // Shuffle!
-            _.each(people, function(person, id) {
+            _.each(people, function(person, i) {
                 idOrder[i] = person.slackId;
                 if ((i + 1) == newChores.length) {
                     newChores[0] = person.chore;
@@ -143,9 +143,8 @@ module.exports = {
             _.each(people, function(person) {
                 text += person.name + " (<@" + person.slackUsername + "|" + person.slackUsername + ">) your chores are: " + person.chore + "\n\n";
             });
+            return text;
         });
-
-        return text;
     },
 
     weeklyChores: function() {
