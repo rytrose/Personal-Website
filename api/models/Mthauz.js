@@ -70,61 +70,63 @@ module.exports = {
             var highestCount = 0;
             var slackIdToAddTo = "";
             var prevChores = "";
-            
-            var people;
-            Mthauz.find(function foundMthauzers(err, ret) { people = ret; })
 
-            console.log("People: " + people);
-
-            if (ind == newChores.length) return;
-            newChore = newChores[ind];
-
-            console.log("New Chore: " + newChore);
-            _.every(people, function(person, i) {
-                var count = (person.chore.match(/ AND /g) || []).length;
-                if (person.chore == "") {
-                    slackIdToAddTo = person.slackId;
-                    prevChores = person.chore;
-                    return false;
-                }
-                else if (count == 0 && highestCount == 0) {
-                    highestCount = 1;
-                    slackIdToAddTo = person.slackId;
-                    prevChores = person.chore;
-                    return false;
-                }
-                else if (count < highestCount) {
-                    highestCount = count + 1;
-                    slackIdToAddTo = person.slackId;
-                    prevChores = person.chore;
-                    return false;
-                }
-                else if (count == highestCount && i == people.length - 1) {
-                    highestCount = count + 1;
-                    slackIdToAddTo = person.slackId;
-                    prevChores = person.chore;
-                    return false;
-                }
-                return true;
+            Mthauz.find(function foundMthauzers(err, ret) {
+                var people = ret;
+                assign(people);
             });
 
-            if (prevChores == "") {
-                prevChores = newChore;
-            }
-            else {
-                prevChores = prevChores + " AND " + newChore;
-            }
+            var assign = function(people) {
+                if (ind == newChores.length) return;
+                newChore = newChores[ind];
 
-            console.log("Updating " + slackIdToAddTo + " to " + prevChores);
-            Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores }, function(err) {
-                if (err) {
-                    console.log(err)
+                console.log("New Chore: " + newChore);
+                _.every(people, function(person, i) {
+                    var count = (person.chore.match(/ AND /g) || []).length;
+                    if (person.chore == "") {
+                        slackIdToAddTo = person.slackId;
+                        prevChores = person.chore;
+                        return false;
+                    }
+                    else if (count == 0 && highestCount == 0) {
+                        highestCount = 1;
+                        slackIdToAddTo = person.slackId;
+                        prevChores = person.chore;
+                        return false;
+                    }
+                    else if (count < highestCount) {
+                        highestCount = count + 1;
+                        slackIdToAddTo = person.slackId;
+                        prevChores = person.chore;
+                        return false;
+                    }
+                    else if (count == highestCount && i == people.length - 1) {
+                        highestCount = count + 1;
+                        slackIdToAddTo = person.slackId;
+                        prevChores = person.chore;
+                        return false;
+                    }
+                    return true;
+                });
 
+                if (prevChores == "") {
+                    prevChores = newChore;
                 }
                 else {
-                    assignChore(newChores, ind + 1);
+                    prevChores = prevChores + " AND " + newChore;
                 }
-            });
+
+                console.log("Updating " + slackIdToAddTo + " to " + prevChores);
+                Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores }, function(err) {
+                    if (err) {
+                        console.log(err)
+
+                    }
+                    else {
+                        assignChore(newChores, ind + 1);
+                    }
+                });
+            }
 
         }
 
