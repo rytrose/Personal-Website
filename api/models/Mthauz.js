@@ -157,8 +157,6 @@ module.exports = {
         var text = "*CHORES REMINDER!*\n";
         text += "_All chores are due by 11:59PM on Saturday!_\n\n";
 
-        Mthauz.getChoreString(callback);
-
         var callback = function(choreString) {
             text += choreString;
 
@@ -168,6 +166,8 @@ module.exports = {
                 }
             });
         };
+        
+        Mthauz.getChoreString(callback);
     },
 
     getChoreString: function(cb) {
