@@ -48,6 +48,7 @@ module.exports.routes = {
   'post /mthauz/addChores' : 'MthauzController.addChores',
   'get /mthauz/getModel' : 'MthauzController.getModel',
   'get /mthauz/deleteModel' : 'MthauzController.deleteModel',
+  'get /mthauz/getChoreString' : 'MthauzController.getChoreString',
 
 
   /***************************************************************************

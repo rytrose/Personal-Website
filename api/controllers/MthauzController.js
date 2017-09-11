@@ -171,6 +171,11 @@ module.exports = {
             });
         });
     },
-
+    
+    getChoreString: function(req, res, next) {
+        res.send({
+            choreString: Mthauz.getChoreString()
+        });
+    },
 
 }
