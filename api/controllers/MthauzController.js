@@ -174,7 +174,7 @@ module.exports = {
 
     getChoreString: function(req, res, next) {
         var text = "";
-        
+
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             _.each(people, function(person) {
@@ -186,12 +186,13 @@ module.exports = {
             });
         });
     },
-    
+
     runChoreReminder: function(req, res, next) {
-        var text = "";
+
         Mthauz.runChoreReminder();
-        
+
         res.send("Running chore reminder.");
+        
     },
 
 }

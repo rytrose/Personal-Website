@@ -28,7 +28,7 @@ module.exports = {
             type: 'string',
             required: false,
         },
-        
+
         choreCount: {
             type: 'integer',
             required: true
@@ -41,7 +41,7 @@ module.exports = {
             var idOrder = new Array(people.length);
             var newChores = new Array(people.length);
             var newChoreCount = new Array(people.length);
-            
+
             // Shuffle!
             _.each(people, function(person, i) {
                 idOrder[i] = person.slackId;
@@ -59,9 +59,9 @@ module.exports = {
             _.each(idOrder, function(id, i) {
                 updatedChore = newChores[i];
                 updatedChoreCount = newChoreCount[i];
-                
 
-                Mthauz.update({ slackId: id }, { chore: updatedChore, choreCount: updatedChoreCount } , function personUpdated(err) {
+
+                Mthauz.update({ slackId: id }, { chore: updatedChore, choreCount: updatedChoreCount }, function personUpdated(err) {
                     if (err) {
                         console.log(err);
                     }
@@ -87,13 +87,13 @@ module.exports = {
                 newChore = newChores[ind];
 
                 console.log("New Chore: " + newChore);
-                
-                _.each(people, function(person){
-                    if(person.choreCount > highestCount) {
-                        highestCount = person.choreCount;   
+
+                _.each(people, function(person) {
+                    if (person.choreCount > highestCount) {
+                        highestCount = person.choreCount;
                     }
                 });
-                
+
                 _.every(people, function(person, i) {
                     if (person.choreCount < highestCount) {
                         highestCount = person.choreCount + 1;
@@ -141,7 +141,7 @@ module.exports = {
         sails.mthauz.choreDate = new Date(Date.now());
 
         var text = "*CHORES FOR THE WEEK OF " + (sails.mthauz.choreDate.getMonth() + 1) + "/" + sails.mthauz.choreDate.getDate() + "*\n\n";
-        
+
         var callback = function(x) { return x };
         text += getChoreString(callback);
 
@@ -153,24 +153,26 @@ module.exports = {
     },
 
     runChoreReminder: function() {
-        
-        var callback = function(x) { return x };
 
         var text = "*CHORES REMINDER!*\n";
         text += "_All chores are due by 11:59PM on Saturday!_\n\n";
 
-        text += Mthauz.getChoreString(callback);
+        Mthauz.getChoreString(callback);
 
-        sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res) {
-            if (err) {
-                console.log(err);
-            }
-        });
+        var callback = function(choreString) {
+            text += choreString;
+
+            sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res) {
+                if (err) {
+                    console.log(err);
+                }
+            });
+        };
     },
-    
+
     getChoreString: function(cb) {
         var text = "";
-        
+
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             _.each(people, function(person) {
