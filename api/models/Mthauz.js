@@ -94,14 +94,14 @@ module.exports = {
                 });
                 
                 _.every(people, function(person, i) {
-                    if (count < highestCount) {
-                        highestCount = count + 1;
+                    if (person.choreCount < highestCount) {
+                        highestCount = person.choreCount + 1;
                         slackIdToAddTo = person.slackId;
                         prevChores = person.chore;
                         return false;
                     }
-                    else if (count == highestCount && i == people.length - 1) {
-                        highestCount = count + 1;
+                    else if (person.choreCount == highestCount && i == people.length - 1) {
+                        highestCount = person.choreCount + 1;
                         slackIdToAddTo = person.slackId;
                         prevChores = person.chore;
                         return false;
