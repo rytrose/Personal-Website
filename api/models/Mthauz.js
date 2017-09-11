@@ -38,33 +38,34 @@ module.exports = {
     rotateChores: function() {
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
+            var idOrder = new Array(people.length);
             var newChores = new Array(people.length);
-            var i = 0;
-
-            // Shuffle chores into newChores
+            var newChoreCount = new Array(people.length);
+            
+            // Shuffle!
             _.each(people, function(person) {
+                idOrder[i] = person.slackId;
                 if ((i + 1) == newChores.length) {
                     newChores[0] = person.chore;
+                    newChoreCount[0] = person.choreCount;
                 }
                 else {
                     newChores[i + 1] = person.chore;
+                    newChoreCount[i + 1] = person.choreCount;
                 }
-                i++;
             });
 
-            i = 0;
-
             // Update newChores
-            _.each(people, function(person) {
-                var update = person;
-                update.chore = newChores[i];
+            _.each(idOrder, function(id, i) {
+                updatedChore = newChores[i];
+                updatedChoreCount = newChoreCount[i];
+                
 
-                Mthuaz.update(person.id, update, function personUpdated(err) {
+                Mthuaz.update({ slackId: id }, { chore: updatedChore, choreCount: updatedChoreCount } , function personUpdated(err) {
                     if (err) {
                         console.log(err);
                     }
                 });
-                i++;
             });
         });
     },
