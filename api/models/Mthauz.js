@@ -145,7 +145,7 @@ module.exports = {
         var callback = function(choreString) {
             text += choreString;
 
-            sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res) {
+            sails.mthauz.web.chat.postMessage(sails.mthauz.CHORES_CHANNEL, text, function(err, res) {
                 if (err) {
                     console.log(err);
                 }
@@ -163,7 +163,7 @@ module.exports = {
         var callback = function(choreString) {
             text += choreString;
 
-            sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res) {
+            sails.mthauz.web.chat.postMessage(sails.mthauz.CHORES_CHANNEL, text, function(err, res) {
                 if (err) {
                     console.log(err);
                 }

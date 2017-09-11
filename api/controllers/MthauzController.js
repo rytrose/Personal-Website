@@ -118,41 +118,33 @@ module.exports = {
 
     rotateChores: function(req, res, next) {
         Mthauz.rotateChores();
-        var str = Mthauz.getChoreString();
 
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             res.send({
-                people: people,
-                choreString: str
+                people: people
             });
         });
     },
 
     addChores: function(req, res, next) {
-        console.log("Hit addChores.");
-        var str = Mthauz.getChoreString();
 
         Mthauz.addChores(req.param("chores").split("|"));
 
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             res.send({
-                people: people,
-                choreString: str
+                people: people
             });
         });
     },
 
     getModel: function(req, res, next) {
-        console.log("Hit getModel.");
-        var str = Mthauz.getChoreString();
 
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             res.send({
-                people: people,
-                choreString: str
+                people: people
             });
         });
     },

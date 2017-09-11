@@ -30,8 +30,8 @@ module.exports.bootstrap = function(cb) {
     sails.mthauz.TESTING_CHANNEL = 'C6UPY77C4';
     
     var schedule = require('node-schedule');
-    // var rotate = schedule.scheduleJob('1 0 * * 0', Mthauz.weeklyChores); // '0 0 * * 0' Rotate chores on Sunday just after midnight
-    // var remind = schedule.scheduleJob('0 11 * * 3,6', Mthauz.runChoreReminder); // '0 11 * * 3,6' Remind people of chores at 11AM on Wed/Sat
+    var rotate = schedule.scheduleJob('1 0 * * 0', Mthauz.weeklyChores); // '0 0 * * 0' Rotate chores on Sunday just after midnight
+    var remind = schedule.scheduleJob('0 11 * * 3,6', Mthauz.runChoreReminder); // '0 11 * * 3,6' Remind people of chores at 11AM on Wed/Sat
 
   });
 
