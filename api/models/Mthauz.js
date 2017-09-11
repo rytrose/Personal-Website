@@ -82,12 +82,7 @@ module.exports = {
             _.every(people, function(person, i) {
                 var count = (person.chore.match(/ AND /g) || []).length;
                 if (person.chore == "") {
-                    slackIdToAddTo = person.slackId;
-                    prevChores = person.chore;
-                    return false;
-                }
-                else if (count == 0 && highestCount == 0) {
-                    highestCount = 1;
+                    highestCount == 1;
                     slackIdToAddTo = person.slackId;
                     prevChores = person.chore;
                     return false;
