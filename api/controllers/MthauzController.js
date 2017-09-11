@@ -147,7 +147,7 @@ module.exports = {
     getModel: function(req, res, next) {
         console.log("Hit getModel.");
         var str = Mthauz.getChoreString();
-        
+
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             res.send({
@@ -171,10 +171,19 @@ module.exports = {
             });
         });
     },
-    
+
     getChoreString: function(req, res, next) {
-        res.send({
-            choreString: Mthauz.getChoreString()
+        var text = "";
+        
+        Mthauz.find(function foundMthauzers(err, people) {
+            if (err) return next(err);
+            _.each(people, function(person) {
+                text += person.name + " (<@" + person.slackUsername + "|" + person.slackUsername + ">) your chores are: " + person.chore + "\n\n";
+            });
+
+            res.send({
+                choreString: text
+            });
         });
     },
 

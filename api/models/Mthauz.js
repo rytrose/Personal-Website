@@ -135,18 +135,6 @@ module.exports = {
 
     },
 
-    getChoreString: function() {
-        var text = "";
-
-        Mthauz.find(function foundMthauzers(err, people) {
-            if (err) return next(err);
-            _.each(people, function(person) {
-                text += person.name + " (<@" + person.slackUsername + "|" + person.slackUsername + ">) your chores are: " + person.chore + "\n\n";
-            });
-            return text;
-        });
-    },
-
     weeklyChores: function() {
         Mthauz.rotateChores();
 
