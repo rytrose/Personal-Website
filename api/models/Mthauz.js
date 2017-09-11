@@ -141,9 +141,11 @@ module.exports = {
         sails.mthauz.choreDate = new Date(Date.now());
 
         var text = "*CHORES FOR THE WEEK OF " + (sails.mthauz.choreDate.getMonth() + 1) + "/" + sails.mthauz.choreDate.getDate() + "*\n\n";
-        text += getChoreString();
+        
+        var callback = function(x) { return x };
+        text += getChoreString(callback);
 
-        sails.mthauz.web.chat.postMessage(sails.mthauz.CHORES_CHANNEL, text, function(err, res) {
+        sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res) {
             if (err) {
                 console.log(err);
             }
@@ -151,16 +153,31 @@ module.exports = {
     },
 
     runChoreReminder: function() {
+        
+        var callback = function(x) { return x };
 
         var text = "*CHORES REMINDER!*\n";
         text += "_All chores are due by 11:59PM on Saturday!_\n\n";
 
-        text += Mthauz.getChoreString();
+        text += Mthauz.getChoreString(callback);
 
-        sails.mthauz.web.chat.postMessage(sails.mthauz.CHORES_CHANNEL, text, function(err, res) {
+        sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res) {
             if (err) {
                 console.log(err);
             }
+        });
+    },
+    
+    getChoreString: function(cb) {
+        var text = "";
+        
+        Mthauz.find(function foundMthauzers(err, people) {
+            if (err) return next(err);
+            _.each(people, function(person) {
+                text += person.name + " (<@" + person.slackUsername + "|" + person.slackUsername + ">) your chores are: " + person.chore + "\n\n";
+            });
+
+            cb(text);
         });
     },
 

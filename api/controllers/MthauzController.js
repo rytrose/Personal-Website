@@ -186,5 +186,12 @@ module.exports = {
             });
         });
     },
+    
+    runChoreReminder: function(req, res, next) {
+        var text = "";
+        Mthauz.runChoreReminder();
+        
+        res.send("Running chore reminder.");
+    },
 
 }
