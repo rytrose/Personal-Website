@@ -27,6 +27,11 @@ module.exports = {
         chore: {
             type: 'string',
             required: false,
+        },
+        
+        choreCount: {
+            type: 'integer',
+            required: true
         }
     },
 
@@ -81,20 +86,15 @@ module.exports = {
                 newChore = newChores[ind];
 
                 console.log("New Chore: " + newChore);
+                
+                _.each(people, function(person){
+                    if(person.choreCount > highestCount) {
+                        highestCount = person.choreCount;   
+                    }
+                });
+                
                 _.every(people, function(person, i) {
-                    var count = (person.chore.match(/ AND /g) || []).length;
-                    if (person.chore == "") {
-                        slackIdToAddTo = person.slackId;
-                        prevChores = person.chore;
-                        return false;
-                    }
-                    else if (count == 0 && highestCount == 0) {
-                        highestCount = 1;
-                        slackIdToAddTo = person.slackId;
-                        prevChores = person.chore;
-                        return false;
-                    }
-                    else if (count < highestCount) {
+                    if (count < highestCount) {
                         highestCount = count + 1;
                         slackIdToAddTo = person.slackId;
                         prevChores = person.chore;
@@ -117,7 +117,7 @@ module.exports = {
                 }
 
                 console.log("Updating " + slackIdToAddTo + " to " + prevChores);
-                Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores }, function(err) {
+                Mthauz.update({ slackId: slackIdToAddTo }, { chore: prevChores, choreCount: highestCount }, function(err) {
                     if (err) {
                         console.log(err)
 

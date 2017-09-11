@@ -93,7 +93,7 @@ module.exports = {
                     for (var i = 0; i < users.length; i++) {
                         if (!users[i].is_bot && users[i].name != 'slackbot') {
                             console.log("Making user: " + users[i].real_name);
-                            Mthauz.create({ name: users[i].real_name, slackId: users[i].id, slackUsername: users[i].name, chore: "" }, function(err, file) {
+                            Mthauz.create({ name: users[i].real_name, slackId: users[i].id, slackUsername: users[i].name, chore: "", choreCount: 0 }, function(err, file) {
                                 if (err) {
                                     console.log(err);
                                 }
@@ -155,12 +155,12 @@ module.exports = {
             if (err) {
                 console.log(err);
             }
-        });
 
-        Mthauz.find(function foundMthauzers(err, people) {
-            if (err) return next(err);
-            res.send({
-                people: people
+            Mthauz.find(function foundMthauzers(err, people) {
+                if (err) return next(err);
+                res.send({
+                    people: people
+                });
             });
         });
     },
