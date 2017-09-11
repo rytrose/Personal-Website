@@ -122,7 +122,8 @@ module.exports = {
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             res.send({
-                people: people
+                people: people,
+                choreString: Mthauz.getChoreString()
             });
         });
     },
@@ -135,7 +136,8 @@ module.exports = {
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             res.send({
-                people: people
+                people: people,
+                choreString: Mthauz.getChoreString()
             });
         });
     },
@@ -145,7 +147,8 @@ module.exports = {
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             res.send({
-                people: people
+                people: people,
+                choreString: Mthauz.getChoreString()
             });
         });
     },

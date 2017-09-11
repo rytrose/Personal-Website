@@ -43,7 +43,7 @@ module.exports = {
             var newChoreCount = new Array(people.length);
             
             // Shuffle!
-            _.each(people, function(person) {
+            _.each(people, function(person, id) {
                 idOrder[i] = person.slackId;
                 if ((i + 1) == newChores.length) {
                     newChores[0] = person.chore;
