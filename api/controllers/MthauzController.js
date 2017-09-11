@@ -118,18 +118,20 @@ module.exports = {
 
     rotateChores: function(req, res, next) {
         Mthauz.rotateChores();
+        var str = Mthauz.getChoreString();
 
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             res.send({
                 people: people,
-                choreString: Mthauz.getChoreString()
+                choreString: str
             });
         });
     },
 
     addChores: function(req, res, next) {
         console.log("Hit addChores.");
+        var str = Mthauz.getChoreString();
 
         Mthauz.addChores(req.param("chores").split("|"));
 
@@ -137,18 +139,20 @@ module.exports = {
             if (err) return next(err);
             res.send({
                 people: people,
-                choreString: Mthauz.getChoreString()
+                choreString: str
             });
         });
     },
 
     getModel: function(req, res, next) {
         console.log("Hit getModel.");
+        var str = Mthauz.getChoreString();
+        
         Mthauz.find(function foundMthauzers(err, people) {
             if (err) return next(err);
             res.send({
                 people: people,
-                choreString: Mthauz.getChoreString()
+                choreString: str
             });
         });
     },

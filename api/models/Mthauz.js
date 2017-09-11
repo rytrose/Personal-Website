@@ -61,7 +61,7 @@ module.exports = {
                 updatedChoreCount = newChoreCount[i];
                 
 
-                Mthuaz.update({ slackId: id }, { chore: updatedChore, choreCount: updatedChoreCount } , function personUpdated(err) {
+                Mthauz.update({ slackId: id }, { chore: updatedChore, choreCount: updatedChoreCount } , function personUpdated(err) {
                     if (err) {
                         console.log(err);
                     }
