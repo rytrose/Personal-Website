@@ -194,5 +194,13 @@ module.exports = {
         res.send("Running chore reminder.");
         
     },
+    
+    runWeeklyChores: function(req, res, next) {
+
+        Mthauz.weeklyChores();
+
+        res.send("Running weekly chores.");
+        
+    },
 
 }

@@ -142,14 +142,17 @@ module.exports = {
 
         var text = "*CHORES FOR THE WEEK OF " + (sails.mthauz.choreDate.getMonth() + 1) + "/" + sails.mthauz.choreDate.getDate() + "*\n\n";
 
-        var callback = function(x) { return x };
-        text += getChoreString(callback);
+        var callback = function(choreString) {
+            text += choreString;
 
-        sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res) {
-            if (err) {
-                console.log(err);
-            }
-        });
+            sails.mthauz.web.chat.postMessage(sails.mthauz.TESTING_CHANNEL, text, function(err, res) {
+                if (err) {
+                    console.log(err);
+                }
+            });
+        };
+        
+        Mthauz.getChoreString(callback);
     },
 
     runChoreReminder: function() {
