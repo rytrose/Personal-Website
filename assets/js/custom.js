@@ -1,6 +1,6 @@
 // Masonry -- BIO
 var $grid = $('.grid').masonry({
-  itemSelector: '.grid-item',
+  itemSelector: '.grid-item-bio',
   stagger: 25
 });
 
@@ -11,14 +11,6 @@ $(window).on('load', function () {
 // layout Masonry after each image loads
 $grid.imagesLoaded().always( function() {
   $grid.show();
-  $grid.masonry();
-});
-
-// On click logic
-$grid.on( 'click', '.grid-item', function() {
-  // change size of item via class
-  $(this).toggleClass('grid-item-gigante');
-  // trigger layout
   $grid.masonry();
 });
 

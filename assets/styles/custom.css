@@ -167,7 +167,7 @@ body {
 	padding: 0;
 }
 
-.grid-item {
+.grid-item, .grid-item-bio {
 	display: block;
 	float: left;
 	padding: 4px;
@@ -182,16 +182,23 @@ body {
 	max-width: 100%;
 }
 
-.grid-item-gigante {
-  display: block;
-  float: left;
-  padding: 7px;
-  width: 50%;
-}
-
-.grid-item:hover {
+.grid-item, .grid-item-bio:hover {
   border: 2px solid #cce0ff;
   cursor: pointer;
+}
+
+.grid-item-bio:hover button{
+  opacity: 1;
+}
+
+.overlay-bio {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  transition: all .25s ease-in-out;
+  z-index: 999;
+  outline: none !important;
+  opacity: 0;
 }
 
 .stamp {
