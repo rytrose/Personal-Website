@@ -14,12 +14,14 @@
     <div class="col-md-4 text-center">
       <div class="musician">
         <h2><a href="/performances">musician</a></h2>
+        <hr>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/AKG5X_IV_wg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
         <% for(var i = 0; i < pers.length; i++) { %>
           <% if(pers[i].name === 'Collin Kemeny, Concerto for Alto Saxophone') { %>
             <% var performance = pers[i]; %>
             <hr>
             <p><%= performance.name %> | <%= performance.date %></p>
-            <iframe width="448" height="252" src="<%= performance.link %>" frameborder="0" allowfullscreen></iframe>
+            <!--<iframe width="448" height="252" src="<%= performance.link %>" frameborder="0" allowfullscreen></iframe>-->
           <% } %>
         <% } %>
       </div>
@@ -80,5 +82,47 @@
       </div>
     </div>
   </div>
-  
+  <script src="/js/dependencies/jquery-3.1.1.min.js"></script>
+  <script>
+    $(function() {
+    
+    	// Find all YouTube videos
+    	var $allVideos = $("iframe[src^='https://www.youtube.com']"),
+    
+    	    // The element that is fluid width
+    	    $fluidEl = $(".musician");
+    
+    	// Figure out and save aspect ratio for each video
+    	$allVideos.each(function() {
+    
+    		$(this)
+    			.data('aspectRatio', this.height / this.width)
+    			
+    			// and remove the hard coded width/height
+    			.removeAttr('height')
+    			.removeAttr('width');
+    
+    	});
+    
+    	// When the window is resized
+    	// (You'll probably want to debounce this)
+    	$(window).resize(function() {
+    
+    		var newWidth = $fluidEl.width();
+    		
+    		// Resize all videos according to their own aspect ratio
+    		$allVideos.each(function() {
+    
+    			var $el = $(this);
+    			$el
+    				.width(newWidth)
+    				.height(newWidth * $el.data('aspectRatio'));
+    
+    		});
+    
+    	// Kick off one resize to fix all videos on page load
+    	}).resize();
+    
+    });
+  </script>
 </div>
