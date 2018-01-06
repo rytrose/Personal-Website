@@ -439,10 +439,6 @@ body {
   margin-top: 12px;
 }
 
-.projects h2 {
-  padding-left: 15px;
-}
-
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{
   color: #000;
   background-color: #cce0ff;
