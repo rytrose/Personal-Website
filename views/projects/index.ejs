@@ -1,157 +1,147 @@
 <div class="container">
     <div class="row projects">
-        <div class="col-sm-3">
-            <h2>Projects</h2>
-            <ul class="nav nav-pills nav-stacked">
-                <li class="nav-item active"><a href="#tab1" data-toggle="tab">The Social Composition Project</a></li>
-                <li class="nav-item"><a href="#tab2" data-toggle="tab">Interactive Recital (POC)</a></li>
-                <li class="nav-item proj"><a href="#tab3" data-toggle="tab">Academic Projects</a></li>
-            </ul>
-        </div>
+        <ul class="nav nav-pills nav-stacked col-md-3">
+            <li class="nav-item active"><a href="#tab1" data-toggle="tab">The Social Composition Project</a></li>
+            <li class="nav-item"><a href="#tab2" data-toggle="tab">Interactive Recital (POC)</a></li>
+            <li class="nav-item proj"><a href="#tab3" data-toggle="tab">Academic Projects</a></li>
+        </ul>
         
-        <div class="col-xs-8">
-            <div class="tab-content">
-                <div class="tab-pane fade in active" id="tab1">
-                    <h1 class="text-center">The Social Composition Project</h1>
-                    <p>
-                        This project seeks to interpret the human interactions exhibited through social media into music 
-                        by procedurally generating a musical composition using a Facebook post as input. The
-                        composition is based off of the Facebook Reactions (i.e. Like, Love, Wow, etc.) associated with
-                        the input post. Each reaction has an associated melodic phrase which floats over an oscillating
-                        drone. A disproportionate amount of Like reactions led to the inclusion of an additional phrase
-                        representing a sequence of uninterrupted Likes.
-                    </p>
-                    <p>
-                        The inspiration for this project came from observing Facebook interactions following the tragic 
-                        massacre at the Pulse Orlando nightclub on June 12, 2016. Many of my peers posted heartfelt and
-                        sensitive messages on Facebook in response to the tragedy, and many of those posts had emotionally-charged discussions
-                        in the comments section. One particular discussion was over the insensitivity of reacting to a 
-                        memorial/grieving post with a Haha reaction. Observing this phenomenon and the ensuing debate led me to
-                        observe a particular significance to these digital reactions. My response was to apply the concept 
-                        of a reaction-generated composition to the Pulse Orlando Facebook page. However, transforming a specific
-                        post proved much more effective and feasible, which led to the current iteration that allows users of
-                        the project to create compositions from posts on their own timeline.
-                    </p>
-                    <p>
-                        The project utilizes <a class="projA" href="https://developers.facebook.com/docs/graph-api" target="_blank" >Facebook's Graph API</a> 
-                        for data collection, the <a class="projA" href="https://www.w3.org/TR/webaudio/" target="_blank" >W3C Web Audio API</a> 
-                        for sequencing, and <a class="projA" href="https://github.com/tjoen/three.js" target="_blank" >THREE.js</a> and the CSS3D renderer 
-                        for visualization. Code for this project can be found <a class="projA" href="https://github.com/rytrose/Personal-Website/tree/master/assets/scp" target="_blank" >here</a>.
-                    </p>
-                    <p>
-                        This project is currently stable only in the Chrome browser.
-                    </p>
-                    <div class="text-center"><a class="btn btn-default" href="/projects/scp">see the project</a></div>
-                    <p></p>
-                    <p>
-                        While currently a cohesive work, I am constantly looking to improve and expand this project. 
-                        Here is a list of future ideas and objectives:
-                    </p>
-                    <ul>
-                        <li>
-                            <p><b>Handle the abundance of Like's with more diversity.</b></p>
-                            <p>
-                                Some ideas are to incorporate new phrases, modulate the existing phrases, overlap phrases, or alter the timbre of repeated Like phrases. 
-                                I would also like to make the reaction phrases relate better musically to each other, to create a more cohesive composition. 
-                            </p>
-                        </li>
-                        <li>
-                            <p><b>Give significance to the spatial layout of the reactions.</b></p>
-                            <p>Ideas have been to superimpose reactions on a map, relate the distance between reactions with time, or to move the reactions relative to when they are being "played."</p>
-                        </li>
-                        <li>
-                            <p><b>Give the individual reactions of the visualization an interactive component.</b></p>
-                            <p>Many users have tried to click on or drag floating reactions, but they are currently static.</p>
-                        </li>
-                    </ul>
-                </div>
+        <div class="tab-content col-xs-8">
+            <div class="tab-pane fade in active" id="tab1">
+                <h2 class="text-center">The Social Composition Project</h2>
+                <p class="text-justify">
+                    This project seeks to interpret the human interactions exhibited through social media into music 
+                    by procedurally generating a musical composition using a Facebook post as input. The
+                    composition is based off of the Facebook Reactions (i.e. Like, Love, Wow, etc.) associated with
+                    the input post. Each reaction has an associated melodic phrase which floats over an oscillating
+                    drone. A disproportionate amount of Like reactions led to the inclusion of an additional phrase
+                    representing a sequence of uninterrupted Likes.
+                </p>
+                <p class="text-justify">
+                    The inspiration for this project came from observing Facebook interactions following the tragic 
+                    massacre at the Pulse Orlando nightclub on June 12, 2016. Many of my peers posted heartfelt and
+                    sensitive messages on Facebook in response to the tragedy, and many of those posts had emotionally-charged discussions
+                    in the comments section. One particular discussion was over the insensitivity of reacting to a 
+                    memorial/grieving post with a Haha reaction. Observing this phenomenon and the ensuing debate led me to
+                    observe a particular significance to these digital reactions. My response was to apply the concept 
+                    of a reaction-generated composition to the Pulse Orlando Facebook page. However, transforming a specific
+                    post proved much more effective and feasible, which led to the current iteration that allows users of
+                    the project to create compositions from posts on their own timeline.
+                </p>
+                <p class="text-justify">
+                    The project utilizes <a class="projA" href="https://developers.facebook.com/docs/graph-api" target="_blank" >Facebook's Graph API</a> 
+                    for data collection, the <a class="projA" href="https://www.w3.org/TR/webaudio/" target="_blank" >W3C Web Audio API</a> 
+                    for sequencing, and <a class="projA" href="https://github.com/tjoen/three.js" target="_blank" >THREE.js</a> and the CSS3D renderer 
+                    for visualization. Code for this project can be found <a class="projA" href="https://github.com/rytrose/Personal-Website/tree/master/assets/scp" target="_blank" >here</a>.
+                </p>
+                <p class="text-justify">
+                    This project is currently stable only in the Chrome browser.
+                </p>
+                <div class="text-center"><a class="btn btn-default" href="/projects/scp">see the project</a></div>
+                <p></p>
+                <p class="text-justify">
+                    While currently a cohesive work, I am constantly looking to improve and expand this project. 
+                    Here is a list of future ideas and objectives:
+                </p>
+                <ul class="text-justify">
+                    <li>
+                        <p><b>Handle the abundance of Like's with more diversity.</b></p>
+                        <p>
+                            Some ideas are to incorporate new phrases, modulate the existing phrases, overlap phrases, or alter the timbre of repeated Like phrases. 
+                            I would also like to make the reaction phrases relate better musically to each other, to create a more cohesive composition. 
+                        </p>
+                    </li>
+                    <li>
+                        <p><b>Give significance to the spatial layout of the reactions.</b></p>
+                        <p>Ideas have been to superimpose reactions on a map, relate the distance between reactions with time, or to move the reactions relative to when they are being "played."</p>
+                    </li>
+                    <li>
+                        <p><b>Give the individual reactions of the visualization an interactive component.</b></p>
+                        <p>Many users have tried to click on or drag floating reactions, but they are currently static.</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="tab-pane fade" id="tab2">
+                <h2 class="text-center">Interactive Recital (POC)</h2>
+                <p class="text-justify">
+                    This project, currently a proof of concept, stems from my desire to increase the accessibility and attractiveness of classical
+                    music through the use of technology. My plan is to play an arrangement of Hector Berlioz's <i>Harold en Italie</i> 
+                    on alto saxophone as the solo instrument, accompanied by an orchestral backing track and augmented by 
+                    audience-chosen audio effects. While listening to viola music I stumbled across <i>Harold en Italie</i> and
+                    immediately wished to arrange a version for alto saxophone, which has a similar range as a viola. To perfom
+                    this piece, however, I would need an orchestra to accompany me. Without the resources to hire a live orchestra,
+                    I resolved to use a backing track of digital instruments. Using software called PhotoScore and Finale's
+                    Garritan instruments, I created a rudimentary accompaniment (with more resources at my disposal I would like to 
+                    create a backing track with significantly more musical sensitivity).
+                </p>
+                <p class="text-justify">
+                    Having created a suitable accompaniment, I then began to think about audience engagement and interaction. 
+                    While reading about the piece and about Berlioz's compositional philosophy, I learned that Berlioz sought to
+                    integrate non-musical or real sounds into his pieces, an example of which is the unpitched bells in his
+                    <i>Symphonie Fantastique</i>. Similarly, one of my personal interests is how the non-musical world can be interpreted musically.
+                    Because of this interest I decided to incorporate non-musical sounds into my arrangement of <i>Harold en Italie</i>. 
+                    In order to give the audience some investment in the piece, I will provide options of various recorded sounds 
+                    to audience members via a smartphone web application. The audience will then vote on these sounds, and their 
+                    selection will be injected into the arrangement in real time. The voting and playing of these sounds will 
+                    occur at predetermined intervals, in order to musically incorporate the sounds in my piece.
+                </p>
+                <p class="text-justify">
+                    I will use a real-time database service such as Google's Firebase to collect polling information while I am 
+                    playing. I plan to coordinate the arrangement via the sequencing software Ableton Live. With <a class="projA" href="http://remotescripts.blogspot.com/2010/03/introduction-to-framework-classes.html?m=1" target="_blank" >Python-emulated MIDI instruments</a>,
+                    I can program my backing track to react and respond to the polling results automatically while I play. I 
+                    believe the audience's interaction and role in creating the music will provide a more engaging
+                    and fulfilling experience than otherwise listening to the piece statically in a concert hall.
+                </p>
                 
-                <div class="tab-pane fade" id="tab2">
-                    <h1 class="text-center">Interactive Recital (POC)</h1>
-                    <p>
-                        This project, currently a proof of concept, stems from my desire to increase the accessibility and attractiveness of classical
-                        music through the use of technology. My plan is to play an arrangement of Hector Berlioz's <i>Harold en Italie</i> 
-                        on alto saxophone as the solo instrument, accompanied by an orchestral backing track and augmented by 
-                        audience-chosen audio effects. While listening to viola music I stumbled across <i>Harold en Italie</i> and
-                        immediately wished to arrange a version for alto saxophone, which has a similar range as a viola. To perfom
-                        this piece, however, I would need an orchestra to accompany me. Without the resources to hire a live orchestra,
-                        I resolved to use a backing track of digital instruments. Using software called PhotoScore and Finale's
-                        Garritan instruments, I created a rudimentary accompaniment (with more resources at my disposal I would like to 
-                        create a backing track with significantly more musical sensitivity).
-                    </p>
-                    <p>
-                        Having created a suitable accompaniment, I then began to think about audience engagement and interaction. 
-                        While reading about the piece and about Berlioz's compositional philosophy, I learned that Berlioz sought to
-                        integrate non-musical or real sounds into his pieces, an example of which is the unpitched bells in his
-                        <i>Symphonie Fantastique</i>. Similarly, one of my personal interests is how the non-musical world can be interpreted musically.
-                        Because of this interest I decided to incorporate non-musical sounds into my arrangement of <i>Harold en Italie</i>. 
-                        In order to give the audience some investment in the piece, I will provide options of various recorded sounds 
-                        to audience members via a smartphone web application. The audience will then vote on these sounds, and their 
-                        selection will be injected into the arrangement in real time. The voting and playing of these sounds will 
-                        occur at predetermined intervals, in order to musically incorporate the sounds in my piece.
-                    </p>
-                    <p>
-                        I will use a real-time database service such as Google's Firebase to collect polling information while I am 
-                        playing. I plan to coordinate the arrangement via the sequencing software Ableton Live. With <a class="projA" href="http://remotescripts.blogspot.com/2010/03/introduction-to-framework-classes.html?m=1" target="_blank" >Python-emulated MIDI instruments</a>,
-                        I can program my backing track to react and respond to the polling results automatically while I play. I 
-                        believe the audience's interaction and role in creating the music will provide a more engaging
-                        and fulfilling experience than otherwise listening to the piece statically in a concert hall.
-                    </p>
-                    
-                </div>
-                
-                <div class="tab-pane fade" id="tab3">
-                    <h1 class="text-center">Academic Projects</h1>
-                        <div class="row">
-                            <div class="col-md-5 video">
-                                <h4 class="text-center">CWRU - EECS 398 - Senior Project</h4>
-                                <p class="text-center"><b>Lake Metropark Farmpark solar tracker</b></p>
-                                <p class="text-justify">
-                                    As part of EECS 398, Senior Capstone, partner Ailin Yu and I helped renovate and upgrade a solar tracker exhibit at the Lake Metroparks Farmpark.
-                                    The Farmpark is akin to a children's museum, with various exhibits demonstrating the importance of nature in our lives.
-                                    
-                                    My roles in the project involved developing a GUI for a new interactive touchscreen display and helping program a Rockwell PLC for system control. 
-                                    I incorporated music into the project by developing a musical representation of the energy coming into the solar panel. Using <a class="projA" href="http://chuck.stanford.edu/" target="_blank" >ChucK</a>,
-                                    an on-the-fly music programming language, and a Raspberry Pi, I transformed proportial energy signals coming into the solar panel into musical data streams. 
-                                    By mapping voltage to pitch and current to tempo, visitors can appreciate the work the solar panel is doing through music. I defined multiple sets of pitches 
-                                    corresponding to popular scales (blues, pentatonic, and wholetone) in order to make the data sonification accessible.
-                                </p>
-                                 <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/0aDBlJPa89E" frameborder="0" allowfullscreen></iframe></div>
-                            </div>
-                            <div class="col-md-5 col-md-offset-1 video">
-                                <h4 class="text-center">CWRU - EECS 301 - Digital Logic Lab</h4>
-                                <p class="text-center"><b>Audio filtering and peak detection, FPGA design</b></p>
-                                <p class="text-justify">
-                                    As part of EECS 301, partner Ailin Yu and I programmed an FPGA to take an audio input, filter high and low frequencies, and display a peak 
-                                    detection visualization on an LCD screen.
-                                    
-                                    This project required us to first recieve an audio signal with an ADC and use FIR filters to separate high and low frequencies. 
-                                    Low frequencies were output to a motor via pulse-width modulation, and high frequencies were converted back to an analog 
-                                    signal and output through a speaker. Before being output, both high and low frequencies were sent through a peak-detect module. 
-                                    We used dual-port RAM to record the highest peak frequency every 60 MHz, and output the peak data to the LCD screen. The strength of 
-                                    each peak was reflected on the screen via a corresponding shade of color. A very brief demonstration of the visual output can be seen below.
-                                </p>
-                                <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/N4QuLahGqEQ" frameborder="0" allowfullscreen></iframe></div>
-                            </div>
-                        </div>
-                        <p class="projectsDivide"></p>
-                        <div class="row">
-                            <div class="col-md-5 video">
-                                <h4 class="text-center">CWRU - EECS 397 - Mobile Computing and Sensor Networks</h4>
-                                <p class="text-center"><b>Radon sensor hacking, data collection, and data transfer to an Android app over Bluetooth</b></p>
-                                <p class="text-justify">
-                                    As part of EECS 397, partner Walter Huang and I successfully hacked a Radon sensor and integrated its functionality with a basic Android app.
-                                    
-                                    By dismantling a household Radon sensor and wiring it to an Intel Edison computer-on-module, we were able to read and record the sensor's display.
-                                    Our second task was to pass data from the Radon sensor, among other sensors, to an Android app via Bluetooth. Establishing communication and transferring data,
-                                    we finally saved the data from our sensors to our smartphone in CSV format. Below is a demonstration of our functioning system, and the Arduino code used
-                                    to read the Radon sensor display can be found <a class="projA" href="https://github.com/rytrose/EECS397Lab5" target="_blank" >here</a>.
-                                </p>
-                                 <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/2kfhLTf8tGs" frameborder="0" allowfullscreen></iframe></div>
-                            </div>
-                            <div class="col-md-5 col-md-offset-1">
-                            </div>
-                        </div>
+            </div>
+            
+            <div class="tab-pane fade" id="tab3">
+                <h2 class="text-center">Academic Projects</h2>
+                    <div class="video">
+                        <h4 class="text-center">CWRU - EECS 398 - Senior Project</h4>
+                        <p class="text-center"><b>Lake Metropark Farmpark solar tracker</b></p>
+                        <p class="text-justify">
+                            As part of EECS 398, Senior Capstone, partner Ailin Yu and I helped renovate and upgrade a solar tracker exhibit at the Lake Metroparks Farmpark.
+                            The Farmpark is akin to a children's museum, with various exhibits demonstrating the importance of nature in our lives.
+                            
+                            My roles in the project involved developing a GUI for a new interactive touchscreen display and helping program a Rockwell PLC for system control. 
+                            I incorporated music into the project by developing a musical representation of the energy coming into the solar panel. Using <a class="projA" href="http://chuck.stanford.edu/" target="_blank" >ChucK</a>,
+                            an on-the-fly music programming language, and a Raspberry Pi, I transformed proportial energy signals coming into the solar panel into musical data streams. 
+                            By mapping voltage to pitch and current to tempo, visitors can appreciate the work the solar panel is doing through music. I defined multiple sets of pitches 
+                            corresponding to popular scales (blues, pentatonic, and wholetone) in order to make the data sonification accessible.
+                        </p>
+                         <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/0aDBlJPa89E" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <hr>
+                    <div class="video">
+                        <h4 class="text-center">CWRU - EECS 301 - Digital Logic Lab</h4>
+                        <p class="text-center"><b>Audio filtering and peak detection, FPGA design</b></p>
+                        <p class="text-justify">
+                            As part of EECS 301, partner Ailin Yu and I programmed an FPGA to take an audio input, filter high and low frequencies, and display a peak 
+                            detection visualization on an LCD screen.
+                            
+                            This project required us to first recieve an audio signal with an ADC and use FIR filters to separate high and low frequencies. 
+                            Low frequencies were output to a motor via pulse-width modulation, and high frequencies were converted back to an analog 
+                            signal and output through a speaker. Before being output, both high and low frequencies were sent through a peak-detect module. 
+                            We used dual-port RAM to record the highest peak frequency every 60 MHz, and output the peak data to the LCD screen. The strength of 
+                            each peak was reflected on the screen via a corresponding shade of color. A very brief demonstration of the visual output can be seen below.
+                        </p>
+                        <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/N4QuLahGqEQ" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <hr>
+                    <div class="video">
+                        <h4 class="text-center">CWRU - EECS 397 - Mobile Computing and Sensor Networks</h4>
+                        <p class="text-center"><b>Radon sensor hacking, data collection, and data transfer to an Android app over Bluetooth</b></p>
+                        <p class="text-justify">
+                            As part of EECS 397, partner Walter Huang and I successfully hacked a Radon sensor and integrated its functionality with a basic Android app.
+                            
+                            By dismantling a household Radon sensor and wiring it to an Intel Edison computer-on-module, we were able to read and record the sensor's display.
+                            Our second task was to pass data from the Radon sensor, among other sensors, to an Android app via Bluetooth. Establishing communication and transferring data,
+                            we finally saved the data from our sensors to our smartphone in CSV format. Below is a demonstration of our functioning system, and the Arduino code used
+                            to read the Radon sensor display can be found <a class="projA" href="https://github.com/rytrose/EECS397Lab5" target="_blank" >here</a>.
+                        </p>
+                         <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/2kfhLTf8tGs" frameborder="0" allowfullscreen></iframe></div>
                     </div>
                 </div>
             </div>
