@@ -7,15 +7,25 @@
 
 module.exports = {
 	index: function(req, res, next){
-		// Return homepage images
+		// Return bio images
 		File.find({type: 'img'}, function(err, filesMeta){
 			if(err) {
 				req.session.flash = {
 					err: err
 				};
 			}
-			res.view({
-				filesMeta: filesMeta
+			
+			File.find({type: 'bioThumb'}, function(err, bioThumbs){
+				if(err) {
+					req.session.flash = {
+						err: err
+					};
+				}
+				
+				res.view({
+					bioThumbs: bioThumbs,
+					filesMeta: filesMeta
+				});
 			});
 		});
 	}
