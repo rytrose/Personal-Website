@@ -9,9 +9,7 @@
 module.exports = function(req, res, next) {
     if(!req.session.music) {
         console.log("Creating new music state.");
-        req.session.music = JSON.stringify({
-            test: 1
-        });
+        req.session.music = JSON.stringify({});
     }
     console.log("Music state: " + req.session.music);
     next();

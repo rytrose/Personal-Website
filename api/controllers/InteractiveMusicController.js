@@ -9,6 +9,7 @@ module.exports = {
 	update: function(req, res, next){
 	    console.log("Music state update received.");
 		req.session.music = req.param('music');
+		req.session.save();
 		return;
 	},
 }
