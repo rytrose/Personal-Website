@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container text-justify">
     <div class="row">
         <div class="col-md-5">
             <div class="bioDesc">
@@ -54,9 +54,15 @@
             </div>
             <div class="grid" style="display:none">
                 <% for(var i = 0; i < bioThumbs.length; i++) { %>
+                <% var thumb = bioThumbs[i]; %>    
                 <div class="grid-item-bio">
-                  <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= bioThumbs[i].fd %>" >
-                  <button type="button" class="btn btn-default btn-xs overlay-bio" data-toggle="modal" data-target="#picModal" data-button="<%= filesMeta[i].fd %>">full size</button>
+                  <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= thumb.fd %>" >
+                  <% 
+                     var fullSize = filesMeta.find(function(e){
+                         return e.filename.substring(3) == thumb.filename.substring(8);
+                     });
+                  %>
+                  <button type="button" class="btn btn-default btn-xs overlay-bio" data-toggle="modal" data-target="#picModal" data-button="<%= fullSize.fd %>">full size</button>
                 </div>
                 <% } %>
             </div>

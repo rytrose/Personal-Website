@@ -49,6 +49,7 @@ module.exports.routes = {
   'get /mthauz/getModel' : 'MthauzController.getModel',
   'get /mthauz/deleteModel' : 'MthauzController.deleteModel',
   'get /mthauz/getChoreString' : 'MthauzController.getChoreString',
+  'post /interactivemusic' : 'InteractiveMusicController.update',
 
 
   /***************************************************************************
