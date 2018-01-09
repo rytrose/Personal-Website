@@ -25,6 +25,7 @@
     -->
     <link href="https://fonts.googleapis.com/css?family=Numans" rel="stylesheet">
     <!--STYLES-->
+    <link rel="stylesheet" href="/styles/bootstrap-toggle.min.css">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
     <link rel="stylesheet" href="/styles/importer.css">
@@ -68,11 +69,26 @@
             </li>
           <% } %>
         </ul>
-        <div class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a style="cursor:pointer;padding-right:8px;" data-toggle="modal" data-target="#soundModal">sound</a></li>
+            <li class="navbar-btn"><input id="musictoggle" type="checkbox" data-size="small" data-toggle="toggle" data-onstyle="default"></li>
+            <div class="modal fade" id="soundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>Hi.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
           <% if(session.authenticated) { %>
               <a class="btn btn-default navbar-btn navbar-right" href="/session/destroy">sign out admin</a>
           <% } %>
-        </div>
+        </ul>
         <% if(!session.authenticated) { %>
         <% } %>
       </div>
@@ -133,10 +149,13 @@
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/dependencies/jquery-3.1.1.min.js"></script>
+    <script src="/js/dependencies/bootstrap-toggle.min.js"></script>
     <script src="/js/dependencies/bootstrap.js"></script>
     <script src="/js/dependencies/imagesloaded.pkgd.min.js"></script>
     <script src="/js/dependencies/masonry.pkgd.min.js"></script>
     <script src="/js/dependencies/pdfobject.min.js"></script>
+    <script src="/js/dependencies/popover.min.js"></script>
+    <script src="/js/dependencies/popper.min.js"></script>
     <script src="/js/dependencies/Tone.min.js"></script>
     <script src="/js/custom.js"></script>
     <script src="/js/music.js"></script>

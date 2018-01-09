@@ -1,5 +1,7 @@
+// Get music state from session
 window.state = JSON.parse($('#musicstate').val());
 
+// Update the music state to the session
 window.addEventListener("beforeunload", function (event) {
   $('#musicstate').val(JSON.stringify(state));
   $.ajax({
@@ -9,3 +11,11 @@ window.addEventListener("beforeunload", function (event) {
       async: false
   });
 });
+
+// On sound toggle
+$('#musictoggle').change(function() {
+      if($(this).prop('checked')){}
+})
+
+// Music logic
+Tone.Transport.start();
