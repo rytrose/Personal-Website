@@ -3,13 +3,17 @@ window.state = JSON.parse($('#musicstate').val());
 
 // Update the music state to the session
 window.addEventListener("beforeunload", function (event) {
-  $('#musicstate').val(JSON.stringify(state));
-  $.ajax({
+    // Update toggle status
+    window.state["play"] = $('#musictoggle').prop('checked');
+    
+    // Send the state
+    $('#musicstate').val(JSON.stringify(state));
+    $.ajax({
       type: "POST",
       url: '/interactivemusic',
       data: $('#musicstateform').serialize(), 
       async: false
-  });
+    });
 });
 
 // On sound toggle
@@ -45,3 +49,8 @@ var bass = new Tone.MonoSynth({
 var bassPart = new Tone.Sequence(function(time, note){
 	bass.triggerAttackRelease(note, "16n", time);
 }, ["C2", ["C3", ["C3", "D2"]], "E2", ["D2", "A1"], "G1"]);
+
+$(function() {
+    $('#musictoggle').prop('checked', window.state.play);
+    $('#musictoggle').trigger('change');
+});

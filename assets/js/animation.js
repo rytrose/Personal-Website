@@ -20,7 +20,7 @@ class Particle {
 
     display() {
         noStroke();
-        fill(colorAlpha('#ff8e8e', this.calcBallAlpha()));
+        fill(colorAlpha(pageToColor(), this.calcBallAlpha()));
         ellipse(this.pos.x, this.pos.y, this.r, this.r);
     }
 
@@ -156,5 +156,18 @@ function draw() {
 function colorAlpha(aColor, alpha) {
   var c = color(aColor);
   return color('rgba(' +  [red(c), green(c), blue(c), alpha].join(',') + ')');
+}
+
+function pageToColor() {
+    var loc = window.location.href.split('/')[3];
+    var color;
+    switch(loc) {
+        case "":
+            color = '#ff8e8e';
+            break;
+        default:
+            color = '#000000';
+    }
+    return color;
 }
 
