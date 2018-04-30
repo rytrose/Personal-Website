@@ -2,8 +2,8 @@
     <div class="row projects">
         <ul class="nav nav-pills nav-stacked col-md-3">
             <li class="nav-item active"><a href="#tab1" data-toggle="tab">The Social Composition Project</a></li>
-            <li class="nav-item"><a href="#tab2" data-toggle="tab">Interactive Recital (POC)</a></li>
-            <li class="nav-item proj"><a href="#tab3" data-toggle="tab">Academic Projects</a></li>
+            <li class="nav-item proj"><a href="#tab2" data-toggle="tab">Graduate Projects</a></li>
+            <li class="nav-item proj"><a href="#tab3" data-toggle="tab">Undergraduate Projects</a></li>
         </ul>
         
         <div class="tab-content col-xs-8">
@@ -63,41 +63,100 @@
             </div>
             
             <div class="tab-pane fade" id="tab2">
-                <h2>Interactive Recital (POC)</h2>
-                <p class="text-justify">
-                    This project, currently a proof of concept, stems from my desire to increase the accessibility and attractiveness of classical
-                    music through the use of technology. My plan is to play an arrangement of Hector Berlioz's <i>Harold en Italie</i> 
-                    on alto saxophone as the solo instrument, accompanied by an orchestral backing track and augmented by 
-                    audience-chosen audio effects. While listening to viola music I stumbled across <i>Harold en Italie</i> and
-                    immediately wished to arrange a version for alto saxophone, which has a similar range as a viola. To perfom
-                    this piece, however, I would need an orchestra to accompany me. Without the resources to hire a live orchestra,
-                    I resolved to use a backing track of digital instruments. Using software called PhotoScore and Finale's
-                    Garritan instruments, I created a rudimentary accompaniment (with more resources at my disposal I would like to 
-                    create a backing track with significantly more musical sensitivity).
-                </p>
-                <p class="text-justify">
-                    Having created a suitable accompaniment, I then began to think about audience engagement and interaction. 
-                    While reading about the piece and about Berlioz's compositional philosophy, I learned that Berlioz sought to
-                    integrate non-musical or real sounds into his pieces, an example of which is the unpitched bells in his
-                    <i>Symphonie Fantastique</i>. Similarly, one of my personal interests is how the non-musical world can be interpreted musically.
-                    Because of this interest I decided to incorporate non-musical sounds into my arrangement of <i>Harold en Italie</i>. 
-                    In order to give the audience some investment in the piece, I will provide options of various recorded sounds 
-                    to audience members via a smartphone web application. The audience will then vote on these sounds, and their 
-                    selection will be injected into the arrangement in real time. The voting and playing of these sounds will 
-                    occur at predetermined intervals, in order to musically incorporate the sounds in my piece.
-                </p>
-                <p class="text-justify">
-                    I will use a real-time database service such as Google's Firebase to collect polling information while I am 
-                    playing. I plan to coordinate the arrangement via the sequencing software Ableton Live. With <a class="projA" href="http://remotescripts.blogspot.com/2010/03/introduction-to-framework-classes.html?m=1" target="_blank" >Python-emulated MIDI instruments</a>,
-                    I can program my backing track to react and respond to the polling results automatically while I play. I 
-                    believe the audience's interaction and role in creating the music will provide a more engaging
-                    and fulfilling experience than otherwise listening to the piece statically in a concert hall.
-                </p>
+                <h2>Graduate Projects</h2>
+                <div class="video">
+                    <h4 class="text-justify">GTCMT - MUSI 6304 - Computer Music Composition</h4>
+                    <p class="text-justify"><b>Various Original Compositions</b></p>
+                    <p class="text-justify">
+                        As my first foray into algorithmic composition, I created a composition generation system that takes 
+                        a text file as input, generates a song from the words contained in that file, and generates a song. 
+                        The origin of this composition stems from a personal interest in spoken word. There is so much 
+                        music in the way people speak, and I sought to highlight and hyperbolize that phenomenon through this piece.
+                        The way that I generate these compositions is by interleaving instrumental voices I create
+                        by splicing, filtering, stretching, and pitch shifting the pronunciation recordings of each input word.
+                        I’m sharing a song generated by the following quote from the Greek philosopher Heraclitus: “there is nothing permanent except change.” 
+                        I felt that this quote fit the aesthetics generated by my composition, especially with the drastic changes 
+                        I applied to all of the words in this quote.
+                        
+                        <div class="audioPer">
+                            <audio controls>
+                                <source src="https://s3.amazonaws.com/rytrose-personal-website/change.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        
+                        <br>
+                        <br>
+                        
+                        For this project, I wanted to compile the techniques I’d learned throughout and apply them to an aesthetic I’d been interested in: sound collage. 
+                        However, after browsing through Archive.org and falling in love with a 1950 psychology educational video on emotions, I decided against using 
+                        multiple collaged found sound sources, and just used the one. This video features a teacher and three students who receive a lesson on psychological 
+                        conditioning and how it affects one’s emotional responses. The emphatic, diverse dialogue and purposefully contrasting characters allowed so 
+                        many new narratives to form in my head. My goal was to use content from the video to tell a different story than the one told in the video. 
+                        I also wanted to play around with humor and the zaniness accompanied with taking words out of context.
+                        
+                        <div class="audioPer">
+                            <audio controls>
+                                <source src="https://s3.amazonaws.com/rytrose-personal-website/understanding_emotions.wav" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </p>
+                </div>
+                <hr>
+                <div class="video">
+                    <h4 class="text-justify">GTCMT - MUSI 6002 - Interactive Music</h4>
+                    <p class="text-justify"><b>Twitthear: An Audio Interface for Twitter</b></p>
+                    <p class="text-justify">
+                        Twitthear is an audio interface that brings Twitter to the
+                        virtual personal assistant Amazon Alexa. Its goal is to
+                        encode information about a tweet in musical phrase for a
+                        user to listen to, and decide whether or not to save the tweet
+                        to read on a visual interface later. Using sentiment analysis,
+                        semantic rhythm, and various sonification techniques to
+                        create meaningful melodies, Twitthear seeks to be more
+                        useful than traditional text-to-speech social media readers. More 
+                        information about this project can be read in this 
+                        <a class="bioA" target="_blank" href="https://s3.amazonaws.com/rytrose-personal-website/Twitthear_An_Audio_Interface_for_Twitter.pdf">paper</a>.
+                    </p>
+                    <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/ksoXnWqxwmM" frameborder="0" allowfullscreen></iframe></div>
+                </div>
+                <hr>
+                <div class="video">
+                    <h4 class="text-justify">GTCMT - MUSI 6201 - Audio Content Analysis (MIR)</h4>
+                    <p class="text-justify"><b>Real-Time Mood Detection of Music</b></p>
+                    <p class="text-justify">
+                        This project predicts the mood of input music on the arousal-valence scale in real time. Using features from a 
+                        pretrained convolutional neural network as input to a series of support vector regressors, this project allows
+                        a rough, continuous estimate of mood from any input audio source. The idea behind this project is that if 
+                        a robotic musician can estimate the mood of a performance in real time, they will be able to better contribute 
+                        to a human and robotic musician collaborative jam session.
+                    </p>
+                    <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/-CSxq8Rthcc" frameborder="0" allowfullscreen></iframe></div>
+                </div>
+                <hr>
+                <div class="video">
+                    <h4 class="text-justify">GTCMT - MUSI 7100 - Research - Fall 2017</h4>
+                    <p class="text-justify"><b>Performance Systems for Live Coders and Non-Coders</b></p>
+                    <p class="text-justify">
+                        Citation from the <i>Proceedings of the international conference on new interfaces for musical expression</i> coming soon.
+                        <br>
+                        <br>
+                        This paper explores the question of how live coding musicians can perform with musicians who are not using code 
+                        (such as acoustic instrumentalists or those using graphical and tangible electronic interfaces). This paper investigates 
+                        performance systems that facilitate improvisation where the musicians can interact not just by listening to each other 
+                        and changing their own output, but also by manipulating the data stream of the other performer(s). In a course of performance-led 
+                        research four prototypes were built and analyzed using concepts from NIME and creative collaboration literature. Based on this 
+                        analysis it was found that the systems should 1) provide a commonly modifiable visual representation of musical data for both 
+                        coder and non-coder, and 2) provide some independent means of sound production for each user, giving the non-coder the ability 
+                        to slow down and make non-realtime decisions for greater performance flexibility.
+                    </p>
+                </div> 
                 
             </div>
             
             <div class="tab-pane fade" id="tab3">
-                <h2>Academic Projects</h2>
+                <h2>Undergraduate Projects</h2>
                     <div class="video">
                         <h4 class="text-justify">CWRU - EECS 398 - Senior Project</h4>
                         <p class="text-justify"><b>Lake Metropark Farmpark solar tracker</b></p>
@@ -173,7 +232,11 @@
     	// (You'll probably want to debounce this)
     	$(window).resize(function() {
     
-    		var newWidth = $fluidEl.width();
+            var newWidth = 0;
+            $fluidEl.each(function(el) {
+                var $el = $(this);
+                if($el.width() != 0) newWidth = $el.width();
+            });
     		
     		// Resize all videos according to their own aspect ratio
     		$allVideos.each(function() {
