@@ -91,9 +91,12 @@ function setup() {
 var myCanvas;
 var skipFlag = false;
 
+console.log("Num anchors: " + $("a").length);
+
 $("a").each((index, a) => {
+    if(a.id != "soundAnchor") {
+        $(a).attr("myId", "anchor" + index);
     a.onmouseover = (event) => {
-        console.log("EVENT");
         if($('#musictoggle').prop('checked') && !skipFlag) {
             var canvasWidth = 230;
             var canvasHeight = 230;
@@ -110,6 +113,7 @@ $("a").each((index, a) => {
             myCanvas.parent(a);
             
             var i = 0;
+            
             // Start particles
             setInterval(function() {
               if(i <= 25) {
@@ -118,8 +122,15 @@ $("a").each((index, a) => {
                   i++;
               }
             }, 15);
+            
+            // Update sequencer file
+            var myId = $(a).attr("myId");
+            var anchorId = parseInt(myId.substr(6, myId.length));
+            notes[(sequencer.stepper.value + 1) % (sequencer.stepper.max)][pageToRow()] = anchorIdToNote(anchorId);
+            sequencer.matrix.set.cell((sequencer.stepper.value + 1) % (sequencer.stepper.max), pageToRow(), 1);
         }
-    };
+    };   
+    }
 });
 
 function draw() {
@@ -165,9 +176,78 @@ function pageToColor() {
         case "":
             color = '#ff8e8e';
             break;
+        case "bio":
+            color = "#00a53f";
+            break;
+        case "arrangements":
+            color = "#2c02ea";
+            break;
+        case "performances":
+            color = "#ffe15b";
+            break;
+        case "projects":
+            color = "#c40193";
+            break;
         default:
             color = '#000000';
     }
     return color;
+}
+
+function pageToRow() {
+    var loc = window.location.href.split('/')[3];
+    var row;
+    switch(loc) {
+        case "":
+            row = 0;
+            break;
+        case "bio":
+            row = 1;
+            break;
+        case "arrangements":
+            row = 2;
+            break;
+        case "performances":
+            row = 3;
+            break;
+        case "projects":
+            row = 4;
+            break;
+        default:
+            row = 0;
+    }
+    return row;
+}
+
+function anchorIdToNote(anchorId) {
+    var loc = window.location.href.split('/')[3];
+    var note;
+    switch(loc) {
+        case "":
+            var percNotes = ["A0"];
+            note = percNotes[anchorId % percNotes.length];
+            break;
+        case "bio":
+            var bassNotes = ["G3", "A3", "A#3"];
+            note = bassNotes[anchorId % bassNotes.length];
+            break;
+        case "arrangements":
+            var synth1Notes = ["G4", "A4", "A#4"];
+            note = synth1Notes[anchorId % synth1Notes.length];
+            break;
+        case "performances":
+            var synth2Notes = ["G4", "A4", "A#4"];
+            note = synth2Notes[anchorId % synth2Notes.length];
+            break;
+        case "projects":
+            var fxNotes = ["C0"];
+            note = fxNotes[anchorId % fxNotes.length];
+            break;
+        default:
+            var percNotes = ["C0"]
+            note = percNotes[anchorId % percNotes.length];
+    }
+    
+    return note;
 }
 

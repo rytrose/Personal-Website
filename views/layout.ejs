@@ -70,7 +70,7 @@
           <% } %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a style="cursor:pointer;padding-right:8px;" data-toggle="modal" data-target="#soundModal">sound</a></li>
+            <li><a id="soundAnchor" style="cursor:pointer;padding-right:8px;" data-toggle="modal" data-target="#soundModal">sound</a></li>
             <li class="navbar-btn"><input id="musictoggle" type="checkbox" data-size="small" data-toggle="toggle" data-onstyle="default"></li>
             <div class="modal fade" id="soundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
@@ -79,7 +79,15 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
-                    <p>Hi.</p>
+                    <br>
+                    <p class="text-justify">
+                      Welcome to my website instrument! When you turn <b>sound</b> to <b>on</b>, all the links on this site become instruments. 
+                      Try mousing around the page, and create your own jam. Your playing will be reflected in the sequencer below, so feel free
+                      to toggle the blue buttons if something isn't to your liking. Be sure to explore different pages of my website -- it's all 
+                      part of the instrument. Enjoy!
+                    </p>
+                    <br>
+                    <div id="sequencer"></div>
                   </div>
                 </div>
               </div>
@@ -154,6 +162,7 @@
     <script src="/js/dependencies/bootstrap.js"></script>
     <script src="/js/dependencies/imagesloaded.pkgd.min.js"></script>
     <script src="/js/dependencies/masonry.pkgd.min.js"></script>
+    <script src="/js/dependencies/NexusUI.js"></script>
     <script src="/js/dependencies/p5.dom.js"></script>
     <script src="/js/dependencies/pdfobject.min.js"></script>
     <script src="/js/dependencies/popper.min.js"></script>
