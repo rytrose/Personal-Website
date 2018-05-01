@@ -224,27 +224,27 @@ function anchorIdToNote(anchorId) {
     var note;
     switch(loc) {
         case "":
-            var percNotes = ["A0"];
+            var percNotes = ["A0", "A#0", "B0", "C1", "C#1", "D1", "D#1", "E1", "F1", "F#1", "G1", "G#1", "A1", "A#1"];
             note = percNotes[anchorId % percNotes.length];
             break;
         case "bio":
-            var bassNotes = ["G3", "A3", "A#3"];
+            var bassNotes = ["D3", "D#3", "E3", "F#3", "G3", "A3", "A#3", "C4"];
             note = bassNotes[anchorId % bassNotes.length];
             break;
         case "arrangements":
-            var synth1Notes = ["G4", "A4", "A#4"];
+            var synth1Notes = ["G4", "A4", "A#4", "C5", "D5", "D#5", "F#5", "G5"];
             note = synth1Notes[anchorId % synth1Notes.length];
             break;
         case "performances":
-            var synth2Notes = ["G4", "A4", "A#4"];
+            var synth2Notes = ["G4", "A4", "A#4", "C5", "D5", "D#5", "F#5", "G5"];
             note = synth2Notes[anchorId % synth2Notes.length];
             break;
         case "projects":
-            var fxNotes = ["C0"];
+            var fxNotes = ["A0", "A#0", "B0", "C1", "C#1", "D1", "D#1", "E1", "F1", "F#1", "G1"];
             note = fxNotes[anchorId % fxNotes.length];
             break;
         default:
-            var percNotes = ["C0"]
+            var percNotes = ["A0", "A#0", "B0", "C1", "C#1", "D1", "D#1", "E1", "F1", "F#1", "G1", "G#1", "A1", "A#1"];
             note = percNotes[anchorId % percNotes.length];
     }
     
