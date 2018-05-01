@@ -90,7 +90,7 @@ $("a").each(function(index, a) {
     if(a.id != "soundAnchor") {
         $(a).attr("myId", "anchor" + index);
     a.onmouseover = function(event) {
-        if($('#musictoggle').prop('checked') && !skipFlag) {
+        if($('#musictoggle').prop('checked')) {
             var canvasWidth = 230;
             var canvasHeight = 230;
             myCanvas = createCanvas(canvasWidth, canvasHeight);
