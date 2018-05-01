@@ -45,7 +45,8 @@
     "skipper-gridfs": "^0.5.3",
     "skipper-s3": "^0.5.6",
     "slackbots": "^1.0.2",
-    "socket.io-redis": "^1.1.1"
+    "socket.io-redis": "^1.1.1",
+    "tone": "^0.12.80"
   },
   "scripts": {
     "debug": "node debug app.js",

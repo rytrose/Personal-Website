@@ -1,5 +1,3 @@
-var Tone = require("Tone");
-
 // Get music state from session
 window.state = JSON.parse($('#musicstate').val());
 
