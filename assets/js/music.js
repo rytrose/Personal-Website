@@ -1,5 +1,5 @@
 // Start AudioContext
-StartAudioContext(Tone.context);
+// StartAudioContext(Tone.context);
 
 // Get music state from session
 window.state = JSON.parse($('#musicstate').val());
