@@ -1,79 +1,75 @@
-var Particle = class {
-
-    constructor(x, y, r) {
+function Particle(x, y, r) {
         this.pos   = createVector(x, y);
         this.vel   = createVector(random(-3, 3), random(-5, 0));
         this.acc   = createVector(0, 0);
         this.r     = r ? r : 48;
         this.halfr = r / 2;
-    }
-
-    applyForce(force) {
-        this.acc.add(force);
-    }
-
-    update() {
-        this.vel.add(this.acc);
-        this.pos.add(this.vel);
-        this.acc.set(0, 0);
-    }
-
-    display() {
-        noStroke();
-        fill(colorAlpha(pageToColor(), this.calcBallAlpha()));
-        ellipse(this.pos.x, this.pos.y, this.r, this.r);
-    }
-
-    edges() {
-        if(this.pos.y > (height - this.halfr)) {
-            this.vel.y *= -1;
-            this.pos.y = (height - this.halfr);
-        }
-
-        if(this.pos.y < 0 + this.halfr) {
-            this.vel.y *= -1;
-            this.pos.y = 0 + this.halfr;
-        }
-
-        if(this.pos.x > (width - this.halfr)) {
-            this.vel.x *= -1;
-            this.pos.x = (width - this.halfr);
-        }
-
-        if(this.pos.x < this.halfr) {
-            this.vel.x /= -1;
-            this.pos.x = this.halfr;
-        }
-    }
-    
-    calcBallAlpha() {
-        var alpha = 1.0;
-        if(this.pos.x <= (this.r * 4)) {
-            var newAlpha = (this.pos.x - (this.r * 2)) / (this.r * 2);
-            alpha = Math.min(alpha, newAlpha);
-        }
-        if(this.pos.x >= (width - (this.r * 4))) {
-            var newAlpha = ((width - this.pos.x) - (this.r * 2)) / (this.r * 2);
-            alpha = Math.min(alpha, newAlpha);
-        }
-        if(this.pos.y >= (height - (this.r * 4))) {
-            var newAlpha = ((height - this.pos.y) - (this.r * 2)) / (this.r * 2);
-            alpha = Math.min(alpha, newAlpha);
-        }
-        
-        if(alpha < 0.0) return 0.0;
-        else return alpha;
-    }
-    
-    x() {
-        return this.pos.x;
-    }
-    
-    y() {
-        return this.pos.y;
-    }
-
 }
+
+Particle.prototype.applyForce = function applyForce(force) {
+    this.acc.add(force);
+};
+
+Particle.prototype.update = function update() {
+    this.vel.add(this.acc);
+    this.pos.add(this.vel);
+    this.acc.set(0, 0);
+};
+
+Particle.prototype.display = function display(){
+    noStroke();
+    fill(colorAlpha(pageToColor(), this.calcBallAlpha()));
+    ellipse(this.pos.x, this.pos.y, this.r, this.r);
+};
+
+Particle.prototype.edges = function edges() {
+    if(this.pos.y > (height - this.halfr)) {
+        this.vel.y *= -1;
+        this.pos.y = (height - this.halfr);
+    }
+
+    if(this.pos.y < 0 + this.halfr) {
+        this.vel.y *= -1;
+        this.pos.y = 0 + this.halfr;
+    }
+
+    if(this.pos.x > (width - this.halfr)) {
+        this.vel.x *= -1;
+        this.pos.x = (width - this.halfr);
+    }
+
+    if(this.pos.x < this.halfr) {
+        this.vel.x /= -1;
+        this.pos.x = this.halfr;
+    }
+};
+
+Particle.prototype.calcBallAlpha = function calcBallAlpha() {
+    var alpha = 1.0;
+    if(this.pos.x <= (this.r * 4)) {
+        var newAlpha = (this.pos.x - (this.r * 2)) / (this.r * 2);
+        alpha = Math.min(alpha, newAlpha);
+    }
+    if(this.pos.x >= (width - (this.r * 4))) {
+        var newAlpha = ((width - this.pos.x) - (this.r * 2)) / (this.r * 2);
+        alpha = Math.min(alpha, newAlpha);
+    }
+    if(this.pos.y >= (height - (this.r * 4))) {
+        var newAlpha = ((height - this.pos.y) - (this.r * 2)) / (this.r * 2);
+        alpha = Math.min(alpha, newAlpha);
+    }
+    
+    if(alpha < 0.0) return 0.0;
+    else return alpha;
+};
+
+Particle.prototype.x = function x() {
+    return this.pos.x;
+};
+
+Particle.prototype.y = function y() {
+    return this.pos.y;
+};
 
 
 let particles = [];

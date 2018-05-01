@@ -45,22 +45,22 @@ var perc = new Tone.Sampler({
     "G#1": "Sn024B-EQ+Phat+Snare.wav",
     "A1": "Sn189B-EQ+Phat+Snare.wav",
     "A#1": "Sn201BREQ+Phat+Rimshot.wav"
-}, () => { loadStatus[0] = true; console.log("perc loaded") }, "https://s3.amazonaws.com/rytrose-personal-website/sounds/percussion/").toMaster();
+}, function() { loadStatus[0] = true; console.log("perc loaded") }, "https://s3.amazonaws.com/rytrose-personal-website/sounds/percussion/").toMaster();
 
 // Bass Sampler
 var bass = new Tone.Sampler({
     "A3": "VEC2+Bass+023+A.wav"
-}, () => { loadStatus[1] = true; console.log("bass loaded") }, "https://s3.amazonaws.com/rytrose-personal-website/sounds/bass/").toMaster();
+}, function() { loadStatus[1] = true; console.log("bass loaded") }, "https://s3.amazonaws.com/rytrose-personal-website/sounds/bass/").toMaster();
 
 // Synth1 Sampler
 var synth1 = new Tone.Sampler({
     "A4": "VEC2+Synths+001+A.wav"
-}, () => { loadStatus[2] = true; console.log("synth1 loaded") }, "https://s3.amazonaws.com/rytrose-personal-website/sounds/synth1/").toMaster();
+}, function() { loadStatus[2] = true; console.log("synth1 loaded") }, "https://s3.amazonaws.com/rytrose-personal-website/sounds/synth1/").toMaster();
 
 // Synth2 Sampler
 var synth2 = new Tone.Sampler({
     "B4": "VEC2+Synths+051+H.wav"
-}, () => { loadStatus[3] = true; console.log("synth2 loaded") }, "https://s3.amazonaws.com/rytrose-personal-website/sounds/synth2/").toMaster();
+}, function() { loadStatus[3] = true; console.log("synth2 loaded") }, "https://s3.amazonaws.com/rytrose-personal-website/sounds/synth2/").toMaster();
 
 // FX Sampler
 var fx = new Tone.Sampler({
@@ -75,7 +75,7 @@ var fx = new Tone.Sampler({
     "F1": "VEC2+FX+035.wav",
     "F#1": "VEC2+FX+036.wav",
     "G1": "VEC2+FX+038.wav"
-}, () => { loadStatus[4] = true; console.log("fx loaded") }, "https://s3.amazonaws.com/rytrose-personal-website/sounds/fx/").toMaster();
+}, function() { loadStatus[4] = true; console.log("fx loaded") }, "https://s3.amazonaws.com/rytrose-personal-website/sounds/fx/").toMaster();
 
 var loadStatus = [false, false, false, false, false];
 var loaded = false;
