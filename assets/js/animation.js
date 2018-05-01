@@ -1,4 +1,4 @@
-class Particle {
+var Particle = class {
 
     constructor(x, y, r) {
         this.pos   = createVector(x, y);
