@@ -89,10 +89,10 @@ var skipFlag = false;
 
 console.log("Num anchors: " + $("a").length);
 
-$("a").each((index, a) => {
+$("a").each(function(index, a) {
     if(a.id != "soundAnchor") {
         $(a).attr("myId", "anchor" + index);
-    a.onmouseover = (event) => {
+    a.onmouseover = function(event) {
         if($('#musictoggle').prop('checked') && !skipFlag) {
             var canvasWidth = 230;
             var canvasHeight = 230;
