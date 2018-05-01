@@ -72,10 +72,10 @@ Particle.prototype.y = function y() {
 };
 
 
-let particles = [];
-let particleLiving = [];
+var particles = [];
+var particleLiving = [];
 
-let w = window.innerWidth,
+var w = window.innerWidth,
     h = window.innerHeight,
     d = 50;
 
