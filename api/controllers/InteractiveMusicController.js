@@ -10,6 +10,7 @@ module.exports = {
 	    console.log("Music state update received.");
 		req.session.music = req.param('music');
 		req.session.save();
+		res.ok();
 		return;
 	},
 }
