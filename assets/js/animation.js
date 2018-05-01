@@ -85,9 +85,6 @@ function setup() {
 }
 
 var myCanvas;
-var skipFlag = false;
-
-console.log("Num anchors: " + $("a").length);
 
 $("a").each(function(index, a) {
     if(a.id != "soundAnchor") {
