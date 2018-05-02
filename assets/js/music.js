@@ -46,7 +46,7 @@ var perc = new Tone.Sampler({
 
 // Bass Sampler
 var bass = new Tone.Sampler({
-    "A3": "VEC2+Bass+023+A.wav"
+    "A3": "XF_SynBass075.wav"
 }, function() { loadStatus[1] = true; console.log("bass loaded") }, "https://s3.amazonaws.com/rytrose-personal-website/sounds/bass/").toMaster();
 
 // Synth1 Sampler
