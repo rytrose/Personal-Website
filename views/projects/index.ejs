@@ -1,264 +1,361 @@
 <div class="container">
-    <div class="row projects">
-        <ul class="nav nav-pills nav-stacked col-md-3">
-            <li class="nav-item active"><a href="#tab1" data-toggle="tab">The Social Composition Project</a></li>
-            <li class="nav-item proj"><a href="#tab2" data-toggle="tab">Graduate Projects</a></li>
-            <li class="nav-item proj"><a href="#tab3" data-toggle="tab">Undergraduate Projects</a></li>
-        </ul>
-        
-        <div class="tab-content col-xs-8">
-            <div class="tab-pane fade in active" id="tab1">
-                <h2>The Social Composition Project</h2>
-                <p class="text-justify">
-                    This project seeks to interpret the human interactions exhibited through social media into music 
-                    by procedurally generating a musical composition using a Facebook post as input. The
-                    composition is based off of the Facebook Reactions (i.e. Like, Love, Wow, etc.) associated with
-                    the input post. Each reaction has an associated melodic phrase which floats over an oscillating
-                    drone. A disproportionate amount of Like reactions led to the inclusion of an additional phrase
-                    representing a sequence of uninterrupted Likes.
-                </p>
-                <p class="text-justify">
-                    The inspiration for this project came from observing Facebook interactions following the tragic 
-                    massacre at the Pulse Orlando nightclub on June 12, 2016. Many of my peers posted heartfelt and
-                    sensitive messages on Facebook in response to the tragedy, and many of those posts had emotionally-charged discussions
-                    in the comments section. One particular discussion was over the insensitivity of reacting to a 
-                    memorial/grieving post with a Haha reaction. Observing this phenomenon and the ensuing debate led me to
-                    observe a particular significance to these digital reactions. My response was to apply the concept 
-                    of a reaction-generated composition to the Pulse Orlando Facebook page. However, transforming a specific
-                    post proved much more effective and feasible, which led to the current iteration that allows users of
-                    the project to create compositions from posts on their own timeline.
-                </p>
-                <p class="text-justify">
-                    The project utilizes <a class="projA" href="https://developers.facebook.com/docs/graph-api" target="_blank" >Facebook's Graph API</a> 
-                    for data collection, the <a class="projA" href="https://www.w3.org/TR/webaudio/" target="_blank" >W3C Web Audio API</a> 
-                    for sequencing, and <a class="projA" href="https://github.com/tjoen/three.js" target="_blank" >THREE.js</a> and the CSS3D renderer 
-                    for visualization. Code for this project can be found <a class="projA" href="https://github.com/rytrose/Personal-Website/tree/master/assets/scp" target="_blank" >here</a>.
-                </p>
-                <p class="text-justify">
-                    This project is currently stable only in the Chrome browser.
-                </p>
-                <div class="text-center"><a class="btn btn-default" href="/projects/scp">see the project</a></div>
-                <p></p>
-                <p class="text-justify">
-                    While currently a cohesive work, I am constantly looking to improve and expand this project. 
-                    Here is a list of future ideas and objectives:
-                </p>
-                <ul class="text-justify">
-                    <li>
-                        <p><b>Handle the abundance of Like's with more diversity.</b></p>
-                        <p>
-                            Some ideas are to incorporate new phrases, modulate the existing phrases, overlap phrases, or alter the timbre of repeated Like phrases. 
-                            I would also like to make the reaction phrases relate better musically to each other, to create a more cohesive composition. 
-                        </p>
-                    </li>
-                    <li>
-                        <p><b>Give significance to the spatial layout of the reactions.</b></p>
-                        <p>Ideas have been to superimpose reactions on a map, relate the distance between reactions with time, or to move the reactions relative to when they are being "played."</p>
-                    </li>
-                    <li>
-                        <p><b>Give the individual reactions of the visualization an interactive component.</b></p>
-                        <p>Many users have tried to click on or drag floating reactions, but they are currently static.</p>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="tab-pane fade" id="tab2">
-                <h2>Graduate Projects</h2>
-                <div class="video">
-                    <h4 class="text-justify">GTCMT - MUSI 6304 - Computer Music Composition</h4>
-                    <p class="text-justify"><b>Various Original Compositions</b></p>
-                    <p class="text-justify">
-                        As my first foray into algorithmic composition, I created a composition generation system that takes 
-                        a text file as input, generates a song from the words contained in that file, and generates a song. 
-                        The origin of this composition stems from a personal interest in spoken word. There is so much 
-                        music in the way people speak, and I sought to highlight and hyperbolize that phenomenon through this piece.
-                        The way that I generate these compositions is by interleaving instrumental voices I create
-                        by splicing, filtering, stretching, and pitch shifting the pronunciation recordings of each input word.
-                        I’m sharing a song generated by the following quote from the Greek philosopher Heraclitus: “there is nothing permanent except change.” 
-                        I felt that this quote fit the aesthetics generated by my composition, especially with the drastic changes 
-                        I applied to all of the words in this quote.
-                        
-                        <div class="audioPer">
-                            <audio controls>
-                                <source src="https://s3.amazonaws.com/rytrose-personal-website/change.mp3" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        
-                        <br>
-                        <br>
-                        
-                        For this project, I wanted to compile the techniques I’d learned throughout and apply them to an aesthetic I’d been interested in: sound collage. 
-                        However, after browsing through Archive.org and falling in love with a 1950 psychology educational video on emotions, I decided against using 
-                        multiple collaged found sound sources, and just used the one. This video features a teacher and three students who receive a lesson on psychological 
-                        conditioning and how it affects one’s emotional responses. The emphatic, diverse dialogue and purposefully contrasting characters allowed so 
-                        many new narratives to form in my head. My goal was to use content from the video to tell a different story than the one told in the video. 
-                        I also wanted to play around with humor and the zaniness accompanied with taking words out of context.
-                        
-                        <div class="audioPer">
-                            <audio controls>
-                                <source src="https://s3.amazonaws.com/rytrose-personal-website/understanding_emotions.wav" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </p>
-                </div>
-                <hr>
-                <div class="video">
-                    <h4 class="text-justify">GTCMT - MUSI 6002 - Interactive Music</h4>
-                    <p class="text-justify"><b>Twitthear: An Audio Interface for Twitter</b></p>
-                    <p class="text-justify">
-                        Twitthear is an audio interface that brings Twitter to the
-                        virtual personal assistant Amazon Alexa. Its goal is to
-                        encode information about a tweet in musical phrase for a
-                        user to listen to, and decide whether or not to save the tweet
-                        to read on a visual interface later. Using sentiment analysis,
-                        semantic rhythm, and various sonification techniques to
-                        create meaningful melodies, Twitthear seeks to be more
-                        useful than traditional text-to-speech social media readers. More 
-                        information about this project can be read in this 
-                        <a class="bioA" target="_blank" href="https://s3.amazonaws.com/rytrose-personal-website/Twitthear_An_Audio_Interface_for_Twitter.pdf">paper</a>.
-                    </p>
-                    <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/ksoXnWqxwmM" frameborder="0" allowfullscreen></iframe></div>
-                </div>
-                <hr>
-                <div class="video">
-                    <h4 class="text-justify">GTCMT - MUSI 6201 - Audio Content Analysis (MIR)</h4>
-                    <p class="text-justify"><b>Real-Time Mood Detection of Music</b></p>
-                    <p class="text-justify">
-                        This project predicts the mood of input music on the arousal-valence scale in real time. Using features from a 
-                        pretrained convolutional neural network as input to a series of support vector regressors, this project allows
-                        a rough, continuous estimate of mood from any input audio source. The idea behind this project is that if 
-                        a robotic musician can estimate the mood of a performance in real time, they will be able to better contribute 
-                        to a human and robotic musician collaborative jam session.
-                    </p>
-                    <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/-CSxq8Rthcc" frameborder="0" allowfullscreen></iframe></div>
-                </div>
-                <hr>
-                <div class="video">
-                    <h4 class="text-justify">GTCMT - MUSI 7100 - Research - Fall 2017</h4>
-                    <p class="text-justify"><b>Performance Systems for Live Coders and Non-Coders</b></p>
-                    <p class="text-justify">
-                        Citation from the <i>Proceedings of the international conference on new interfaces for musical expression</i> coming soon.
-                        <br>
-                        <br>
-                        This paper explores the question of how live coding musicians can perform with musicians who are not using code 
-                        (such as acoustic instrumentalists or those using graphical and tangible electronic interfaces). This paper investigates 
-                        performance systems that facilitate improvisation where the musicians can interact not just by listening to each other 
-                        and changing their own output, but also by manipulating the data stream of the other performer(s). In a course of performance-led 
-                        research four prototypes were built and analyzed using concepts from NIME and creative collaboration literature. Based on this 
-                        analysis it was found that the systems should 1) provide a commonly modifiable visual representation of musical data for both 
-                        coder and non-coder, and 2) provide some independent means of sound production for each user, giving the non-coder the ability 
-                        to slow down and make non-realtime decisions for greater performance flexibility.
-                    </p>
-                </div> 
-                
-            </div>
-            
-            <div class="tab-pane fade" id="tab3">
-                <h2>Undergraduate Projects</h2>
-                    <div class="video">
-                        <h4 class="text-justify">CWRU - EECS 398 - Senior Project</h4>
-                        <p class="text-justify"><b>Lake Metropark Farmpark solar tracker</b></p>
-                        <p class="text-justify">
-                            As part of EECS 398, Senior Capstone, partner Ailin Yu and I helped renovate and upgrade a solar tracker exhibit at the Lake Metroparks Farmpark.
-                            The Farmpark is akin to a children's museum, with various exhibits demonstrating the importance of nature in our lives.
-                            
-                            My roles in the project involved developing a GUI for a new interactive touchscreen display and helping program a Rockwell PLC for system control. 
-                            I incorporated music into the project by developing a musical representation of the energy coming into the solar panel. Using <a class="projA" href="http://chuck.stanford.edu/" target="_blank" >ChucK</a>,
-                            an on-the-fly music programming language, and a Raspberry Pi, I transformed proportial energy signals coming into the solar panel into musical data streams. 
-                            By mapping voltage to pitch and current to tempo, visitors can appreciate the work the solar panel is doing through music. I defined multiple sets of pitches 
-                            corresponding to popular scales (blues, pentatonic, and wholetone) in order to make the data sonification accessible.
-                        </p>
-                         <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/0aDBlJPa89E" frameborder="0" allowfullscreen></iframe></div>
-                    </div>
-                    <hr>
-                    <div class="video">
-                        <h4 class="text-justify">CWRU - EECS 301 - Digital Logic Lab</h4>
-                        <p class="text-justify"><b>Audio filtering and peak detection, FPGA design</b></p>
-                        <p class="text-justify">
-                            As part of EECS 301, partner Ailin Yu and I programmed an FPGA to take an audio input, filter high and low frequencies, and display a peak 
-                            detection visualization on an LCD screen.
-                            
-                            This project required us to first recieve an audio signal with an ADC and use FIR filters to separate high and low frequencies. 
-                            Low frequencies were output to a motor via pulse-width modulation, and high frequencies were converted back to an analog 
-                            signal and output through a speaker. Before being output, both high and low frequencies were sent through a peak-detect module. 
-                            We used dual-port RAM to record the highest peak frequency every 60 MHz, and output the peak data to the LCD screen. The strength of 
-                            each peak was reflected on the screen via a corresponding shade of color. A very brief demonstration of the visual output can be seen below.
-                        </p>
-                        <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/N4QuLahGqEQ" frameborder="0" allowfullscreen></iframe></div>
-                    </div>
-                    <hr>
-                    <div class="video">
-                        <h4 class="text-justify">CWRU - EECS 397 - Mobile Computing and Sensor Networks</h4>
-                        <p class="text-justify"><b>Radon sensor hacking, data collection, and data transfer to an Android app over Bluetooth</b></p>
-                        <p class="text-justify">
-                            As part of EECS 397, partner Walter Huang and I successfully hacked a Radon sensor and integrated its functionality with a basic Android app.
-                            
-                            By dismantling a household Radon sensor and wiring it to an Intel Edison computer-on-module, we were able to read and record the sensor's display.
-                            Our second task was to pass data from the Radon sensor, among other sensors, to an Android app via Bluetooth. Establishing communication and transferring data,
-                            we finally saved the data from our sensors to our smartphone in CSV format. Below is a demonstration of our functioning system, and the Arduino code used
-                            to read the Radon sensor display can be found <a class="projA" href="https://github.com/rytrose/EECS397Lab5" target="_blank" >here</a>.
-                        </p>
-                         <div class="video-margin text-center"><iframe width="387" height="216" src="https://www.youtube.com/embed/2kfhLTf8tGs" frameborder="0" allowfullscreen></iframe></div>
-                    </div>
-                </div>
-            </div>
+  <div class="row projects">
+    <ul class="nav nav-pills nav-stacked col-md-3">
+      <!--<li class="nav-item active"><a href="#tab1" data-toggle="tab">The Social Composition Project</a></li>-->
+      <li class="nav-item active"><a href="#tab2" data-toggle="tab">Graduate Projects</a></li>
+      <li class="nav-item proj"><a href="#tab3" data-toggle="tab">Undergraduate Projects</a></li>
+    </ul>
+
+    <div class="tab-content col-xs-8">
+      <!--<div class="tab-pane fade in active" id="tab1">-->
+      <!--<h2>The Social Composition Project</h2>-->
+      <!--<p class="text-justify">-->
+      <!--This project seeks to interpret the human interactions exhibited through social media into music -->
+      <!--by procedurally generating a musical composition using a Facebook post as input. The-->
+      <!--composition is based off of the Facebook Reactions (i.e. Like, Love, Wow, etc.) associated with-->
+      <!--the input post. Each reaction has an associated melodic phrase which floats over an oscillating-->
+      <!--drone. A disproportionate amount of Like reactions led to the inclusion of an additional phrase-->
+      <!--representing a sequence of uninterrupted Likes.-->
+      <!--</p>-->
+      <!--<p class="text-justify">-->
+      <!--The inspiration for this project came from observing Facebook interactions following the tragic -->
+      <!--massacre at the Pulse Orlando nightclub on June 12, 2016. Many of my peers posted heartfelt and-->
+      <!--sensitive messages on Facebook in response to the tragedy, and many of those posts had emotionally-charged discussions-->
+      <!--in the comments section. One particular discussion was over the insensitivity of reacting to a -->
+      <!--memorial/grieving post with a Haha reaction. Observing this phenomenon and the ensuing debate led me to-->
+      <!--observe a particular significance to these digital reactions. My response was to apply the concept -->
+      <!--of a reaction-generated composition to the Pulse Orlando Facebook page. However, transforming a specific-->
+      <!--post proved much more effective and feasible, which led to the current iteration that allows users of-->
+      <!--the project to create compositions from posts on their own timeline.-->
+      <!--</p>-->
+      <!--<p class="text-justify">-->
+      <!--The project utilizes <a class="projA" href="https://developers.facebook.com/docs/graph-api" target="_blank" >Facebook's Graph API</a> -->
+      <!--for data collection, the <a class="projA" href="https://www.w3.org/TR/webaudio/" target="_blank" >W3C Web Audio API</a> -->
+      <!--for sequencing, and <a class="projA" href="https://github.com/tjoen/three.js" target="_blank" >THREE.js</a> and the CSS3D renderer -->
+      <!--for visualization. Code for this project can be found <a class="projA" href="https://github.com/rytrose/Personal-Website/tree/master/assets/scp" target="_blank" >here</a>.-->
+      <!--</p>-->
+      <!--<p class="text-justify">-->
+      <!--This project is currently stable only in the Chrome browser.-->
+      <!--</p>-->
+      <!--<div class="text-center"><a class="btn btn-default" href="/projects/scp">see the project</a></div>-->
+      <!--<p></p>-->
+      <!--<p class="text-justify">-->
+      <!--While currently a cohesive work, I am constantly looking to improve and expand this project. -->
+      <!--Here is a list of future ideas and objectives:-->
+      <!--</p>-->
+      <!--<ul class="text-justify">-->
+      <!--<li>-->
+      <!--<p><b>Handle the abundance of Like's with more diversity.</b></p>-->
+      <!--<p>-->
+      <!--Some ideas are to incorporate new phrases, modulate the existing phrases, overlap phrases, or alter the timbre of repeated Like phrases. -->
+      <!--I would also like to make the reaction phrases relate better musically to each other, to create a more cohesive composition. -->
+      <!--</p>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--<p><b>Give significance to the spatial layout of the reactions.</b></p>-->
+      <!--<p>Ideas have been to superimpose reactions on a map, relate the distance between reactions with time, or to move the reactions relative to when they are being "played."</p>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--<p><b>Give the individual reactions of the visualization an interactive component.</b></p>-->
+      <!--<p>Many users have tried to click on or drag floating reactions, but they are currently static.</p>-->
+      <!--</li>-->
+      <!--</ul>-->
+      <!--</div>-->
+
+      <div class="tab-pane fade in active" id="tab2">
+        <h2>Graduate Projects</h2>
+        <div class="video">
+          <h4 class="text-justify">GTCMT - MUSI 6203 - Robotic Musicianship Studio</h4>
+          <p class="text-justify"><b>Recorder Bot</b></p>
+          <p class="text-justify">
+            Being a saxophonist, when tasked to make a small robotic musician for this class, I really wanted to make a
+            wind player.
+            In order to circumvent the tough task of replicating an embouchure, my team members and I created a robot
+            that plays
+            the recorder. It does so through the use of a solenoid valve for regulating air flow, and solenoid actuators
+            to cover the
+            tone holes. It's driven by an Arduino Mega as well as a Max/MSP patch. The robot incorporates gestural
+            expression into performance via a linear
+            actuator that moves the recorder, and a servo that rotates its head. The Max patch allows for sequenced MIDI
+            input
+            (for recorder output and gestural control) or live control with a MIDI controller.
+          </p>
+
+          <div class="video-margin text-center">
+            <iframe width="387" height="216" src="https://www.youtube.com/embed/zWl6llFeaVQ" frameborder="0"
+                    allowfullscreen></iframe>
+          </div>
         </div>
+        <hr>
+        <div class="video">
+          <h4 class="text-justify">GTCMT - MUSI 7100 - Research - Spring 2018</h4>
+          <p class="text-justify"><b>SoundCage</b></p>
+          <p class="text-justify">
+            After a large-scale installation project we were doing research for fell through, <a class="bioA"
+                                                                                                 target="_blank"
+                                                                                                 href="http://www.avneeshsarwate.com">Avneesh
+              Sarwate</a> and I put together a small installation
+            in just a few weeks with supplies we had purchased for the previous project. The result was SoundCage: a
+            closet-sized tangible experience
+            that encouraged visitors to explore strings extending from sensor packages mounted in a PVC frame. The trial
+            experience we implemented was
+            a bell tower metaphor: as visitors moved their hands closer to the corners, a bell in that corner would toll
+            faster. When bells tolled
+            at predefined ratios, a hidden sound emerged. The audio quality of the vibrational transducers serving as
+            speakers on each sensor package
+            created a gritty, industrial aesthetic.
+          </p>
+
+          <div class="video-margin text-center">
+            <iframe width="387" height="216" src="https://www.youtube.com/embed/gDkEvhYeeKs" frameborder="0"
+                    allowfullscreen></iframe>
+          </div>
+        </div>
+        <hr>
+        <div class="video">
+          <h4 class="text-justify">GTCMT - MUSI 6304 - Computer Music Composition</h4>
+          <p class="text-justify"><b>Various Original Compositions</b></p>
+          <p class="text-justify">
+            As my first foray into algorithmic composition, I created a composition generation system that takes
+            a text file as input, generates a song from the words contained in that file, and generates a song.
+            The origin of this composition stems from a personal interest in spoken word. There is so much
+            music in the way people speak, and I sought to highlight and hyperbolize that phenomenon through this piece.
+            The way that I generate these compositions is by interleaving instrumental voices I create
+            by splicing, filtering, stretching, and pitch shifting the pronunciation recordings of each input word.
+            I’m sharing a song generated by the following quote from the Greek philosopher Heraclitus: “there is nothing
+            permanent except change.”
+            I felt that this quote fit the aesthetics generated by my composition, especially with the drastic changes
+            I applied to all of the words in this quote.
+
+          <div class="audioPer">
+            <audio controls>
+              <source src="https://s3.amazonaws.com/rytrose-personal-website/change.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+          <br>
+          For this project, I wanted to compile the techniques I’d learned throughout and apply them to an aesthetic I’d
+          been interested in: sound collage.
+          However, after browsing through Archive.org and falling in love with a 1950 psychology educational video on
+          emotions, I decided against using
+          multiple collaged found sound sources, and just used the one. This video features a teacher and three students
+          who receive a lesson on psychological
+          conditioning and how it affects one’s emotional responses. The emphatic, diverse dialogue and purposefully
+          contrasting characters allowed so
+          many new narratives to form in my head. My goal was to use content from the video to tell a different story
+          than the one told in the video.
+          I also wanted to play around with humor and the zaniness accompanied with taking words out of context.
+
+          <div class="audioPer">
+            <audio controls>
+              <source src="https://s3.amazonaws.com/rytrose-personal-website/understanding_emotions.wav"
+                      type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+          </p>
+        </div>
+        <hr>
+        <div class="video">
+          <h4 class="text-justify">GTCMT - MUSI 6002 - Interactive Music</h4>
+          <p class="text-justify"><b>Twitthear: An Audio Interface for Twitter</b></p>
+          <p class="text-justify">
+            Twitthear is an audio interface that brings Twitter to the
+            virtual personal assistant Amazon Alexa. Its goal is to
+            encode information about a tweet in musical phrase for a
+            user to listen to, and decide whether or not to save the tweet
+            to read on a visual interface later. Using sentiment analysis,
+            semantic rhythm, and various sonification techniques to
+            create meaningful melodies, Twitthear seeks to be more
+            useful than traditional text-to-speech social media readers. More
+            information about this project can be read in this
+            <a class="bioA" target="_blank"
+               href="https://s3.amazonaws.com/rytrose-personal-website/Twitthear_An_Audio_Interface_for_Twitter.pdf">paper</a>.
+          </p>
+          <div class="video-margin text-center">
+            <iframe width="387" height="216" src="https://www.youtube.com/embed/ksoXnWqxwmM" frameborder="0"
+                    allowfullscreen></iframe>
+          </div>
+        </div>
+        <hr>
+        <div class="video">
+          <h4 class="text-justify">GTCMT - MUSI 6201 - Audio Content Analysis (MIR)</h4>
+          <p class="text-justify"><b>Real-Time Mood Detection of Music</b></p>
+          <p class="text-justify">
+            This project predicts the mood of input music on the arousal-valence scale in real time. Using features from
+            a
+            pretrained convolutional neural network as input to a series of support vector regressors, this project
+            allows
+            a rough, continuous estimate of mood from any input audio source. The idea behind this project is that if
+            a robotic musician can estimate the mood of a performance in real time, they will be able to better
+            contribute
+            to a human and robotic musician collaborative jam session.
+          </p>
+          <div class="video-margin text-center">
+            <iframe width="387" height="216" src="https://www.youtube.com/embed/-CSxq8Rthcc" frameborder="0"
+                    allowfullscreen></iframe>
+          </div>
+        </div>
+        <hr>
+        <div class="video">
+          <h4 class="text-justify">GTCMT - MUSI 7100 - Research - Fall 2017</h4>
+          <p class="text-justify"><b>Performance Systems for Live Coders and Non-Coders</b></p>
+          <p class="text-justify">
+            <i>A. Sarwate, R. T. Rose, J. Freeman, and J. Armitage, “Performance systems for live coders and non-coders,” in Proceedings of the international conference on new interfaces for musical expression, Blacksburg, Virginia, USA, 2018, p. 370–373.</i>
+            <br>
+            <br>
+            This paper explores the question of how live coding musicians can perform with musicians who are not using
+            code
+            (such as acoustic instrumentalists or those using graphical and tangible electronic interfaces). This paper
+            investigates
+            performance systems that facilitate improvisation where the musicians can interact not just by listening to
+            each other
+            and changing their own output, but also by manipulating the data stream of the other performer(s). In a
+            course of performance-led
+            research four prototypes were built and analyzed using concepts from NIME and creative collaboration
+            literature. Based on this
+            analysis it was found that the systems should 1) provide a commonly modifiable visual representation of
+            musical data for both
+            coder and non-coder, and 2) provide some independent means of sound production for each user, giving the
+            non-coder the ability
+            to slow down and make non-realtime decisions for greater performance flexibility.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="tab3">
+        <h2>Undergraduate Projects</h2>
+        <div class="video">
+          <h4 class="text-justify">CWRU - EECS 398 - Senior Project</h4>
+          <p class="text-justify"><b>Lake Metropark Farmpark solar tracker</b></p>
+          <p class="text-justify">
+            As part of EECS 398, Senior Capstone, partner Ailin Yu and I helped renovate and upgrade a solar tracker
+            exhibit at the Lake Metroparks Farmpark.
+            The Farmpark is akin to a children's museum, with various exhibits demonstrating the importance of nature in
+            our lives.
+
+            My roles in the project involved developing a GUI for a new interactive touchscreen display and helping
+            program a Rockwell PLC for system control.
+            I incorporated music into the project by developing a musical representation of the energy coming into the
+            solar panel. Using <a class="projA" href="http://chuck.stanford.edu/" target="_blank">ChucK</a>,
+            an on-the-fly music programming language, and a Raspberry Pi, I transformed proportial energy signals coming
+            into the solar panel into musical data streams.
+            By mapping voltage to pitch and current to tempo, visitors can appreciate the work the solar panel is doing
+            through music. I defined multiple sets of pitches
+            corresponding to popular scales (blues, pentatonic, and wholetone) in order to make the data sonification
+            accessible.
+          </p>
+          <div class="video-margin text-center">
+            <iframe width="387" height="216" src="https://www.youtube.com/embed/0aDBlJPa89E" frameborder="0"
+                    allowfullscreen></iframe>
+          </div>
+        </div>
+        <hr>
+        <div class="video">
+          <h4 class="text-justify">CWRU - EECS 301 - Digital Logic Lab</h4>
+          <p class="text-justify"><b>Audio filtering and peak detection, FPGA design</b></p>
+          <p class="text-justify">
+            As part of EECS 301, partner Ailin Yu and I programmed an FPGA to take an audio input, filter high and low
+            frequencies, and display a peak
+            detection visualization on an LCD screen.
+
+            This project required us to first recieve an audio signal with an ADC and use FIR filters to separate high
+            and low frequencies.
+            Low frequencies were output to a motor via pulse-width modulation, and high frequencies were converted back
+            to an analog
+            signal and output through a speaker. Before being output, both high and low frequencies were sent through a
+            peak-detect module.
+            We used dual-port RAM to record the highest peak frequency every 60 MHz, and output the peak data to the LCD
+            screen. The strength of
+            each peak was reflected on the screen via a corresponding shade of color. A very brief demonstration of the
+            visual output can be seen below.
+          </p>
+          <div class="video-margin text-center">
+            <iframe width="387" height="216" src="https://www.youtube.com/embed/N4QuLahGqEQ" frameborder="0"
+                    allowfullscreen></iframe>
+          </div>
+        </div>
+        <hr>
+        <div class="video">
+          <h4 class="text-justify">CWRU - EECS 397 - Mobile Computing and Sensor Networks</h4>
+          <p class="text-justify"><b>Radon sensor hacking, data collection, and data transfer to an Android app over
+              Bluetooth</b></p>
+          <p class="text-justify">
+            As part of EECS 397, partner Walter Huang and I successfully hacked a Radon sensor and integrated its
+            functionality with a basic Android app.
+
+            By dismantling a household Radon sensor and wiring it to an Intel Edison computer-on-module, we were able to
+            read and record the sensor's display.
+            Our second task was to pass data from the Radon sensor, among other sensors, to an Android app via
+            Bluetooth. Establishing communication and transferring data,
+            we finally saved the data from our sensors to our smartphone in CSV format. Below is a demonstration of our
+            functioning system, and the Arduino code used
+            to read the Radon sensor display can be found <a class="projA" href="https://github.com/rytrose/EECS397Lab5"
+                                                             target="_blank">here</a>.
+          </p>
+          <div class="video-margin text-center">
+            <iframe width="387" height="216" src="https://www.youtube.com/embed/2kfhLTf8tGs" frameborder="0"
+                    allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
     </div>
-    <script src="/js/dependencies/jquery-3.1.1.min.js"></script>
-  <script>
-    $(function() {
-    
-    	// Find all YouTube videos
-    	var $allVideos = $("iframe[src^='https://www.youtube.com']"),
-    
-    	    // The element that is fluid width
-    	    $fluidEl = $(".video");
-    
-    	// Figure out and save aspect ratio for each video
-    	$allVideos.each(function() {
-    
-    		$(this)
-    			.data('aspectRatio', this.height / this.width)
-    			
-    			// and remove the hard coded width/height
-    			.removeAttr('height')
-    			.removeAttr('width');
-    
-    	});
-    
-    	// When the window is resized
-    	// (You'll probably want to debounce this)
-    	$(window).resize(function() {
-    
-            var newWidth = 0;
-            $fluidEl.each(function(el) {
-                var $el = $(this);
-                if($el.width() != 0) newWidth = $el.width();
-            });
-    		
-    		// Resize all videos according to their own aspect ratio
-    		$allVideos.each(function() {
-    
-    			var $el = $(this);
-    			$el
-    				.width(newWidth)
-    				.height(newWidth * $el.data('aspectRatio'));
-    
-    		});
-    
-    	// Kick off one resize to fix all videos on page load
-    	}).resize();
-    
+  </div>
+</div>
+<script src="/js/dependencies/jquery-3.1.1.min.js"></script>
+<script>
+  $(function () {
+
+    // Find all YouTube videos
+    var $allVideos = $("iframe[src^='https://www.youtube.com']"),
+
+      // The element that is fluid width
+      $fluidEl = $(".video");
+
+    // Figure out and save aspect ratio for each video
+    $allVideos.each(function () {
+
+      $(this)
+        .data('aspectRatio', this.height / this.width)
+
+        // and remove the hard coded width/height
+        .removeAttr('height')
+        .removeAttr('width');
+
     });
-    
-    $(document).ready(function(){
-        $(".proj a").click(function(e){
-            setTimeout(function(){
-                window.dispatchEvent(new Event('resize'));
-            }, 200)
-        });
+
+    // When the window is resized
+    // (You'll probably want to debounce this)
+    $(window).resize(function () {
+
+      var newWidth = 0;
+      $fluidEl.each(function (el) {
+        var $el = $(this);
+        if ($el.width() != 0) newWidth = $el.width();
+      });
+
+      // Resize all videos according to their own aspect ratio
+      $allVideos.each(function () {
+
+        var $el = $(this);
+        $el
+          .width(newWidth)
+          .height(newWidth * $el.data('aspectRatio'));
+
+      });
+
+      // Kick off one resize to fix all videos on page load
+    }).resize();
+
+  });
+
+  $(document).ready(function () {
+    $(".proj a").click(function (e) {
+      setTimeout(function () {
+        window.dispatchEvent(new Event('resize'));
+      }, 200)
     });
-  </script>
+  });
+</script>
 </div>
