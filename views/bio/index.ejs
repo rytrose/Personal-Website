@@ -4,15 +4,15 @@
             <div class="bioDesc">
                 <h2>biography</h2>
                 <p>
-                    <b>Ryan Rose</b> is a saxophonist, arranger, and student who recently graduated from 
-                    Case Western Reserve University (CWRU). Ryan graduated with a Bachelor of Science 
-                    in Engineering (BSE) in Computer Engineering and a Bachelor of Arts (BA) in Music. 
+                    <b>Ryan Rose</b> is a saxophonist, arranger, and student who recently graduated from
+                    Case Western Reserve University (CWRU). Ryan graduated with a Bachelor of Science
+                    in Engineering (BSE) in Computer Engineering and a Bachelor of Arts (BA) in Music.
                 </p>
                 <p>
                     While at CWRU, Ryan studied saxophone with Greg Banaszak, and played for artists such
                     as Olli-Pekka Tuomisalo, Velvet Brown, Bill Dobbins, and George Weremchuck among others. Ryan has
                     played internationally in Germany, the Netherlands, and Finland, both as a soloist and as part of
-                    a saxophone quartet. In 2015, Ryan won the Terr Ronis Memorial Recital Prize, and in 2016 Ryan was awarded 
+                    a saxophone quartet. In 2015, Ryan won the Terr Ronis Memorial Recital Prize, and in 2016 Ryan was awarded
                     first prize in the Great Composers Competition Series: The Art of Woodwinds and Brass. Ryan has
                     played with the following groups:
                     <ul style="list-style: none;">
@@ -29,23 +29,23 @@
                 <p>
                     Ryan also served as president and music director for CWRU's premiere all-male a cappella group, Speakeasy.
                     For this group Ryan has written over a dozen arrangements of contemporary songs. He has also arranged for
-                    female a cappella, mixed a cappella, and various non-choral chamber groups. 
+                    female a cappella, mixed a cappella, and various non-choral chamber groups.
                 </p>
                 <p>
-                    As a computer engineering student and programmer, Ryan has worked with numerous languages on an array of 
-                    projects that can be found on his <a class="bioA" target="_blank" href="https://github.com/rytrose">github account</a> or on this site 
-                    under <a class="bioA" target="_blank" href="http://rytrose.com/projects">projects</a>. 
+                    As a computer engineering student and programmer, Ryan has worked with numerous languages on an array of
+                    projects that can be found on his <a class="bioA" target="_blank" href="https://github.com/rytrose">github account</a> or on this site
+                    under <a class="bioA" target="_blank" href="http://rytrose.com/projects">projects</a>.
                 </p>
                 <p>
                     Ryan is currently attending Georgia Institute of Technology in pursuit of a Masters degree in Music Technology.
-                    He is a Graduate Research Assistant under Jason Freeman, and the software lead on <a class="bioA" target="_blank" href="https://adamlab.gatech.edu/tunetable/">TuneTable</a>, 
+                    He is a Graduate Research Assistant under Jason Freeman, and the software lead on <a class="bioA" target="_blank" href="https://adamlab.gatech.edu/tunetable/">TuneTable</a>,
                     a tangible user interface for teaching middle- and high-school kids computational concepts while making music.
                 </p>
                 <p>
-                    Ryan's research interests center around groups of people and collaboration in music. How can a mass of people influence a performance as a set of individuals? 
+                    Ryan's research interests center around groups of people and collaboration in music. How can a mass of people influence a performance as a set of individuals?
                     How can technological performances communicate system behavior to an audience? In what ways can audience interaction be accessible yet musically stimulating?
                 </p>
-                <p><a class="btn btn-default" target="_blank" href="https://s3.amazonaws.com/rytrose-personal-website/Ryan+Rose_Resume_September+2017.pdf">résumé</a></p>
+                <p><a class="btn btn-default" target="_blank" href="https://s3.amazonaws.com/rytrose-personal-website/Ryan+Rose_Resume_August+2018.pdf">résumé</a></p>
             </div>
         </div>
         <div class="col-md-7">
@@ -54,10 +54,10 @@
             </div>
             <div class="grid" style="display:none">
                 <% for(var i = 0; i < bioThumbs.length; i++) { %>
-                <% var thumb = bioThumbs[i]; %>    
+                <% var thumb = bioThumbs[i]; %>
                 <div class="grid-item-bio">
                   <img class="masonry-home" src="https://s3.amazonaws.com/rytrose-personal-website/<%= thumb.fd %>" >
-                  <% 
+                  <%
                      var fullSize = filesMeta.find(function(e){
                          return e.filename.substring(3) == thumb.filename.substring(8);
                      });

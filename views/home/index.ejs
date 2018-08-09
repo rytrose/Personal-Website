@@ -5,11 +5,11 @@
         <h1>Ryan Rose</h1>
         <p>musician, arranger, developer</p>
         <a href="/followers/new" class="btn btn-default">follow Ryan</a>
-        <p class="homeEmail">rytrose@gmail.com</p>    
+        <p class="homeEmail">rytrose@gmail.com</p>
       </div>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-md-4 text-center">
       <div class="musician">
@@ -24,7 +24,7 @@
         <% } %>
       </div>
     </div>
-    
+
     <div class="col-md-4 text-center">
       <div class="arranger">
         <h2><a href="/arrangements">arranger</a></h2>
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="col-md-4">
       <div class="developer">
         <h2 class="text-center"><a href="/projects">developer</a></h2>
@@ -60,9 +60,9 @@
         <div class="devRow">
           <div class="col-xs-7">
             <ul class="langs">
+              <li>go</li>
               <li>javascript (ES 6)</li>
-              <li>HTML</li>
-              <li>CSS</li>
+              <li>HTML/CSS</li>
               <li>python</li>
               <li>ruby</li>
               <li>java</li>
@@ -88,44 +88,44 @@
   <script src="/js/animation.js"></script>
   <script>
     $(function() {
-    
+
     	// Find all YouTube videos
     	var $allVideos = $("iframe[src^='https://www.youtube.com']"),
-    
+
     	    // The element that is fluid width
     	    $fluidEl = $(".musician");
-    
+
     	// Figure out and save aspect ratio for each video
     	$allVideos.each(function() {
-    
+
     		$(this)
     			.data('aspectRatio', this.height / this.width)
-    			
+
     			// and remove the hard coded width/height
     			.removeAttr('height')
     			.removeAttr('width');
-    
+
     	});
-    
+
     	// When the window is resized
     	// (You'll probably want to debounce this)
     	$(window).resize(function() {
-    
+
     		var newWidth = $fluidEl.width();
-    		
+
     		// Resize all videos according to their own aspect ratio
     		$allVideos.each(function() {
-    
+
     			var $el = $(this);
     			$el
     				.width(newWidth)
     				.height(newWidth * $el.data('aspectRatio'));
-    
+
     		});
-    
+
     	// Kick off one resize to fix all videos on page load
     	}).resize();
-    
+
     });
   </script>
 </div>
